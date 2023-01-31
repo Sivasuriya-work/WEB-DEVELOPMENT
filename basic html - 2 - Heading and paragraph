@@ -23,6 +23,6 @@
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p><!-- here Paragraph Starts . The head is vary from h1 to h6-->
-      <p>The Student Strength approx. 100 &lt Strengh &gt 1000 </p>
+      <p>&quot The Student Strength &quot approx. 100 &lt Strengh &gt 1000 </p><!--the "" and < less than and > greater than symbol to display -->
 </body>
 </html>
