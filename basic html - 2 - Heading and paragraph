@@ -1,0 +1,28 @@
+<!-- Basic html templates-->
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="en-US">
+   <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Description for search engine optimization-->
+   <meta name="GHHSS" content="school GHHSS web page">
+   <meta name="author" content=" sivasuriya">
+   <title>GHSS</title>
+</head>
+<body>
+      <h1 class="GHSS" align="center">GH Hr Sec School</h1><!-- here heading Starts . The head is vary from h1 to h6-->
+      <h2 class="GHSS" align="center">NO 1</h2>
+      <h3 class="GHSS" align="center">GH st</h3>
+      <h4 class="GHSS" align="center">OME road</h4>
+      <h5 class="GHSS" align="center">9th cross</h5>
+      <h6 class="GHSS" align="center">Capital city</h6>
+      <br/> <!--break the line in between head and paragraph-->
+      <p class="Introduction" > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p><!-- here Paragraph Starts . The head is vary from h1 to h6-->
+      <p>The Student Strength approx. 100 &lt Strengh &gt 1000 </p>
+</body>
+</html>
