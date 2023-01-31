@@ -1,0 +1,27 @@
+<!--Sample of Lists-->
+    <!--Sample of Ordered list-->
+     <!--Sample of Unordered list-->
+       <!--Sample of Nested list-->
+      <ol> <!--here a ordered list is started-->
+         <li>Department 12</li> <!-- list content-->
+            <ul><!-- here a unorderd list is started-->
+               <li>Bio-maths</li>
+               <li>Science</li>
+               <li>Arts</li>
+               <li>Computer</li>
+               <li>Agriculture</li>
+            </ul><!-- here a unorderd list is Ended-->
+            <li>Department 11</li>
+            <ul>
+               <li>Bio-maths</li>
+               <li>Science</li>
+               <li>Arts</li>
+               <li>Computer</li>
+               <li>Agriculture</li>
+            </ul>
+            <li>Department 10</li>
+            <li>Department 09</li>
+            <li>Department 08</li>
+            <li>Department 07</li>
+            <li>Department 06</li>
+      </ol><!--here a ordered list is ended-->
