@@ -1,0 +1,52 @@
+
+<!--Nested Table-->
+
+      <table id="Teacher" class="Department" border="1px">
+         <thead>
+            <tr>
+               <th>HM</th>
+               <th>AHM</th>
+               <th>Subject</th>
+               <th>D12</th>
+               <th>D11</th>
+               <th>D10</th>
+               <th>D09</th>
+               <th>D08</th>
+               <th>D07</th>
+               <th>D06</th>
+            </tr>
+         </thead>
+         <tbody>
+             <tr>
+               <td>Principal</td>
+               <td>vice Principal</td>
+               <td>English</td>
+               <td colspan="7" align="center">ENG Miss
+                  <table class="Eng miss name list" border="1px">
+                     <tr>
+                        <td>anan<td>
+                        <td>angel<td>
+                        <td>rachel<td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <tr>
+               <td>Principal</td>
+               <td>vice Principal</td>
+               <td>Maths</td>
+               <td colspan="7" align="center">Maths Miss
+                  <table class="Maths miss name list" border="1px">
+                     <tr>
+                        <td>arav<td>
+                        <td>siva<td>
+                        <td>raj<td>
+                        <td>anto<td>
+                        <td>raman<td>
+                        <td>sundar pichai<td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
