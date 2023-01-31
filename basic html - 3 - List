@@ -1,7 +1,16 @@
 <!--Sample of Lists-->
+   <!--Sample of description list->
     <!--Sample of Ordered list-->
      <!--Sample of Unordered list-->
        <!--Sample of Nested list-->
+      <dl class = " departments">
+         <dt>
+            Department list
+         </dt>    
+         <dd>
+               Our school contains following departments. From Departments start from 6 to 12.
+         </dd>
+      </dl>
       <ol> <!--here a ordered list is started-->
          <li>Department 12</li> <!-- list content-->
             <ul><!-- here a unorderd list is started-->
@@ -24,4 +33,4 @@
             <li>Department 08</li>
             <li>Department 07</li>
             <li>Department 06</li>
-      </ol><!--here a ordered list is ended-->
+      </ol>
