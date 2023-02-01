@@ -1,0 +1,288 @@
+<!--HTML new page -->
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="author" content="siva">
+      <meta name="icon" content="myicon">
+      <title>New Html format</title>
+      <link rel="icon" type="image/jpg" href="/images/favicon_io/favicon.ico">
+   </head>
+
+   <body>
+      <header>
+         <!--Sample of headings-->
+      <h1 class="GHSS" align="center">GH Hr Sec School</h1><!-- here heading Starts . The head is vary from h1 to h6-->
+      <h2 class="GHSS" align="center">NO 1</h2>
+      <h3 class="GHSS" align="center">GH st</h3>
+      <h4 class="GHSS" align="center">OME road</h4>
+      <h5 class="GHSS" align="center">9th cross</h5>
+      <h6 class="GHSS" align="center">Capital city</h6>
+      </header>
+      <nav>
+         <a href="#About">Menu</a> 
+         <a href="#Department-details">Department</a>
+         <a href="#Links">Important Links</a>
+         <a href="#Contactus">Contact us</a>
+      </nav>
+      <section>
+         <p>
+         <u>
+            <strong>About</strong><!--And the Strong tag-->
+         </u><!--Underline tag-->
+         <u>
+            <i>School</i><!--Italic font-->
+         </u><mark>  <!--Mark tag is used to highlight-->
+         <abbr title="GH hr sec school">GHSS</abbr> 
+         .......... </mark>
+      </p>
+
+ <!--Sample of paragraphs-->      
+      <p class="Introduction" id="About" lang="en-US" > Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor <sub>incididunt</sub> ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud <sup>exercitation</sup> ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p><!-- here Paragraph Starts . The head is vary from h1 to h6-->
+      <br/>
+ <!--Sample of "" , < , > -->
+      <p>&quot The Student Strength &quot approx. 100 &lt Strengh &gt 1000 </p> <!--the "" quotes and < less than and > greater than symbol to display -->
+ <!--Sample of Lists-->
+   <!--Sample of description list->
+    <!--Sample of Ordered list-->
+     <!--Sample of Unordered list-->
+       <!--Sample of Nested list-->
+      <dl class = " departments" id="Department-details">
+         <dt>
+            Department list
+         </dt>    
+         <dd>
+               Our school contains following departments. From Departments start from 6 to 12.
+         </dd>
+      </dl>
+      <ol> <!--here a ordered list is started-->
+         <li>Department 12</li> <!-- list content-->
+            <ul><!-- here a unorderd list is started-->
+               <li>Bio-maths</li>
+               <li>Science</li>
+               <li>Arts</li>
+               <li>Computer</li>
+               <li>Agriculture</li>
+            </ul><!-- here a unorderd list is Ended-->
+            <li>Department 11</li>
+            <ul>
+               <li>Bio-maths</li>
+               <li>Science</li>
+               <li>Arts</li>
+               <li>Computer</li>
+               <li>Agriculture</li>
+            </ul>
+            <li>Department 10</li>
+            <li>Department 09</li>
+            <li>Department 08</li>
+            <li>Department 07</li>
+            <li>Department 06</li>
+      </ol>
+      <!--here a ordered list is ended-->
+<!--list end-->
+
+<!--table creation-->
+      <table id="Scorecared" class="Department12" border ="1px">
+         <thead>
+            <tr>
+               <th>Year</th>
+               <th>Class</th>
+               <th>Topper</th>
+               <th>Mark</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>2022</td>
+               <td>12</td>
+               <td>Siva</td>
+               <td>100</td>
+            </tr>
+            <tr>
+               <td>2021</td>
+               <td>12</td>
+               <td>Surya</td>
+               <td>99</td>
+            </tr>
+            <tr>
+               <td>2020</td>
+               <td>12</td>
+               <td>Sivasurya</td>
+               <td>100</td>
+            </tr>
+         </tbody>
+      </table>
+      <table id="Scorecared" class="Department11" border="1px">
+         <thead>
+            <tr>
+               <th>Year</th>
+               <th>Class</th>
+               <th>Topper</th>
+               <th>Mark</th>
+            </tr>
+         </thead>
+         <tbody>
+             <tr>
+               <td>2023</td>
+               <td>11</td>
+               <td>suriya</td>
+               <td>100</td>
+            </tr>
+            <tr>
+               <td>2022</td>
+               <td>11</td>
+               <td>Siva</td>
+               <td>100</td>
+            </tr>
+            <tr>
+               <td>2021</td>
+               <td>11</td>
+               <td>Surya</td>
+               <td>99</td>
+            </tr>
+            <tr>
+               <td>2020</td>
+               <td>11</td>
+               <td>Sivasurya</td>
+               <td>100</td>
+            </tr>
+         </tbody>
+      </table>
+      <br/>
+
+<!--Nested Table-->
+
+      <table id="Teacher" class="Department" border="1px">
+         <thead>
+            <tr>
+               <th>HM</th>
+               <th>AHM</th>
+               <th>Subject</th>
+               <th>D12</th>
+               <th>D11</th>
+               <th>D10</th>
+               <th>D09</th>
+               <th>D08</th>
+               <th>D07</th>
+               <th>D06</th>
+            </tr>
+         </thead>
+         <tbody>
+             <tr>
+               <td rowspan="2">Principal</td>
+               <td rowspan="2">vice Principal</td>
+               <td>English</td>
+               <td colspan="7" align="center">ENG Miss
+                  <table class="Eng miss name list" border="1px">
+                     <tr>
+                        <td>anan<td>
+                        <td>angel<td>
+                        <td>rachel<td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+            <tr>
+               <td>Maths</td>
+               <td colspan="7" align="center">Maths Miss
+                  <table class="Maths miss name list" border="1px">
+                     <tr>
+                        <td>arav<td>
+                        <td>siva<td>
+                        <td>raj<td>
+                        <td>anto<td>
+                        <td>raman<td>
+                        <td>sundar pichai<td>
+                     </tr>
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <br/>
+<!--Preservative tag-->
+<pre>
+   Our student are 
+               <del>   p r e s e r v a t i v e </del><!--Strike tag is modify as del element-->
+               as
+                     same 
+                           as typing
+               --------------------------------  
+</pre>
+<br/>
+<!--Anchor tag-->
+<p id = "Links">
+<a href= "file:///home/surya/Projects-IT/learn/html/Temp.html">Our Website</a><br/>
+<a href="#Start">Go to top</a><br/>
+<a href="DSC_0303.JPG" download="image.JPG">Download</a><br/>
+<a href="mailto:google@gmail.com">Any queries</a></br>
+
+<a href="#Start"><img src="image" width="100px" height="100px" alt="image"></img></a></br>
+
+</p>
+<time type="2023-01-31">23 jan 23</time></br>
+
+<img src="image" width="100px" height="100px" alt="image"></img></br>
+
+<figure><img src="image" width="100px" height="100px" alt="image"></img><figcaption>Fig: 1.1</figcaption></figure></br>
+<br/>
+
+<audio src="audios/audio.mp3" controls ></audio></br>
+<a href="videos/video.mp4" download="videos/video.mp4">
+<video src="videos/video.mp4"  preload="auto" autoplay loop unmuted controls ></video></a></br>
+
+</br>
+
+      </section>
+      <aside>
+         <!--Iframe tag -->
+<iframe src="/images/image" width="30%" height="50%"></iframe>
+<iframe src="/temp.html" width="30%" height="50%"></iframe>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d64722300.04546094!2d97.11178481875207!3d-8.067200843630173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1675232096555!5m2!1sen!2sin" width="40%" height="50%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      </aside>
+<footer>
+<!--Form starts here-->
+<form method="post" action="mailto:@gmail.com" id="Contactus">
+   <p>Name
+      <input type="name" value=""></p>
+   <p>mail
+      <input type="mail" value=""></p>
+      <p>Password
+      <input type="Password" value=""></p>
+   <p>mobile
+      <input type="tel" value="" size="10"></p>
+   <p>Gender
+      Male<input type="radio" value="Male">
+      Female<input type="radio" value="Female"></p>
+   <p>Language -> 
+      English :   <input type="checkbox" value="English">
+      French  :<input type="checkbox" value="French"></p>
+   <p><select>
+       <option>Select day</option>
+      <option>Monday</option>
+       <option>Tuesday</option>
+        <option>Wednesday</option>
+         <option>Thursday</option>
+          <option>Friday</option>
+           <option>Saturday</option>
+   </select></p>
+   <p><address><textarea></textarea></address></p>
+    <datalist>
+      <option value="Data 1"></option>
+      <option value="Data 2"></option>
+      <option value="Data 3"</option>
+   </datalist>
+   <p><input type="Submit" value="ok">
+   <input type="reset" value="clear"></p>
+
+   </form>
+</footer>
+   </body>
+</html>
