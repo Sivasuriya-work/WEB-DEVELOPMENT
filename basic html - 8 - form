@@ -1,0 +1,35 @@
+<!--Form starts here-->
+<form method="post" action="mailto:@gmail.com">
+   <p>Name
+      <input type="name" value=""></p>
+   <p>mail
+      <input type="mail" value=""></p>
+      <p>Password
+      <input type="Password" value=""></p>
+   <p>mobile
+      <input type="tel" value="" size="10"></p>
+   <p>Gender
+      Male<input type="radio" value="Male">
+      Female<input type="radio" value="Female"></p>
+   <p>Language -> 
+      English :   <input type="checkbox" value="English">
+      French  :<input type="checkbox" value="French"></p>
+   <p><select>
+       <option>Select day</option>
+      <option>Monday</option>
+       <option>Tuesday</option>
+        <option>Wednesday</option>
+         <option>Thursday</option>
+          <option>Friday</option>
+           <option>Saturday</option>
+   </select></p>
+   <p><address><textarea></textarea></address></p>
+    <datalist>
+      <option value="Data 1"></option>
+      <option value="Data 2"></option>
+      <option value="Data 3"</option>
+   </datalist>
+   <p><input type="Submit" value="ok">
+   <input type="reset" value="clear"></p>
+
+</form>
