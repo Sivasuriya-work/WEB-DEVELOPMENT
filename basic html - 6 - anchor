@@ -1,0 +1,14 @@
+<!--Anchor tag-->
+
+
+<a href= "html/Temp.html">Our Website</a><br/>
+
+<a href= "www.ghhss.com/html/Temp.html">Our Website</a><br/> <!--fro example-->
+
+<a href="#Start">Go to top</a><br/>   <!to create the same page movement >
+
+<a href="DSC_0303.JPG" download="image.JPG">Download</a><br/>
+
+<a href="mailto:google@gmail.com">Any queries</a></br>
+
+<a href="#Start"><img src="image" width="100px" height="100px" alt="image"></img></a></br><!--To put image as a link-->
