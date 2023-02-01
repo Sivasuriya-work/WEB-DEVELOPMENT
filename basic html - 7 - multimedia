@@ -1,0 +1,9 @@
+
+<img src="image" width="100px" height="100px" alt="image"></img></br>
+
+<figure><img src="image" width="100px" height="100px" alt="image"></img><figcaption>Fig: 1.1</figcaption></figure></br>
+<br/>
+
+<audio src="audios/audio.mp3" controls ></audio></br>
+<a href="videos/video.mp4" download="videos/video.mp4">
+<video src="videos/video.mp4"  preload="auto" autoplay loop unmuted controls ></video></a></br>
