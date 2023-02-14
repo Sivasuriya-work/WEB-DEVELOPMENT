@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Sivasuriya">
+	<meta name="description" content="Creata a resume with use of responsive webpage">
+	<title>My Resume</title>
+	<link rel="stylesheet" type="text/css" href="resumestyle.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<section class="header">
+		<div>
+			<h1 class="headline"><span id="name">Sivasuriya's</span> resume</h1>
+			<nav class="navDisplay">
+				
+					<a class="navlink" href="#">Objective</a>
+
+					<a class="navlink" href="#">Education</a>
+				
+					<a class="navlink" href="#">About me</a>
+				
+					<a class="navlink" href="#">Projects</a>
+				
+					<a class="navlink" href="#"> Contact me</a>
+			</nav>
+		</div>
+	</section>
+	<section class="secObjective" id="">
+		<div class="Objective" id="empObjective">
+			
+		</div>
+		<div class="Objective" id="secObjective">
+			<h3 id="name">Objective</h3>		
+			<div>
+				<p>To continuously learn, evolve and grow along with the organization. Serving with the best of my abilities and cohesively work in a team.</p>
+			</div>
+		</div>
+		<div class="Objective" id="empObjective">
+			
+		</div>
+	</section>
+	<section class="secEducation">
+			<h3 class="" id="name">Education</h3>		
+			<div class="secEducationContent">
+				<div id="Education">
+					<h4>B.Tech : IT</h4>
+						<div>
+							<p>PSNA College of Engineering and Technology,Dindigul.<br>Percentage – 70</p>
+						</div>	
+				</div>
+				<div id="Education">
+					<h4>HSC</h4>
+						<div>
+							<p>GVB HR Sec School, Theni, Tamilnadu.<br>Percentage – 88</p>
+						</div>	
+				</div>
+				<div id="Education">
+					<h4>SSLC</h4>
+						<div>
+							<p>GVB HR Sec School, Theni, Tamilnadu.<br>Percentage – 91</p>
+						</div>	
+				</div>
+			</div>
+	</section>
+	
+	<section class="secAboutme">
+		<h3 id="name">About me</h3>
+		<div class="Technical" id="secAboutme">
+			<h4>Technical skills</h4>
+			<div>
+				<ul>
+					<li>Java</li>
+					<li>MySql</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>JavaScript</li>
+				</ul>
+			</div>
+		</div>
+		<div class="keyqualities" id="secAboutme">
+			<h4>Key Qualities</h4>
+			<div>
+				<ul>
+					<li>Quick learner</li>
+					<li>Problem Solver</li>
+					<li>Time management</li>
+					<li>Leadership</li>
+					<li>Adaptable</li>
+				</ul>
+			</div>
+		</div>
+		<div class="Hobbies" id="secAboutme">
+			<h4>Hobbies</h4>
+			<div>
+				<ul>
+					<li>Travelling</li>
+					<li>Playing games</li>
+					<li>Reading books</li>
+					<li>Design</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="secProjects">
+		<h3 id="name">Projects and Activities</h4>
+		<div class="ProjectActivities">
+			<div class="ProAct"  title="Projects">
+				<div>
+					<p><span id="name">Mini project 1:</span><span id="Desc">GST calculator</span><br>
+					</p>
+					<div>
+						<p><span id="subname">Project description:</span>Tax calculation is used to minimize the work load and man power.<br></p>
+					</div>
+				</div>
+				<div>
+					<p><span id="name">Mini project 2:</span><span id="Desc"> Quiz program.</span><br></p>
+					<div>
+						<p><span id="subname">Project description:</span>Picture identification quiz is used to burst the stress & Give the mind relaxation.<br>
+						</p>
+					</div>
+				</div>
+				<div>
+					<p><span id="name">Main project:</span><span id="Desc">e-Transcripts management system</span><br></p>
+					<div>
+						<p><span id="subname"> Project description:</span> To get the Transcript certificate through online.</p>
+					</div>
+				</div>
+			</div>
+			<div class="ProAct" title="Activities">
+				<p><span id="Desc">Advanced Diploma in Java Programming at Computer Software College<br>Get 1st prize in Aptitude on Intercollege competition at PSNACET, Dindigul<br>Attended a workshop on Python programming and R programming at PSNACET<br>Attended a National level Paper presentation about Virtual Reality at PSNACET<br>Attended a workshop on Python conducted by IIT BOMBAY at PSNACET</span></p>
+			</div>
+		</div>
+	</section>
+	<section class="secContactme" id="">
+		<div class="Contactme" id="email">
+				<a href="mailto:Sivasuriya.work@gmail.com" title="Email" class="contactAnc">
+					<div id="ContactmeHead"><i class="fa-solid fa-envelope"></i></div>
+					<div id="ContactmeFoot"><h3>Email Me</h3></div></a>
+		</div>
+			<div class="Contactme" id="phoneno" class="contactAnc">
+				<a href="tel:0000000000" title="Phone no" class="contactAnc">
+					<div  id="ContactmeHead"><i class="fa-solid fa-phone"></i></div>
+					<div  id="ContactmeFoot"><h3>Call Me</h3></div></a>
+			</div>
+			<div class="Contactme" id="contact">
+				<a href="#" title="Social media" class="contactAnc">
+					<div  id="ContactmeHead"><i class="fa-brands fa-linkedin"></i></div>
+					<div  id="ContactmeFoot"><h3>Follow me</h3></div></a>
+			</div>
+	</section>	
+	<section class="footer">
+		<div class="socialmedia" id="facebook">
+			
+		</div>
+		<div class="socialmedia" id="twitter">
+			
+		</div>
+		<div class="socialmedia" id="linkedin">
+			
+		</div>
+		<div class="copyright" id="copyright">
+			<h5> sivasuriya.work &copy;</h5>
+		</div>
+	</section>
+
+</body>
+</html>
+
+
+
+css / file 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Sivasuriya">
+	<meta name="description" content="Creata a resume with use of responsive webpage">
+	<title>My Resume</title>
+	<link rel="stylesheet" type="text/css" href="resumestyle.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<section class="header">
+		<div>
+			<h1 class="headline"><span id="name">Sivasuriya's</span> resume</h1>
+			<nav class="navDisplay">
+				
+					<a class="navlink" href="#">Objective</a>
+
+					<a class="navlink" href="#">Education</a>
+				
+					<a class="navlink" href="#">About me</a>
+				
+					<a class="navlink" href="#">Projects</a>
+				
+					<a class="navlink" href="#"> Contact me</a>
+			</nav>
+		</div>
+	</section>
+	<section class="secObjective" id="">
+		<div class="Objective" id="empObjective">
+			
+		</div>
+		<div class="Objective" id="secObjective">
+			<h3 id="name">Objective</h3>		
+			<div>
+				<p>To continuously learn, evolve and grow along with the organization. Serving with the best of my abilities and cohesively work in a team.</p>
+			</div>
+		</div>
+		<div class="Objective" id="empObjective">
+			
+		</div>
+	</section>
+	<section class="secEducation">
+			<h3 class="" id="name">Education</h3>		
+			<div class="secEducationContent">
+				<div id="Education">
+					<h4>B.Tech : IT</h4>
+						<div>
+							<p>PSNA College of Engineering and Technology,Dindigul.<br>Percentage – 70</p>
+						</div>	
+				</div>
+				<div id="Education">
+					<h4>HSC</h4>
+						<div>
+							<p>GVB HR Sec School, Theni, Tamilnadu.<br>Percentage – 88</p>
+						</div>	
+				</div>
+				<div id="Education">
+					<h4>SSLC</h4>
+						<div>
+							<p>GVB HR Sec School, Theni, Tamilnadu.<br>Percentage – 91</p>
+						</div>	
+				</div>
+			</div>
+	</section>
+	
+	<section class="secAboutme">
+		<h3 id="name">About me</h3>
+		<div class="Technical" id="secAboutme">
+			<h4>Technical skills</h4>
+			<div>
+				<ul>
+					<li>Java</li>
+					<li>MySql</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>JavaScript</li>
+				</ul>
+			</div>
+		</div>
+		<div class="keyqualities" id="secAboutme">
+			<h4>Key Qualities</h4>
+			<div>
+				<ul>
+					<li>Quick learner</li>
+					<li>Problem Solver</li>
+					<li>Time management</li>
+					<li>Leadership</li>
+					<li>Adaptable</li>
+				</ul>
+			</div>
+		</div>
+		<div class="Hobbies" id="secAboutme">
+			<h4>Hobbies</h4>
+			<div>
+				<ul>
+					<li>Travelling</li>
+					<li>Playing games</li>
+					<li>Reading books</li>
+					<li>Design</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="secProjects">
+		<h3 id="name">Projects and Activities</h4>
+		<div class="ProjectActivities">
+			<div class="ProAct"  title="Projects">
+				<div>
+					<p><span id="name">Mini project 1:</span><span id="Desc">GST calculator</span><br>
+					</p>
+					<div>
+						<p><span id="subname">Project description:</span>Tax calculation is used to minimize the work load and man power.<br></p>
+					</div>
+				</div>
+				<div>
+					<p><span id="name">Mini project 2:</span><span id="Desc"> Quiz program.</span><br></p>
+					<div>
+						<p><span id="subname">Project description:</span>Picture identification quiz is used to burst the stress & Give the mind relaxation.<br>
+						</p>
+					</div>
+				</div>
+				<div>
+					<p><span id="name">Main project:</span><span id="Desc">e-Transcripts management system</span><br></p>
+					<div>
+						<p><span id="subname"> Project description:</span> To get the Transcript certificate through online.</p>
+					</div>
+				</div>
+			</div>
+			<div class="ProAct" title="Activities">
+				<p><span id="Desc">Advanced Diploma in Java Programming at Computer Software College<br>Get 1st prize in Aptitude on Intercollege competition at PSNACET, Dindigul<br>Attended a workshop on Python programming and R programming at PSNACET<br>Attended a National level Paper presentation about Virtual Reality at PSNACET<br>Attended a workshop on Python conducted by IIT BOMBAY at PSNACET</span></p>
+			</div>
+		</div>
+	</section>
+	<section class="secContactme" id="">
+		<div class="Contactme" id="email">
+				<a href="mailto:Sivasuriya.work@gmail.com" title="Email" class="contactAnc">
+					<div id="ContactmeHead"><i class="fa-solid fa-envelope"></i></div>
+					<div id="ContactmeFoot"><h3>Email Me</h3></div></a>
+		</div>
+			<div class="Contactme" id="phoneno" class="contactAnc">
+				<a href="tel:8608154062" title="Phone no" class="contactAnc">
+					<div  id="ContactmeHead"><i class="fa-solid fa-phone"></i></div>
+					<div  id="ContactmeFoot"><h3>Call Me</h3></div></a>
+			</div>
+			<div class="Contactme" id="contact">
+				<a href="#" title="Social media" class="contactAnc">
+					<div  id="ContactmeHead"><i class="fa-brands fa-linkedin"></i></div>
+					<div  id="ContactmeFoot"><h3>Follow me</h3></div></a>
+			</div>
+	</section>	
+	<section class="footer">
+		<div class="socialmedia" id="facebook">
+			
+		</div>
+		<div class="socialmedia" id="twitter">
+			
+		</div>
+		<div class="socialmedia" id="linkedin">
+			
+		</div>
+		<div class="copyright" id="copyright">
+			<h5> sivasuriya.work &copy;</h5>
+		</div>
+	</section>
+
+</body>
+</html>
