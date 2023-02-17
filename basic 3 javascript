@@ -1,0 +1,9 @@
+javascript 
+
+methods
+	-> method for completing specific tasks.(it has set of related operations like method exam() contains sequence of actions)
+	
+	examples
+	-> prompt()
+	->alert()
+	->console.log()
