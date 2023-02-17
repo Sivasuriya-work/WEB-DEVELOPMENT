@@ -1,0 +1,25 @@
+JavaScript :  vs java
+
+Java
+	1.basic 	2.Advanced
+	
+		developed by sun micro
+			->Core java : J1SE - web app , oops - basic
+			->Advanced Java : J2EE - JSP , Servlet ,Springboot frameworks 
+
+Javascript - called intial - ECMAScript
+	->multi paradigm like oops , procedural , event..
+	->browser's have javascript engine
+	->just intime compilation - JIT
+	->No compliler needed
+	->HTML - drop, button, about subject(noun)
+	->CSS - design , color , design subject(design)
+	->JavaScript - decript the subject.(verb)
+
+	
+
+Programming language - is need a Compiler - like translator for whole content(leader talk)
+
+Scripting language - Interpretor - like every line translator(ch speech)
+
+
