@@ -1,0 +1,22 @@
+JavaScript
+
+	DataType : 
+		{-	int- number
+	var {-	String like : is a word - name , email, with in the keyboard letters - sequence of charactor.
+		{-	boolean : 	
+			
+		Camel Case
+			
+			var name='siva'
+			var age = 18
+			var indian = true
+
+			= equals symbol is assignment operator.
+
+	var is a variable . - changing values
+		reference variable 
+		identifier
+
+	Operators : 
+		+ - * / %
+
