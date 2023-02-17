@@ -15,7 +15,7 @@ Javascript - called intial - ECMAScript
 	->HTML - drop, button, about subject(noun)
 	->CSS - design , color , design subject(design)
 	->JavaScript - decript the subject.(verb)
-
+	-> It has dynamic type checking - so not compulsary initialize data type  like var name = 'siva' || name = 'siva'
 	
 
 Programming language - is need a Compiler - like translator for whole content(leader talk)
