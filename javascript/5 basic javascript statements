@@ -1,0 +1,55 @@
+javascript
+
+	normal statements
+
+	conditional statement 
+
+	control flow statements 
+
+
+
+
+///
+
+normal statement
+	var name  = 'siva'
+
+
+............
+for conditional statement - - if then else ( true or false )
+
+var num = prompt("Enter your number")	//Prompt the query
+if(num%2 == 0){
+
+	console.log("Even number")		// log mean *note something* or collection // console - monitoring area
+}
+else{
+	console.log("Odd number")		// it displays in console area in browser
+}
+
+}
+.................
+control flow
+	for(){
+
+	}
+	
+
+
+
+
+
+////
+
+= assignment oprator - assign right side value to left
+
+== comparing oprarator - it like weight scale - left equals right vice versa.
+
+=== 
+
+////
+
+function()
+	set of instructions
+
+//if your work process fail , you think it is not suitable for me incase of solve the problem//
