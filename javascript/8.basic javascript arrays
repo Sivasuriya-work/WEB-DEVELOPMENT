@@ -1,0 +1,6 @@
+var actor = ["siva" , 18 , 1999] // arrays //
+// dynamic memory allocation
+
+console.log(actor[0])
+console.log(actor[1])
+console.log(actor[2])
