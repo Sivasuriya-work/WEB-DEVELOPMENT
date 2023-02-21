@@ -1,0 +1,33 @@
+//1. find diviable number upto given number
+
+var number = prompt("Enter the limit to find the divisable number")
+for (divisor = 2 ; divisor <= number ; divisor++) {
+	if(number % divisor == 0)
+	{
+		console.log(divisor)
+	}	
+}
+
+o/p : 
+2
+demo.js:5 4
+demo.js:5 5
+demo.js:5 10
+demo.js:5 20
+demo.js:5 25
+demo.js:5 50
+demo.js:5 100
+demo.js:5 125
+demo.js:5 250
+demo.js:5 500
+
+
+// 2.divisible by 2 and 3
+
+var number = prompt("Enter the limit to find the divisable number")
+for (checkDivisor = 2 ; checkDivisor <= number ; checkDivisor++) {
+	if( checkDivisor % 2 == 0 && checkDivisor % 3 == 0)
+	{
+		console.log(checkDivisor)
+	}	
+}
