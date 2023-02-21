@@ -31,3 +31,12 @@ for (checkDivisor = 2 ; checkDivisor <= number ; checkDivisor++) {
 		console.log(checkDivisor)
 	}	
 }
+
+factorial
+----------------
+var number = prompt("Enter number to find factorial")
+
+for(var fact=1; number >0 ;  number--){
+	fact *=number
+}
+console.log(fact) 
