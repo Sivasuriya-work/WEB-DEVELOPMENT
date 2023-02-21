@@ -1,0 +1,31 @@
+function dailyLoop(){ // function is a set of operation
+1.wakeup
+2.refresh
+3.eat
+4.work
+5.play
+6.familytime
+7.eat
+8.sleep
+}
+
+...................................
+
+
+var age = 18
+function voterAge(){ // passing args
+	if(age>=18){
+		console.log("Eligible to vote")
+	}
+}
+
+function voterAge(voterage){ // passing args
+	if(age>=18){
+		console.log("Eligible to vote")
+	}
+}
+voterAge() // without args
+voterAge(age) // with args
+// console.log(voterage) // local variable in function not accessable // voterage is not defined
+
+........................................
