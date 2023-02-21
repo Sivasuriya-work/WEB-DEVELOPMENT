@@ -6,4 +6,13 @@ methods
 	examples
 	-> prompt()
 	->alert()
-	->console.log()
+	->console.log() // build in functions
+	
+array related functions	
+	->push()
+	->pop()
+	->shift()
+	->unshift()
+	->indexof()
+	->slice()
+	->........
