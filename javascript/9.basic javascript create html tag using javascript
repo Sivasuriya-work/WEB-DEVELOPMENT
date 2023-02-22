@@ -1,0 +1,41 @@
+.......................................................................HTML
+// it will look alike a chat
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" href = "democss.css"/>
+        <script type ="text/javascript" src="demojs.js"></script>
+    </head>
+    <body>
+        <h2>Creating HTML page using javascript</h2>
+        <div id="div1">
+        
+        </div>
+           <input placeholder="Enter your data" id="input_text">
+        <br/>
+        <button onclick="createHtmlTag()">Submit</button>    
+    </body>
+</html>
+........................................................................CSS
+
+#div1{
+    background-color : green;
+    border: 2px solid black;
+}
+
+.........................................................................JS
+
+function createHtmlTag(){
+    //taking paragraph content here
+    content= document.getElementById("input_text").value
+    //creating a paragraph <p> </p> here
+    para_Element=document.createElement("p") // create <p> </p>
+    //cerating a node to get element
+    our_data=document.createTextNode(content)
+    //adding content to paragraph
+    para_Element.appendChild(our_data)
+    //
+    mydiv= document.getElementById("div1")
+    mydiv.appendChild(para_Element)
+}
