@@ -1,0 +1,58 @@
+LECTURE: Basic Operators
+1. If your country split in half, and each half would contain half the population,
+then how many people would live in each half?
+2. Increase the population of your country by 1 and log the result to the console
+3. Finland has a population of 6 million. Does your country have more people than
+Finland?
+4. The average population of a country is 33 million people. Does your country
+have less people than the average country?
+5. Based on the variables you created, create a new variable 'description'
+which contains a string with this format: 'Portugal is in Europe, and its 11 million
+people speak portuguese'
+
+..................................................................................................
+assignment.js
+.............................................................
+const country = 'India';
+const continent = 'Asia'
+let myCountryPopulation = 120;
+// // console.log(country);
+// // console.log(continent);
+// // console.log(population);
+
+// const isIsLand = false;
+let language = 'English';
+// // const contry = 'India';
+// // console.log(typeof isIsLand);
+// // console.log(typeof population);
+// // console.log(typeof country);
+// // console.  log(typeof continent);
+// // console.log(typeof language);
+// console.log(country);
+// console.log(language);
+// language = 'Tamil';
+// console.log(language);
+// country = 'America';
+// console.log(country);
+// let myCountryPopulation = 120;
+let firstHalfPopulation = myCountryPopulation / 2;
+let secondHalfPopulation = myCountryPopulation - firstHalfPopulation;
+myCountryPopulation++;
+console.log(myCountryPopulation);
+let finlandPopolation = 6;
+console.log(finlandPopolation < myCountryPopulation);
+let avgPopulation = 33;
+console.log(myCountryPopulation > avgPopulation);
+// let description = " Portugal is in Europe,and its 11 million people speak portugeues"
+
+let description = country + " is in " + continent + ", and its " + myCountryPopulation + " million people speak " + language;
+
+console.log(description);
+
+
+--------------------------------------------------------------------------------------
+assignment.js:26 121
+assignment.js:28 true
+assignment.js:30 true
+assignment.js:35 India is in Asia, and its 121 million people speak English
+
