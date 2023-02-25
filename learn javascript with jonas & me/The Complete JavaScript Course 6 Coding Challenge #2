@@ -1,0 +1,66 @@
+The Complete JavaScript Course 6
+Coding Challenge #2
+Use the BMI example from Challenge #1, and the code you already wrote, and
+improve it.
+Your tasks:
+1. Print a nice output to the console, saying who has the higher BMI. The message
+is either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+2. Use a template literal to include the BMI values in the outputs. Example: "Mark's
+BMI (28.3) is higher than John's (23.9)!"
+Hint: Use an if/else statement 😉
+GOOD LUCK 😀
+.....................................................
+
+let firstPerson = 'Mark';
+let secondPerson = 'John';
+
+/*Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95
+ m tall*/
+let firstPersonHeight = 1.69; //in metre
+let secondPersonHeight = 1.95; //in metre
+let firstPersonMass = 78;//in kg
+let secondPersonMass = 92;//in kg
+let firstPersonBMI = firstPersonMass / firstPersonHeight ** 2;
+let secondPersonBMI = secondPersonMass / secondPersonHeight ** 2;
+let firstPersonHigherBMI = firstPersonBMI > secondPersonBMI;
+// console.log(firstPersonHigherBMI);
+// console.log(firstPersonBMI);
+// console.log(secondPersonBMI);
+// console.log(firstPerson + "'s\n" + "height is :" + firstPersonHeight + "\nMass is : " + firstPersonMass + "\n" + "BMI is " + firstPersonBMI + "\n" + secondPerson + "'s\n" + "height is :" + secondPersonHeight + "\nMass is : " + secondPersonMass + "\n" + "BMI is " + secondPersonBMI + "\n" + "Is " + firstPerson + " BMI is greaterthan " + secondPerson + " " + firstPersonHigherBMI);
+if (firstPersonBMI > secondPersonBMI) {
+    console.log(`${firstPerson} BMI ${firstPersonBMI} is greater than ${secondPerson} BMI ${secondPersonBMI}, `);
+}
+else {
+    console.log(`${secondPerson} BMI ${secondPersonBMI} is greater than ${firstPerson} BMI${firstPersonBMI}`);
+}
+/*Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76
+m tall*/
+
+firstPersonHeight = 1.88; //in metre
+secondPersonHeight = 1.76; //in metre
+firstPersonMass = 95;//in kg
+secondPersonMass = 85;//in kg
+firstPersonBMI = firstPersonMass / firstPersonHeight ** 2;
+secondPersonBMI = secondPersonMass / secondPersonHeight ** 2;
+firstPersonHigherBMI = firstPersonBMI > secondPersonBMI;
+
+if (firstPersonBMI > secondPersonBMI) {
+    console.log(`${firstPerson} BMI ${firstPersonBMI} is greater than ${secondPerson} BMI ${secondPersonBMI}, `);
+}
+else {
+    console.log(`${secondPerson} BMI ${secondPersonBMI} is greater than ${firstPerson} BMI${firstPersonBMI}`);
+}
+// console.log(firstPersonHigherBMI);
+// console.log(firstPersonBMI);
+// console.log(secondPersonBMI);
+
+// console.log(`${firstPerson} 's \n height is : ${firstPersonHeight} \n Mass is : ${firstPersonMass} \n BMI is ${firstPersonBMI} \n ${secondPerson} 's \n height is : ${secondPersonHeight} \n Mass is : ${secondPersonMass} \n BMI is ${secondPersonBMI} firstPersonBMI \n Is  ${firstPerson} BMI is greaterthan ${secondPerson} ${firstPersonHigherBMI}`);
+
+
+
+
+....................................................................
+
+
+codingChallenge.js:18 Mark BMI 27.309968138370508 is greater than John BMI 24.194608809993426, 
+codingChallenge.js:38 John BMI 27.44059917355372 is greater than Mark BMI26.87867813490267
