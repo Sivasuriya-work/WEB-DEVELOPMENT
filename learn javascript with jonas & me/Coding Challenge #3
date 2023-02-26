@@ -19,147 +19,20 @@ Test data:
 § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 GOOD LUCK 😀
 --------------------------------------------------------------------------------
-
-const scoreFirstDolphins = 96;
-const scoreSecondDolphins = 108;
-const scoreThirdDolphins = 89;
-
-const scoreFirstKoalas = 89;
-const scoreSecondKoalas = 91;
-const scoreThirdKoalas = 110;
-
-const avgScoreDophins = scoreFirstDolphins + scoreSecondDolphins + scoreThirdDolphins;
-
-const avgScoreKoalas = scoreFirstKoalas + scoreSecondKoalas + scoreThirdKoalas;
-
-if (avgScoreDophins > avgScoreKoalas || avgScoreDophins < avgScoreKoalas) {
-    if (avgScoreDophins > avgScoreKoalas) console.log('Dolphin wins the game');
-    else console.log('Koalas wins the game');
-}
-else if (avgScoreDophins === avgScoreKoalas) {
-let scoreCountDolphine = 0;
-    let scoreCountKoalas = 0;
-
-    if (scoreFirstDolphins >= 100 || scoreFirstKoalas >= 100) {
-        if (scoreFirstDolphins > scoreFirstKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreSecondDolphins >= 100 || scoreSecondKoalas >= 0) {
-        if (scoreSecondDolphins > scoreSecondKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreThirdDolphins >= 100 || scoreThirdKoalas >= 100) {
-        if (scoreThirdDolphins > scoreThirdKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreCountDolphine > scoreCountKoalas || scoreCountDolphine < scoreCountKoalas) {
-        if (scoreCountDolphine > scoreCountKoalas) console.log('Dolphine win');
-        else console.log('Koalas win');
-    }
-}
-else console.log('No team wins the game');
+const scoreDolphins = (97 + 112 + 86) / 3;
+const scoreKoalas = (109 + 95 + 91) / 3;
+if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) console.log('Dolphine wins');
+else if (scoreDolphins < scoreKoalas && scoreKoalas >= 100) console.log('koalas wins');
+else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100 && scoreKoalas >= 100) console.log('Both team wins');
+else console.log('both team loose :/');
 
 ....................................................
-
 codingChallenge.js:60 Dolphin wins the game
-
-
 ----------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-const scoreFirstDolphins = 97;
-const scoreSecondDolphins = 112;
-const scoreThirdDolphins = 101;
-
-const scoreFirstKoalas = 109;
-const scoreSecondKoalas = 95;
-const scoreThirdKoalas = 123;
-
-const avgScoreDophins = scoreFirstDolphins + scoreSecondDolphins + scoreThirdDolphins;
-
-const avgScoreKoalas = scoreFirstKoalas + scoreSecondKoalas + scoreThirdKoalas;
-
-if (avgScoreDophins > avgScoreKoalas || avgScoreDophins < avgScoreKoalas) {
-    if (avgScoreDophins > avgScoreKoalas) console.log('Dolphin wins the game');
-    else console.log('Koalas wins the game');
-}
-else if (avgScoreDophins === avgScoreKoalas) {
-let scoreCountDolphine = 0;
-    let scoreCountKoalas = 0;
-
-    if (scoreFirstDolphins >= 100 || scoreFirstKoalas >= 100) {
-        if (scoreFirstDolphins > scoreFirstKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreSecondDolphins >= 100 || scoreSecondKoalas >= 0) {
-        if (scoreSecondDolphins > scoreSecondKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreThirdDolphins >= 100 || scoreThirdKoalas >= 100) {
-        if (scoreThirdDolphins > scoreThirdKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreCountDolphine > scoreCountKoalas || scoreCountDolphine < scoreCountKoalas) {
-        if (scoreCountDolphine > scoreCountKoalas) console.log('Dolphine win');
-        else console.log('Koalas win');
-    }
-
-}
-else console.log('No team wins the game');
-
-
-
 ..................................................
-
 Koalas wins the game
-
 -----------------------------------------------------------------------------------------------------------
-
-const scoreFirstDolphins = 97;
-const scoreSecondDolphins = 112;
-const scoreThirdDolphins = 101;
-
-const scoreFirstKoalas = 109;
-const scoreSecondKoalas = 95;
-const scoreThirdKoalas = 106;
-
-const avgScoreDophins = scoreFirstDolphins + scoreSecondDolphins + scoreThirdDolphins;
-
-const avgScoreKoalas = scoreFirstKoalas + scoreSecondKoalas + scoreThirdKoalas;
-
-if (avgScoreDophins > avgScoreKoalas || avgScoreDophins < avgScoreKoalas) {
-    if (avgScoreDophins > avgScoreKoalas) console.log('Dolphin wins the game');
-    else console.log('Koalas wins the game');
-}
-else if (avgScoreDophins === avgScoreKoalas) {
-    let scoreCountDolphine = 0;
-    let scoreCountKoalas = 0;
-
-    if (scoreFirstDolphins >= 100 || scoreFirstKoalas >= 100) {
-        if (scoreFirstDolphins > scoreFirstKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreSecondDolphins >= 100 || scoreSecondKoalas >= 0) {
-        if (scoreSecondDolphins > scoreSecondKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreThirdDolphins >= 100 || scoreThirdKoalas >= 100) {
-        if (scoreThirdDolphins > scoreThirdKoalas) scoreCountDolphine++;
-        else scoreCountKoalas++;
-    }
-    if (scoreCountDolphine > scoreCountKoalas || scoreCountDolphine < scoreCountKoalas) {
-        if (scoreCountDolphine > scoreCountKoalas) console.log('Dolphine win');
-        else console.log('Koalas win');
-    }
-
-}
-else console.log('No team wins the game');
 .................................
-
 koalas win
 --------------------------------------------------------------------------------------------
 
