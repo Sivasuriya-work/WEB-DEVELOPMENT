@@ -18,9 +18,8 @@ Hints:
 -----------------------------------------------------------------------------
 
 const bill = 430;
-const tip = (300 >= bill >= 50) ? (bill * 0.2) : (bill * 0.15);
+const tip = (50 <= bill <= 300) ? (bill * 0.15) : (bill * 0.2);
 console.log(`The bill was ${bill} ,the tip was ${tip} and the total value was ${bill + tip} `);
-
 ...............................................................................................
 
 assignment.js:111 The bill was 430 ,the tip was 64.5 and the total value was 494.5 
