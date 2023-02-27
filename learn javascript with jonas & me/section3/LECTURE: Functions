@@ -1,0 +1,27 @@
+LECTURE: Functions
+1. Write a function called 'describeCountry' which takes three parameters:
+'country', 'population' and 'capitalCity'. Based on this input, the
+function returns a string with this format: 'Finland has 6 million people and its
+capital city is Helsinki'
+2. Call this function 3 times, with input data for 3 different countries. Store the
+returned values in 3 different variables, and log them to the console
+.............................................................................
+function describeCountry(country, population, capitalCity) {
+
+    const details = `${country} has ${population} million people and its capital city is ${capitalCity}`;
+    return details;
+}
+
+const country1 = describeCountry('IND', 120, 'NL');
+const country2 = describeCountry('AUS ', 12, 'MB');
+const country3 = describeCountry('USA', 10, 'WDC');
+
+console.log(`${country1} `);
+console.log(`${country2}`);
+console.log(`${country3} `);
+
+................................................................................................................
+
+assignment.js:11 IND has 120 million people and its capital city is NL 
+assignment.js:12 AUS  has 12 million people and its capital city is MB
+assignment.js:13 USA has 10 million people and its capital city is WDC 
