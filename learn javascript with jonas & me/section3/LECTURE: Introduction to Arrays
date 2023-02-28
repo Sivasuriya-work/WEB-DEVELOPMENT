@@ -1,0 +1,21 @@
+LECTURE: Introduction to Arrays
+1. Create an array containing 4 population values of 4 countries of your choice.
+You may use the values you have been using previously. Store this array into a
+variable called 'populations'
+2. Log to the console whether the array has 4 elements or not (true or false)
+3. Create an array called 'percentages' containing the percentages of the
+world population for these 4 population values. Use the function
+'percentageOfWorld1' that you created earlier to compute the 4
+percentage values
+==================================================const populations = [1441, 1200, 20, 50];
+console.log(populations.length === 4 ? 'true' : 'false');
+function percentageOfWorld1(population) {
+    const totalPopulation = 7900;
+    return population / totalPopulation * 100;
+}
+const percentages = new Array(percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3]));
+console.log(percentages);
+=====================================================
+
+script.js:146 true
+script.js:152 (4) [18.240506329113924, 15.18987341772152, 0.25316455696202533, 0.6329113924050633]0: 18.2405063291139241: 15.189873417721522: 0.253164556962025333: 0.6329113924050633length: 4[[Prototype]]: Array(0)
