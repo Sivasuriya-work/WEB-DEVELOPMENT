@@ -1,0 +1,18 @@
+LECTURE: Arrow Functions
+1. Recreate the last assignment, but this time create an arrow function called
+'percentageOfWorld3
+==============================================
+const worldPpopulation = 7900;
+
+const percentageOfWorld3 = population => population / worldPpopulation * 100;
+
+const china3 = percentageOfWorld3(1441);
+const india3 = percentageOfWorld3(1200);
+const usa3 = percentageOfWorld3(20);
+
+console.log(`China has ${china3}% , India has ${india3}% , USA has ${usa3}%`);
+
+
+===================================================================================
+
+assignment.js:54 China has 18.240506329113924% , India has 15.18987341772152% , USA has 0.25316455696202533%
