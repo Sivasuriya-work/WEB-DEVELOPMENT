@@ -16,3 +16,20 @@ console.log(`China has ${china3}% , India has ${india3}% , USA has ${usa3}%`);
 ===================================================================================
 
 assignment.js:54 China has 18.240506329113924% , India has 15.18987341772152% , USA has 0.25316455696202533%
+
+....................=================Example program======================..............................
+
+function fruitPieces(fruit) {
+    return fruit * 4;
+}
+
+function fruitprocessor(apple, orange) {
+    const applePieceJuice = fruitPieces(apple);
+    const orangePieceJuice = fruitPieces(orange);
+    const juice = `Juice contains ${applePieceJuice} apple pieces and ${orangePieceJuice} orange pieces :D `;
+    return juice;
+}
+console.log(fruitprocessor(5, 10));
+
+.................................................
+assignment.js:71 Juice contains 20 apple pieces and 40 orange pieces :D 
