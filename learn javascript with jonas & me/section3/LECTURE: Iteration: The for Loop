@@ -1,0 +1,68 @@
+LECTURE: Iteration: The for Loop
+1. There are elections in your country! In a small town, there are only 50 voters.
+Use a for loop to simulate the 50 people voting, by logging a string like this to
+the console (for numbers 1 to 50): 'Voter number 1 is currently voting'
+
+
+
+
+
+for (let voter = 1; voter <= 50; voter++) {
+    console.log(`Voter number ${voter} is currently voting`);
+}
+
+
+
+
+
+
+script.js:311 Voter number 1 is currently voting
+script.js:311 Voter number 2 is currently voting
+script.js:311 Voter number 3 is currently voting
+script.js:311 Voter number 4 is currently voting
+script.js:311 Voter number 5 is currently voting
+script.js:311 Voter number 6 is currently voting
+script.js:311 Voter number 7 is currently voting
+script.js:311 Voter number 8 is currently voting
+script.js:311 Voter number 9 is currently voting
+script.js:311 Voter number 10 is currently voting
+script.js:311 Voter number 11 is currently voting
+script.js:311 Voter number 12 is currently voting
+script.js:311 Voter number 13 is currently voting
+script.js:311 Voter number 14 is currently voting
+script.js:311 Voter number 15 is currently voting
+script.js:311 Voter number 16 is currently voting
+script.js:311 Voter number 17 is currently voting
+script.js:311 Voter number 18 is currently voting
+script.js:311 Voter number 19 is currently voting
+script.js:311 Voter number 20 is currently voting
+script.js:311 Voter number 21 is currently voting
+script.js:311 Voter number 22 is currently voting
+script.js:311 Voter number 23 is currently voting
+script.js:311 Voter number 24 is currently voting
+script.js:311 Voter number 25 is currently voting
+script.js:311 Voter number 26 is currently voting
+script.js:311 Voter number 27 is currently voting
+script.js:311 Voter number 28 is currently voting
+script.js:311 Voter number 29 is currently voting
+script.js:311 Voter number 30 is currently voting
+script.js:311 Voter number 31 is currently voting
+script.js:311 Voter number 32 is currently voting
+script.js:311 Voter number 33 is currently voting
+script.js:311 Voter number 34 is currently voting
+script.js:311 Voter number 35 is currently voting
+script.js:311 Voter number 36 is currently voting
+script.js:311 Voter number 37 is currently voting
+script.js:311 Voter number 38 is currently voting
+script.js:311 Voter number 39 is currently voting
+script.js:311 Voter number 40 is currently voting
+script.js:311 Voter number 41 is currently voting
+script.js:311 Voter number 42 is currently voting
+script.js:311 Voter number 43 is currently voting
+script.js:311 Voter number 44 is currently voting
+script.js:311 Voter number 45 is currently voting
+script.js:311 Voter number 46 is currently voting
+script.js:311 Voter number 47 is currently voting
+script.js:311 Voter number 48 is currently voting
+script.js:311 Voter number 49 is currently voting
+script.js:311 Voter number 50 is currently voting
