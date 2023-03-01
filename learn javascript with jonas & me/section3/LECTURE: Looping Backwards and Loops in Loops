@@ -1,0 +1,28 @@
+LECTURE: Looping Backwards and Loops in Loops
+1. Store this array of arrays into a variable called 'listOfNeighbours'
+[['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden',
+'Russia']];
+2. Log only the neighbouring countries to the console, one by one, not the entire
+arrays. Log a string like 'Neighbour: Canada' for each country
+3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't
+worry if it's too difficult for you! But you can still try to figure this out anyway �
+
+===========================
+const listOfNeighbours = [['canada', 'mexico'], ['spain'], ['norway', 'sweden', 'russia']];
+for (let i = 0; i <= listOfNeighbours.length - 1; i++) {
+    if (listOfNeighbours[i].length > 1) {
+        console.log('Neighbour : ')
+        for (let j = 0; j <= listOfNeighbours[i].length - 1; j++) {
+            console.log(listOfNeighbours[i][j]);
+        }
+    }
+
+}
+===========================================
+Neighbour : 
+script.js:376 canada
+script.js:376 mexico
+script.js:374 Neighbour : 
+script.js:376 norway
+script.js:376 sweden
+script.js:376 russia
