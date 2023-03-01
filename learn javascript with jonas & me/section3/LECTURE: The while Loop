@@ -1,0 +1,24 @@
+LECTURE: The while Loop
+1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing',
+but this time using a while loop (call the array 'percentages3')
+2. Reflect on what solution you like better for this task: the for loop or the while
+loop?
+=====================================================
+const population = [1220, 40, 50, 1441];
+const worldPopulation = 7900;
+const percentage3 = [];
+let i = 0;
+function calcPercentage(population) {
+    return population / worldPopulation * 100;
+}
+while (i < population.length) {
+    percentage3.push(calcPercentage(population[i]));
+    i++;
+}
+console.log(population);
+console.log(percentage3);
+
+=========================================
+
+script.js:424 (4) [1220, 40, 50, 1441]
+script.js:425 (4) [15.443037974683543, 0.5063291139240507, 0.6329113924050633, 18.240506329113924]0: 15.4430379746835431: 0.50632911392405072: 0.63291139240506333: 18.240506329113924length: 4[[Prototype]]: Array(0)
