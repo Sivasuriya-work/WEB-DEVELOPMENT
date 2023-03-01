@@ -1,0 +1,73 @@
+LECTURE: Looping Arrays, Breaking and Continuing
+1. Let's bring back the 'populations' array from a previous assignment
+2. Use a for loop to compute an array called 'percentages2' containing the
+percentages of the world population for the 4 population values. Use the
+function 'percentageOfWorld1' that you created earlier
+3. Confirm that 'percentages2' contains exactly the same values as the
+'percentages' array that we created manually in the previous assignment,
+and reflect on how much better this solution is
+======================================================
+
+// const siva = [
+//     'siva', 'suriya', 1998, 'IT', ['siva', 'suriya', 'sivasuriya'], true
+// ];
+// const datatype = [];
+// for (let i = 0; i < siva.length; i++) {
+//     console.log(siva[i]);
+//     // datatype[i] = typeof siva[i];
+//     // datatype.push(typeof siva[i]);
+//     // if (typeof siva[i] !== 'string') {
+//     //     continue; // skip one iteration
+//     // }
+//     // datatype.push(siva[i]);
+//     if (typeof siva[i] === 'number') {
+//         break;
+//     }
+//     datatype.push(siva[i]);
+// }
+// console.log(datatype);
+
+
+
+// const myCountry = {
+//     country: 'India',
+//     capital: 'ND',
+//     language: 'English',
+//     population: 1220,
+//     neighbours: ['pak', 'sl', 'nepal', 'bhutan', 'china']
+
+
+
+
+
+function percentageOfWorldPopulation4(population, worldPopulation) {
+    return population / worldPopulation * 100;
+}
+
+function describePopulation(country, population) {
+    return console.log(`${country} has ${population} million people, which is about ${percentageOfWorldPopulation4(population, worldPopulation)} of the world.`);
+}
+const worldPopulation = 7900;
+describePopulation('USA', 500);
+describePopulation('AUS', 200);
+describePopulation('IND', 1200);
+describePopulation('China', 1441);
+
+
+
+populations = [500, 200, 1200, 1441];
+percentage2 = [];
+for (let i = 0; i < populations.length; i++) {
+    percentage2.push(percentageOfWorldPopulation4(populations[i], 7900));
+}
+
+console.log(percentage2);
+
+
+
+==============================================================
+script.js:351 USA has 500 million people, which is about 6.329113924050633 of the world.
+script.js:351 AUS has 200 million people, which is about 2.5316455696202533 of the world.
+script.js:351 IND has 1200 million people, which is about 15.18987341772152 of the world.
+script.js:351 China has 1441 million people, which is about 18.240506329113924 of the world.
+script.js:367 (4) [6.329113924050633, 2.5316455696202533, 15.18987341772152, 18.240506329113924]
