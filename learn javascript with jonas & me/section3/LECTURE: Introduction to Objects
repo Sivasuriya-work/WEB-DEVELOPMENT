@@ -1,0 +1,57 @@
+LECTURE: Introduction to Objects
+1. Create an object called 'myCountry' for a country of your choice, containing
+properties 'country', 'capital', 'language', 'population' and
+'neighbours' (an array like we used in previous assignments)
+
+=================================================================
+const myCountry = {
+    country: 'India',
+    capital: 'ND',
+    language: 'English',
+    population: 1220,
+    neighbours: ['pak', 'sl', 'nepal', 'bhutan', 'china']
+
+}
+console.log(myCountry);
+===================================================================
+
+{country: 'India', capital: 'ND', language: 'English', population: 1220, neighbours: Array(5)}
+capital
+: 
+"ND"
+country
+: 
+"India"
+language
+: 
+"English"
+neighbours
+: 
+Array(5)
+0
+: 
+"pak"
+1
+: 
+"sl"
+2
+: 
+"nepal"
+3
+: 
+"bhutan"
+4
+: 
+"china"
+length
+: 
+5
+[[Prototype]]
+: 
+Array(0)
+population
+: 
+1220
+[[Prototype]]
+: 
+Object
