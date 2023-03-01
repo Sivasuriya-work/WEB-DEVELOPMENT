@@ -1,0 +1,48 @@
+LECTURE: Dot vs. Bracket Notation
+1. Using the object from the previous assignment, log a string like this to the
+console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries
+and a capital called Helsinki.'
+2. Increase the country's population by two million using dot notation, and then
+decrease it by two million using brackets notation.
+=====================================================
+
+const myCountry = {
+    country: 'India',
+    capital: 'ND',
+    language: 'English',
+    population: 1220,
+    neighbours: ['pak', 'sl', 'nepal', 'bhutan', 'china']
+
+}
+console.log(myCountry);
+
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language} speaking people , ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital} `);
+
+
+// LECTURE: Dot vs.Bracket Notation
+// 1. Using the object from the previous assignment, log a string like this to the
+// console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries
+// and a capital called Helsinki.'
+// 2. Increase the country's population by two million using dot notation, and then
+// // decrease it by two million using brackets notation.
+
+myCountry.population += 2;
+console.log(myCountry.population);
+myCountry['population'] -= 2;
+console.log(myCountry['population']);
+console.log(myCountry);
+
+============================================
+
+
+
+script.js:233 {country: 'India', capital: 'ND', language: 'English', population: 1220, neighbours: Array(5)}capital: "ND"country: "India"language: "English"neighbours: (5) ['pak', 'sl', 'nepal', 'bhutan', 'china']population: 1220[[Prototype]]: Object
+script.js:238 1222
+script.js:240 1220
+script.js:241 {country: 'India', capital: 'ND', language: 'English', population: 1220, neighbours: Array(5)}
+
+
+
+
+
+
