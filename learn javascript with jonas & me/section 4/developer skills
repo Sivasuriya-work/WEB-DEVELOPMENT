@@ -1,0 +1,19 @@
+53. Section Intro
+54. Section Roadmap
+55. Setting up Prettier and VS Code
+56. Installing Node.js and Setting Up a Dev Environment
+  sudo npm install live-server -g // installing live -server
+  sudo npm uninstall live-server -g// uninstall
+
+57. Learning How to Code
+  To know 100;
+  To creative;
+  
+58. How to Think Like a Developer: Become a Problem Solver!
+  divide and conquer
+59. Using Google, StackOverflow and MDN
+  debugger
+60. Debugging (Fixing Errors)
+    1.software bug 2.irrelavant output
+61. Debugging with the Console and Breakpoints
+    checking flow of execution.
