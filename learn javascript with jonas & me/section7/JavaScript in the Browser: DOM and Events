@@ -1,0 +1,76 @@
+JavaScript in the Browser: DOM and Events
+Coding Challenge #1
+Implement a game rest functionality, so that the player can make a new guess!
+Your tasks:
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the 'score' and
+'secretNumber' variables
+3. Restore the initial conditions of the message, number, score and guess input
+fields
+4. Also restore the original background color (#222) and number width (15rem)
+GOOD LUCK �
+/////////////////////////////////'use strict';
+// console.log(document.querySelector('.message').textContent);
+
+// document.querySelector('.message').textContent = 'Win the game';
+// document.querySelector('.score').textContent = 12;
+// document.querySelector('.guess').value = 10;
+// document.querySelector('.number').textContent = 16;
+
+// while (document.querySelector('.number').textContent === 16) {
+//   document.querySelector('.score').textContent -= 1;
+// }
+
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
+
+  if (!guess) {
+    document.querySelector('.message').textContent = 'No Number :/';
+  } else if (Number(document.querySelector('.score').textContent) <= 0) {
+    document.querySelector('.message').textContent = 'lose the game,try again';
+  } else if (guess === secretNumber) {
+    document.querySelector('.number').textContent = guess;
+    document.querySelector('.message').textContent = 'Win the game';
+    document.querySelector('body').style.backgroundColor = 'green';
+    document.querySelector('.number').style.width = '30rem';
+    if (
+      Number(document.querySelector('.score').textContent) >
+      Number(document.querySelector('.highscore').textContent)
+    ) {
+      document.querySelector('.highscore').textContent =
+        document.querySelector('.score').textContent;
+    }
+  } else if (secretNumber < guess && secretNumber != guess) {
+    document.querySelector('.message').textContent = 'Too high';
+    document.querySelector('.score').textContent -= 1;
+  } else if (secretNumber > guess && secretNumber != guess) {
+    document.querySelector('.message').textContent = 'Too low';
+    document.querySelector('.score').textContent -= 1;
+  } else {
+    document.querySelector('.message').textContent =
+      'You already won,try again...otherwise got error';
+  }
+});
+document.querySelector('.again').addEventListener('click', function () {
+  //number
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  //background colour change
+  document.querySelector('body').style.backgroundColor = '#222';
+  //.number width
+  document.querySelector('.number').style.width = '15rem';
+  //message
+  document.querySelector('.message').textContent = 'Start guessing...';
+  //highscore
+
+  //score
+  document.querySelector('.score').textContent = 20;
+  //guess number
+  document.querySelector('.number').textContent = '?';
+  //input  guess value
+  document.querySelector('.guess').value = '';
+});
+
+
+..../////////////////////////
