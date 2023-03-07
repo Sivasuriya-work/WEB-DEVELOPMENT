@@ -1,0 +1,95 @@
+'use strict';
+
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
+
+const score0 = document.querySelector('#score--0');
+const score1 = document.getElementById('score--1');
+
+const diceEl = document.querySelector('.dice');
+
+const btnNew = document.querySelector('.btn--new');
+const btnRoll = document.querySelector('.btn--roll');
+const btnHold = document.querySelector('.btn--hold');
+
+const current0El = document.getElementById('current--0');
+const current1El = document.getElementById('current--1');
+
+let score = [0, 0];
+
+function switchPlayer() {
+  document.getElementById(`current--${activeplayer}`).textContent =
+    currentScore;
+  //switch to next player
+  activeplayer = activeplayer === 0 ? 1 : 0;
+  player0El.classList.toggle('player--active');
+  player1El.classList.toggle('player--active');
+}
+
+score0.textContent = 0;
+score1.textContent = 0;
+
+diceEl.classList.add('hidden');
+
+let currentScore = 0;
+
+let activeplayer = 0;
+
+btnRoll.addEventListener('click', function () {
+  //  1.generate dice roll
+  const dice = Math.trunc(Math.random() * 6) + 1;
+  //display dice
+  diceEl.classList.remove('hidden');
+  diceEl.src = `dice-${dice}.png`;
+
+  //if   rolled 1  , new player
+  if (dice !== 1) {
+    // add dice to current score
+    currentScore += dice;
+    document.getElementById(`current--${activeplayer}`).textContent =
+      currentScore;
+  } else {
+    currentScore = 0;
+    switchPlayer();
+  }
+});
+
+btnHold.addEventListener('click', function () {
+  // score added to total score
+  score[activeplayer] += currentScore;
+  // current score 0
+  currentScore = 0;
+  document.querySelector(`#score--${activeplayer}`).textContent =
+    score[activeplayer];
+  //wins the game
+  if (score[activeplayer] >= 10) {
+    document
+      .querySelector(`.player--${activeplayer}`)
+      .classList.add('player--winner');
+    diceEl.classList.add('hidden');
+    btnHold.classList.add('hidden');
+    btnRoll.classList.add('hidden');
+  }
+  // move to next player
+  switchPlayer();
+});
+
+btnNew.addEventListener('click', function () {
+  // bacground change
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+
+  currentScore = 0;
+  // current 0
+  score0.textContent = 0;
+  score1.textContent = 0;
+  score = [0, 0];
+  //score 0
+
+  // start with player 0
+
+  btnHold.classList.remove('hidden');
+  btnRoll.classList.remove('hidden');
+});
