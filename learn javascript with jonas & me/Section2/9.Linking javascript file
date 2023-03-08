@@ -1,0 +1,23 @@
+Inline script 
+
+ <head>
+    <script>
+      console.log('Inline script')
+    </script>
+   </head>  
+  
+  (or)
+  
+  <body>
+    <script>
+      console.log('Inline script')
+    </script>
+   </body>
+ 
+ External script 
+  <head>
+    <script src = 'script.js'> </script>
+   </head>
+   
+   link with src javascript file
+    
