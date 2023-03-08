@@ -1,0 +1,15 @@
+
+let - let the value change in future
+  let year = 20222 ; // 
+  let year ; // also undefined
+ 
+const - can not reassign the value , strict value
+  const name= 'siva'
+  //const name ; // must be initialized // immutable
+  
+var - old type , not advisable to use 
+  var year = 2022 ;
+  var year ; // 
+  avoid to use ;
+  
+  
