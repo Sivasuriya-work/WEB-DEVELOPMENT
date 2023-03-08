@@ -1,0 +1,36 @@
+7 primitive Data Types
+
+1.Number = decimal , float number
+2.String = sequence of characters , 
+3.Boolean = return only true or false
+4.Undefined = Value are not defined
+5.Null = empty value,
+6.Symbol : Es2015
+7.BigInt(ES2020) = store large integer value
+
+JS dynamic typing : determinate automatically
+
+//single line comment
+
+/* Multiline commment*/
+
+variable define before execution
+  
+  let name = 'siva';
+  console.log(name); // output
+  
+  console.log(day);//temp.js:4 Uncaught ReferenceError: Cannot access 'day' before initialization
+  let day = 1
+
+//
+
+typeof // to identify the type of value
+
+  console.log(typeof name);//string
+  
+Undefined
+
+  let name ;  // for let store as undefined 
+  //const name ; // name must be initialized
+  //console.log(name);// undefined
+
