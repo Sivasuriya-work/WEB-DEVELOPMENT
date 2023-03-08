@@ -1,0 +1,8 @@
+MDN operator precedence for reference ; 
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+In javascript has a well defined operator precedence
+
+Left to right // 3+4+5; // 7+5 // 12
+right to left // 4 **3 ** 2 // 4 ** 9 // 262144
