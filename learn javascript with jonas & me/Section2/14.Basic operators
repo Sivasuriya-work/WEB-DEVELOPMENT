@@ -1,0 +1,29 @@
+operators
+  in javascript
+      Arithmatic +,-,*,/
+      assignment === , == ,
+      logical && || !
+      
+ Arithmatic:
+ 
+      console.log(2 ** 3 ); // exponential math operator
+      console.log( 2+3 ); // 5
+      const firstName = 'siva';
+      const lastName = 'surya';
+      console.log(siva+surya) ; // String concatenation
+      
+Assignment : 
+      
+      let x = 5+10 // 15 value added and store into x.
+        
+        x= x+1; //
+        x++;//    these are same , but diffrent ways of expression
+        x+=1;//
+        
+        x++;//increment//
+        x-- ; decrement
+Logical : 
+        
+         age = 18 ;
+         if(age >= 18) // conditional operator check , whether the statement is true or false.
+          console.log('Get Lisence');
