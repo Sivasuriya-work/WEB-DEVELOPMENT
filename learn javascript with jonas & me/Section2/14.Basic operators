@@ -27,3 +27,52 @@ Logical :
          age = 18 ;
          if(age >= 18) // conditional operator check , whether the statement is true or false.
           console.log('Get Lisence');
+          
+          
+          
+          LECTURE: Basic Operators
+          
+1. If your country split in half, and each half would contain half the population,
+then how many people would live in each half?
+
+2. Increase the population of your country by 1 and log the result to the console
+
+3. Finland has a population of 6 million. Does your country have more people than
+Finland?
+
+4. The average population of a country is 33 million people. Does your country
+have less people than the average country?
+
+5. Based on the variables you created, create a new variable 'description'
+which contains a string with this format: 'Portugal is in Europe, and its 11 million
+people speak portuguese'
+
+..................................................................................................
+assignment.js
+.............................................................
+const country = 'India';
+const continent = 'Asia'
+let myCountryPopulation = 120;
+let language = 'English';
+let finlandPopolation = 6;
+let avgPopulation = 33;
+
+let firstHalfPopulation = myCountryPopulation / 2;//1
+let secondHalfPopulation = myCountryPopulation - firstHalfPopulation;//1
+
+myCountryPopulation++;//2
+
+console.log(myCountryPopulation);//3
+console.log(finlandPopolation < myCountryPopulation);//4
+console.log(myCountryPopulation > avgPopulation);
+
+let description = country + " is in " + continent + ", and its " + myCountryPopulation + " million people speak " + language;//5
+
+console.log(description);
+
+
+--------------------------------------------------------------------------------------
+assignment.js:26 121
+assignment.js:28 true
+assignment.js:30 true
+assignment.js:35 India is in Asia, and its 121 million people speak English
