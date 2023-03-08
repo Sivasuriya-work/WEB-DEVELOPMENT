@@ -1,0 +1,19 @@
+
+variables : 
+
+  var name = 'siva' // it's old method , not advisable
+  
+  let day = 1 ; // for value should be change in future
+  
+  const name = 'siva' // for which can not reassign the values
+  
+  write variable name in camelCase , when more than a word.
+  
+  special charracter  _ , $ are only supported.
+  
+  reserved key name are also not usable
+  
+  variable name should be easily understandable.
+  
+ 
+  
