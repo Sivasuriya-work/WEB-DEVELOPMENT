@@ -4,3 +4,14 @@ Java Script is a
     Object Oriented - Based an Objects store and manipulate data
     MultiParagigm - diffrent style program(PP , OOP ,FP)
     Programming language. - It is language to instruct computer to do something
+    
+    HTML - create WP(Content of the page like Noun)
+    CSS - Style WP(describe of the page content like Adj)
+    JS - Interact,Manipulate,Load server ,Web app (doing operation like verb).
+            It is also has frameworks - Node.js , vue.js , Angular.js 
+           
+           Front End  - JS , Framework,React , Angular ,Vue
+            Backend     -JS ,Node.js
+            Native Mobile App - JS , Ionic
+            Native Web app - Js,Electron
+    
