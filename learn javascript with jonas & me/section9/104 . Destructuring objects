@@ -7,7 +7,7 @@ const restaurant = {
 
   openingHours: {
     thu: {
-      open: 12,
+    open: 12,
       close: 22,
     },
     fri: {
@@ -90,6 +90,20 @@ console.log(restaurantName , hourss , catlog);
 const obj =  { a: 30 , b : 25 , c : 34 };
 ({a , b } = obj ); // use paranthesis //otherwise syntax error
 console.log(a ,b ) ; 30 , 25
+
+
+  //Nested Objects
+({ a = 10, b = 20 } = obj1);
+console.log(a, b);
+
+const { fri } = openingHours;
+({
+  fri: { open: o, close: c },
+} = openingHours);
+
+console.log(o, c);
+
+  
 
     
     
