@@ -1,0 +1,15 @@
+introduces in ES2020
+
+It's follow the principle of Nullish value
+
+const ageGiven = 0 ;
+const age = ageGiven || 18; // here age value is zero , but || operator assign 18 to age value.This problem is solved by 
+//nullish coalesciring operator
+
+const age = ageGiven ?? 18 ; // here age value is 0
+const age = ageGivenOne ?? 18 ; // here age value is 18
+//because of ageGivenOne value is undefined or null 
+
+
+
+
