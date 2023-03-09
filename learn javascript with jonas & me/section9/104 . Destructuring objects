@@ -1,0 +1,95 @@
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+};
+
+
+const {name  , categories , openingHours} = restuarent // destructring objects // same name as restaurent object property name
+console.log(name , catogories , openingHours); 
+
+// Classico Italiano ,
+[Italian', 'Pizzeria', 'Vegetarian', 'Organic , ]
+[ thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },]
+    
+    
+    
+const {name : restaurantName , openingHours : hours  , catogories : catlog} = restaurant ;
+console.log(restaurantName , hourss , catlog);
+
+
+// Classico Italiano ,
+[Italian', 'Pizzeria', 'Vegetarian', 'Organic , ]
+[ thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },]
+    
+    
+    
+    
+    //Setting default values
+    
+      const {holiday = []  ; openHours = [] , name = [] } = restaurant ; //
+      // [] , 
+[ thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },]
+    ,Classico Italiano
+    
+    
+    //switch variables 
+    
+ let a = 21 ;
+ let b = 12 ;
+const obj =  { a: 30 , b : 25 , c : 34 };
+({a , b } = obj ); // use paranthesis //otherwise syntax error
+console.log(a ,b ) ; 30 , 25
+
+    
+    
