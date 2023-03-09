@@ -1,0 +1,47 @@
+The rest pattern is opposite of the spread operator
+
+Rest in arrays :
+
+  the spread operator is convert array elements into induvidual elements, // Right side of the assignment operator
+      const arr = [3, 4 , 5];
+      const newArr  = [ 1 , 2  , ...arr]; // The spread operator  // 1 , 2 , 3 , 4 , 5
+  
+  
+  and the opposite of that the Rest has combine multiple elements into a array. // left side of the assignment operator
+  
+        const [a,b , ...others] = [ 1 , 2 , 3 , 4 , 5] ; // here rest operators stores rest of the elements in the
+                                                         //destructring arr elements
+                    console.log(others , a , b); // 3 ,4 ,5 , 1 ,2                                      
+                    
+                    
+ Rest in objects :
+ 
+      const {sat , ...weekdays} = restaurant.openingHours;
+      // then it displays weekdays value , fri, thu only.
+      
+      unction add(...num) {
+  // rest operator converts multiple elements into a arrays
+  console.log(num);
+  let sum = 0;
+  for (let i = 0; i < num.length; i++) {
+    sum += num[i];
+  }
+  return console.log(sum);
+}
+add();
+add(5);
+add(1, 2);
+add(1, 2, 3);
+add(1, 2, 3, 4);
+add(1, 2, 3, 4, 5);
+
+
+const x = [2 , 5 , 6];
+add(...x); // 13
+
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
+  
+restaurant.orderPizza("mushroom", "chicken", "fish", "crab");
