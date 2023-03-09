@@ -1,0 +1,88 @@
+the spread operator is very useful to partioning elements like an array ;
+
+    const arr = [3 ,4 ,5];
+    //if we need to add 1 , 2 in front
+    const temparr = [ 1 , 2 , arr[0] , arr[1] ,arr[2]] ; // 1 2 3 4 5
+    //instead of this , we have to use the spread operator 
+    const newArr = [ 1 , 2  , ... arr]; //here  ... the spread operator use to add array elements individually. // 1 2 3 4 5
+    //if array elements needed individually 
+    console.log(...newArr); // 1 2 3 4 5
+    
+    const newMenu = [...res.Menu , 'Idly'];
+    const newArr = [...restaurant.mainMenu, ...restaurant.starterMenu];
+    console.log(newArr);
+
+
+//creating objects
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+  order: function ({ starterIndex, mainIndex }) {
+    return this.starterMenu[starterIndex], this.mainMenu[mainIndex];
+  },
+//order delivery function
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = "20:00",
+    location = "thei",
+  }) {
+    return console.log(
+      `order delivered ! your ${this.starterMenu[starterIndex]} and${this.mainMenu[mainIndex]} delivered ${location} at ${time}`
+    );
+  },
+  //order biriyan with ...spread operator
+  orderBiriyani(ing1, ing2, ing3) {
+    console.log(`Your biriyani ready with ${ing1} , ${ing2} ,${ing3} `);
+  },
+};
+
+// const order = {
+//   time: "23:00",
+//   location: "jjs 32 street  , AUS",
+//   starterIndex: 1,
+//   mainIndex: 2,
+// };
+
+
+//copy two array elements
+// const newArr = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(newArr);
+
+const ingredients = [
+  //   prompt("Which ingredients for biriyani\n Ingredients1 ?"),
+  //   prompt("Which ingredients for biriyani\n Ingredients2?"),
+  //   prompt("Which ingredients for biriyani\n Ingredients13"),
+];
+
+//ingredients are spread using spread operator
+
+restaurant.orderBiriyani(ingredients[0] , ingredients[1] , ingredients[2]);
+restaurant.orderBiriyani(...ingredients); // same as above
+
+
+//copy and assign new value
+
+
+const newRestaurant = { ...restaurant };
+
+newRestaurant.location = "madurai";
+console.log(newRestaurant);
