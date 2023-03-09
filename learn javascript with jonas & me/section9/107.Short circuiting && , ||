@@ -1,0 +1,19 @@
+We basically do boolean operations using logical && || operators
+  But it do little bit more ,
+    Use any value , Use any return type short circuiting ,
+    
+    
+console.log("-------------OR----------------");
+console.log(undefined || 0 || null || 0); // returns if truthy value detects // other wise last false value print 0
+console.log(undefined || 0 || null || 5); // 5
+console.log(undefined || 0 || "" || "siva" || 2 || null); // siva
+
+console.log("---------------AND-------------------");
+
+console.log(4 && "sibva" && undefined); // undefined  // returns first falsy value
+console.log(3 && 5 && "siva"); // 'siva' // otherwise return last truthy value
+
+if (restaurant.orderPizza) {
+  console.log(restaurant.orderPizza("mushroom", "chicken", "mutton"));
+}
+restaurant.orderPizza && restaurant.orderPizza("mushroom", "chicken", "mutton");
