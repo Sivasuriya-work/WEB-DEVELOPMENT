@@ -1,0 +1,41 @@
+Logical assignment operators uses example 
+
+
+    const hotel1 ={
+    name : 'Saravana bhavan',
+    location : 'chennai',
+    food : ['idly' , 'dhosa' , 'vada'],
+    branches : 0 ,
+    }
+    const hotel2 = {
+    
+    name : 'Thalapakatti',
+    location : 'Dindigul',
+    owner : 'DIN',
+    food : ['biriyani' , 'chicken' , 'Mutton'],
+    branches : 10 ;
+    }
+
+
+  // OR operator
+    
+    hotel1.owner = hotel1.owner || 'siva' ; // here siva assign as owner
+    hotel2.owner = hotel2.owner || 'owner';
+    
+    hotel1.branches ||=10 ; // here 10 is assigned instead of 0 ; // this problem sort out by nullish operator
+    hotel2.branches ||=10 ; // here the default value asssign
+    
+    // nullish operator // Nullish principle // only value is undefined or null
+    
+    hotel1.branches ??=10 ; // here 0 assign
+    hotel2.branches ??=10 ; // here 20 assigned
+    
+    // AND operator
+    
+    hotel1.owner = hotel1.owner && '<NEWOWNER>' ; // no
+    hotel2.owner &&= '<Anonymous>' ; // <Anonymous>
+    
+      
+    
+    
+      
