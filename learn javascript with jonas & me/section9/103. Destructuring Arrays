@@ -1,0 +1,54 @@
+Destructuring :
+      It is break complex data structure into small data structures.
+      
+      ex : const arr = [1,2,3];
+           const a = arr[0];
+           const a = arr[1];     // this a normal way
+           const a = arr[2];
+           
+           
+           const [x,y,z] = arr ;    //destructuring assignment
+           
+           console.log(x , y , z); // 1 2 3
+           
+           
+           
+           
+           
+           
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'], 
+  order : function(starterIndex , mainIndex){
+    return this.starterMenu[starterIndex] , this.mainMenu[mainIndex] ;
+  }
+  };
+  
+  const categoryRest[first , second] = restaurent.catagories; // Destructuring
+  console.log(categoryRest);//'Italian', 'Pizzeria'
+  
+  const categoryRest[first , , second] = restaurent.catagories; // Destructuring
+  console.log(categoryRest);//Italian, Vegetarian
+ 
+ 
+ let categoryRest[main , secondary] = restaurent.catagories; // Destructuring
+ console.log(main , secondary);Italian, Pizzeria
+ 
+ temp = main ;
+ secondary = main;
+ main = temp;
+ 
+ console.log(main , secondary); //Pizzeria,Italian
+ 
+ [main , secondary] = [secondary , main]; // 
+ console.log(main , secondary);Pizzeria,Italian
+ 
+ receieve a return value from a function
+  restaurent.orders(2,0); // Garlic bread pizza
+ 
+ 
+ 
+ 
