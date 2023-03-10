@@ -1,0 +1,18 @@
+In ES2020 update some features object literals
+
+
+//get from other objects
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat ', ' sun'];
+//
+const holidays = [weekdays[5], weekdays[6]];
+
+//
+const school = {
+  name: 'Surya',
+  location: 'Theni',
+  Year: 2020,
+  workdays: weekdays,
+  holidays,
+};
+
+console.log(school);
