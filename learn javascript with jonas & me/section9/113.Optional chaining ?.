@@ -34,3 +34,26 @@ for (const day of weekdays) {
  console.log(`On ${day} shop is open ${open}`);
 } */
 
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// optional chaing using method
+console.log(
+  restaurant.orderBiriyani?.('chicken', 'mutton', 'crab') ??
+    'Method doesnot exist'
+);
+
+//// optional chaing using Array
+console.log(weekdays);
+
+//
+for (const day of weekdays) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} shop is open ${open}`);
+}
+
+const users = [{ name: 'siva', email: '@gmail' }];
+
+console.log(users[0]?.name ?? 'user');
+
+
