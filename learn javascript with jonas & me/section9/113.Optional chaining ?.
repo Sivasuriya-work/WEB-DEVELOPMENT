@@ -1,0 +1,36 @@
+
+
+//create an objects
+
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+//an array 
+
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+//?. Enhanced literal operator // if does not exist object elements
+
+for (const day of weekdays) {
+ const open = restaurant.openingHours[day] ?. open ?? 'closed';
+ console.log(`On ${day} shop is open ${open}`);
+}
+
+/* for Enhanced literal used for to solve uncaught type error
+for (const day of weekdays) {
+ const open = restaurant.openingHours[day] . open ?? 'closed';
+ console.log(`On ${day} shop is open ${open}`);
+} */
+
