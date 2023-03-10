@@ -1,0 +1,49 @@
+In ES2020 recent update  
+
+
+
+// Object keys
+const property = Object.keys(days);
+console.log(days);
+console.log(Object.keys(days));
+for (const day of Object.keys(days)) {
+  console.log(day);
+}
+
+// Object values
+
+console.log(Object.values(days));
+for (const day of Object.values(days)) {
+  console.log(day);
+}
+
+//Object Entries
+console.log(Object.entries(openingHours));
+const entry = Object.entries(openingHours);
+for (const [key, val] of entry) {
+  console.log(key, val);
+}
+for (const [key, { open, close }] of entry) {
+  console.log(key, open, close);
+}
+
+
+
+script.js:67 {day1: 'mon', day2: 'mon', day3: 'mon', day4: 'mon', day5: 'mon', …}
+script.js:68 (7) ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7']
+script.js:70 day1
+script.js:70 day2
+script.js:70 day3
+script.js:70 day4
+script.js:70 day5
+script.js:70 day6
+script.js:70 day7
+script.js:75 (7) ['mon', 'mon', 'mon', 'mon', 'mon', 'mon', 'mon']
+7script.js:77 mon
+script.js:81 (3) [Array(2), Array(2), Array(2)]
+script.js:84 thu {open: 12, close: 22}
+script.js:84 fri {open: 11, close: 23}
+script.js:84 sat {open: 0, close: 24}
+script.js:87 thu 12 22
+script.js:87 fri 11 23
+script.js:87 sat 0 24
