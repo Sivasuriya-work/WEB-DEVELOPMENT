@@ -1,0 +1,52 @@
+The for -of loop lanched in ES2020 , some advanced version for loop over arrays.
+  for of automatically iterated in Array upto end of an element.
+
+//create a array
+const arr = [1,2,3,4,5,6,7,8,9,10];
+ 
+//for of loop over arrays
+for (const items of arr) console.log(items);
+
+//for of over loop 
+for (const items of arr.entries()) {
+  console.log(items);
+}
+
+//diffrent way of define for of loop
+for (const [index, value] of arr.entries()) {
+  console.log(`${index + 1} : ${value} `);
+}
+
+
+//
+      
+script.js:198 1
+script.js:198 2
+script.js:198 3
+script.js:198 4
+script.js:198 5
+script.js:198 6
+script.js:198 7
+script.js:198 8
+script.js:198 9
+script.js:198 10
+script.js:201 (2) [0, 1]
+script.js:201 (2) [1, 2]
+script.js:201 (2) [2, 3]
+script.js:201 (2) [3, 4]
+script.js:201 (2) [4, 5]
+script.js:201 (2) [5, 6]
+script.js:201 (2) [6, 7]
+script.js:201 (2) [7, 8]
+script.js:201 (2) [8, 9]
+script.js:201 (2) [9, 10]
+script.js:204 1 : 1 
+script.js:204 2 : 2 
+script.js:204 3 : 3 
+script.js:204 4 : 4 
+script.js:204 5 : 5 
+script.js:204 6 : 6 
+script.js:204 7 : 7 
+script.js:204 8 : 8 
+script.js:204 9 : 9 
+script.js:204 10 : 10 
