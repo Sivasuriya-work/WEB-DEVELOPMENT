@@ -7,7 +7,7 @@ Destructuring :
            const a = arr[2];
            
            
-           const [x,y,z] = arr ;    //destructuring assignment
+           const [x,y,z] = ...arr ;    //destructuring assignment
            
            console.log(x , y , z); // 1 2 3
            
