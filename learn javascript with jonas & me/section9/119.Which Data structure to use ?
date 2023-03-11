@@ -1,0 +1,60 @@
+Sources of data
+
+  
+  Program contains itself-written in source code
+  
+  From the UI - from entry from users
+  
+  External resources - fetched from WEB API.
+        Data from the WebAPI is Json ,ex(recipe objects)
+  
+  WEB API :
+  -------------
+      Web Application Programming Interface,
+      It's fetching information from other WebApplications
+          for : current weather , news,any kind of data,
+  
+  
+  
+  So  these are all collection of data ,  to where to store this data
+    
+  Collection of data -> Data structure -> Four diffrent types to store data
+  
+      Simply list -> Array Or Sets
+      key,pair value -> Objects or Maps
+      
+      
+ Arrays                      work with simple list                            Sets
+ --------------------------------------------------------------- --------------------
+ 1.Simpla list allow duplication                        1.Unique set data operation
+                                                            remove duplication
+ 2.Tons of methods to manipulate data                    2.It high performance 10x to arrys
+ 
+ const arr= [1,2,3,4,5];                                const set = new Set(['siva','surya','siva']);
+ 
+       
+ Objects                     work with Key , Pair list                            Maps
+ --------------------------------------------------------------- --------------------
+ 1.traditional key/value                             1.Modern javascript uses better performence
+                                                        
+ 2.Easy to writeand use   .and []                    2.keys have any dataType , 
+ 
+ 3.Use when include functions()                     3.Easy to Iterate , Compute Size
+ 
+ 4.Use when work with JSON(can convert to map)       4.use when simply key,pair only 
+ 
+                                                      5.Use when your keys are not strings
+ 
+ 
+ const obj ={                                   const map = new Map([[1,'tea'],[2,'coffee']]);
+   name : 'siva',
+  age : 23,
+  place : 'then'
+ };
+ 
+ 
+ 
+      
+
+                    
+                  
