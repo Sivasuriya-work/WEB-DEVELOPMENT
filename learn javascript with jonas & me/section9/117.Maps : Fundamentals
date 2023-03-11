@@ -1,0 +1,90 @@
+Maps:
+
+What is Maps ?
+  It is a modern javascript data structure like an array,
+  It is adds a key element anything like array, map,set , but in array key element is a string.
+  
+  
+  //create a map
+    const Goaler = new Map();
+    
+  //set method to add data in Map
+    
+ //create set method like add method in set
+    goaler.set('key','Values');
+    goaler.set('playerNo','Scorer');
+    goaler.set(1,'Messi');
+    goaler.set(2,'Ronaldo');
+    goaler.set(3,'Neymer');
+    
+ //setting multiple type of values
+ 
+    goaler.set('Mon','open')
+    .set('Tue','open')
+    .set('Wed','open')
+    .set('Thu','open')
+    .set('Fri','open')
+    .set('Sat','open')
+    .set('Sun','open');
+    
+    
+    goaler.set('start', 10).set('End',10);
+    
+    
+    goaler.set('foods',['chicken','Mutton','Crab']);
+    
+    
+    goaler.set(true,'Win').set(false,'Loss');
+    
+    
+    script.js:48 Map(0) {size: 0}
+script.js:56 Map(5) {'key' => 'Values', 'playerNo' => 'Scorer', 1 => 'Messi', 2 => 'Ronaldo', 3 => 'Neymer'}
+script.js:68 Map(12) {'key' => 'Values', 'playerNo' => 'Scorer', 1 => 'Messi', 2 => 'Ronaldo', 3 => 'Neymer', …}
+script.js:71 Map(14) {'key' => 'Values', 'playerNo' => 'Scorer', 1 => 'Messi', 2 => 'Ronaldo', 3 => 'Neymer', …}
+script.js:74 Map(15) {'key' => 'Values', 'playerNo' => 'Scorer', 1 => 'Messi', 2 => 'Ronaldo', 3 => 'Neymer', …}
+script.js:77 Map(17) {'key' => 'Values', 'playerNo' => 'Scorer', 1 => 'Messi', 2 => 'Ronaldo', 3 => 'Neymer', …}[[Entries]]0: {"key" => "Values"}1: {"playerNo" => "Scorer"}2: {1 => "Messi"}3: {2 => "Ronaldo"}4: {3 => "Neymer"}5: {"Mon" => "open"}6: {"Tue" => "open"}7: {"Wed" => "open"}8: {"Thu" => "open"}9: {"Fri" => "open"}10: {"Sat" => "open"}11: {"Sun" => "open"}12: {"start" => 10}13: {"End" => 10}14: {"foods" => Array(3)}15: {true => "Win"}16: {false => "Loss"}size: 17[[Prototype]]: Map
+
+
+
+
+
+///Map get method to print data
+
+//goaler.get(true);
+
+    console.log(goaler.get(true)); // to print the get data from a map
+    
+//condition operation
+  const check = 12 ; // 8am match start or not 
+    console.log(goaler.start <= check <= goaler.end); // true
+    
+// If it is present then delete
+   console.log(goaler.has(3) && goaler.delete(3));//neymer data delete if returns true.
+   
+//map size
+  console.log(goaler.size);
+  
+// clear map data
+  goaler.clear();
+  
+  
+  
+  //set array as a key
+  
+  goaler.set([1,2] , 'arrays');
+  
+  //get a map data using a key of array
+  
+  //goaler.get([1,2]); //It will not work ,bcoz memory not poining to that
+  //instead of above
+  const arr = [1,2];
+  
+  console.log(goaler.get[arr]); // print : arrays
+  
+  // work with html
+  
+  goaler.set(document.querySelector('h1'),'Headding');
+  
+
+
+
