@@ -1,0 +1,42 @@
+Maps are similar to like an arrays , but arrays element are in string
+But map can store diffrent type elements like array,str;
+
+Some operations with map
+
+//create a map quiz
+
+const question = new Map([
+  ['question', 'Which is best langage in the world'],
+  [1, 'tamil'],
+  [2, 'English'],
+  [3, 'Hindi'],
+  [4, 'japanese'],
+  ['correct', 1],
+  [true, 'correct'],
+  [false, 'Wrong'],
+]);
+console.log(question);
+
+//create a question
+console.log(question.get('question'));
+
+// //create an answers
+console.log(Object.entries(question));
+for (const [key, val] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer ${key} : ${val} `);
+  }
+}
+
+//create prompt value
+
+const givAns = Number(prompt('What is the correct answer ?'));
+
+//check the answer is correct
+//display result.]
+
+console.log(question.get(givAns === question.get('correct')));
+
+//convert map into array
+
+console.log([...question.keys()]); // 
