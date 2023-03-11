@@ -1,0 +1,40 @@
+In ES6 two advanced data structure added ,
+ `  1.Set , 2.Map
+ 
+ What is set ? 
+  It is a unique collection data
+  It does not allow duplication
+  It is also iterablelike an aray
+  It does not has a Index value like an array , ar[0],a[1]...
+  It is usable, when work with unique data use, otherwise use an array.
+  
+  
+  
+ // to find a size of Set.//similar to length of an array method
+  const Goaler = new Set(['Messi' , 'Ronaldo','Messi','Neymer','Ronaldo','Neymer']);
+  console.log(Goaler);
+  Goaler.size ; 
+  
+//The has() methods to searrch the value is present // It is like an array includes method   
+  Goaler.has('Messi');
+  
+//adding to set elements  
+Goaler.add('RonalddoJr');
+Goaler.add('RonalddoJr');//already added //So no duplicate
+
+//Directly deleted from a set//If we delete it we can't retrive data set
+Goaler.delete('Ronaldo');
+
+//to delete all the set values//
+Goaler.clear();
+
+ // Set is also Iterable
+for(let scorer of Goaler)
+
+//convert Set into array
+const Scorer = new Set(Goaler);
+
+//String also iterable
+new Set('siva').size ;
+
+
