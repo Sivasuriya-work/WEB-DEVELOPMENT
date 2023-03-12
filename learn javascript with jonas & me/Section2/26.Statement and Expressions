@@ -1,0 +1,12 @@
+Expression -> is like a word
+  3+4;
+  4-5;
+  5*6;
+  6/7;
+  1998;
+  true&&false;
+  
+ Statement -> is includes collections of expressions to do something // like if statement , 
+ 
+    if(1){console.log(1);}
+    
