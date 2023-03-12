@@ -16,6 +16,8 @@ let secondPerson = 'John';
 
 /*Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95
  m tall*/
+
+
 let firstPersonHeight = 1.69; //in metre
 let secondPersonHeight = 1.95; //in metre
 let firstPersonMass = 78;//in kg
@@ -23,16 +25,15 @@ let secondPersonMass = 92;//in kg
 let firstPersonBMI = firstPersonMass / firstPersonHeight ** 2;
 let secondPersonBMI = secondPersonMass / secondPersonHeight ** 2;
 let firstPersonHigherBMI = firstPersonBMI > secondPersonBMI;
-// console.log(firstPersonHigherBMI);
-// console.log(firstPersonBMI);
-// console.log(secondPersonBMI);
-// console.log(firstPerson + "'s\n" + "height is :" + firstPersonHeight + "\nMass is : " + firstPersonMass + "\n" + "BMI is " + firstPersonBMI + "\n" + secondPerson + "'s\n" + "height is :" + secondPersonHeight + "\nMass is : " + secondPersonMass + "\n" + "BMI is " + secondPersonBMI + "\n" + "Is " + firstPerson + " BMI is greaterthan " + secondPerson + " " + firstPersonHigherBMI);
+
+
 if (firstPersonBMI > secondPersonBMI) {
     console.log(`${firstPerson} BMI ${firstPersonBMI} is greater than ${secondPerson} BMI ${secondPersonBMI}, `);
 }
 else {
     console.log(`${secondPerson} BMI ${secondPersonBMI} is greater than ${firstPerson} BMI${firstPersonBMI}`);
 }
+
 /*Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76
 m tall*/
 
@@ -50,14 +51,6 @@ if (firstPersonBMI > secondPersonBMI) {
 else {
     console.log(`${secondPerson} BMI ${secondPersonBMI} is greater than ${firstPerson} BMI${firstPersonBMI}`);
 }
-// console.log(firstPersonHigherBMI);
-// console.log(firstPersonBMI);
-// console.log(secondPersonBMI);
-
-// console.log(`${firstPerson} 's \n height is : ${firstPersonHeight} \n Mass is : ${firstPersonMass} \n BMI is ${firstPersonBMI} \n ${secondPerson} 's \n height is : ${secondPersonHeight} \n Mass is : ${secondPersonMass} \n BMI is ${secondPersonBMI} firstPersonBMI \n Is  ${firstPerson} BMI is greaterthan ${secondPerson} ${firstPersonHigherBMI}`);
-
-
-
 
 ....................................................................
 
