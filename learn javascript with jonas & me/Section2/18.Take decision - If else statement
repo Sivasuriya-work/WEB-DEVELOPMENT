@@ -1,0 +1,19 @@
+18.Take decision - If else statement
+    
+    To make decision or if the value true then false do alternative(optional)
+    
+      ex : if rain comes today , school will be leave , otherwise school will be open.
+           if he cooks foods , he will eat otherwise order food
+           
+      program :
+              const heCookFood = false ;
+              if(heCookFood){
+                console.log('he will eat at home');
+              }
+              else {
+                console.log('He will be order food ');
+              }
+      Program : More than two possiblity
+              if(condition){}
+              else(condition){}
+              else       
