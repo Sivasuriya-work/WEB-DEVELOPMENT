@@ -1,0 +1,28 @@
+
+
+Truthy & falsy
+
+  What is Truthy values :-
+  
+      Truthy values assign default by true boolean value.
+      
+  What is Falsy values:-
+    
+      Falsy values assign default by false boolean value.
+      
+      
+      Truthy ex :
+            console.log(Boolean(1)); //true
+            console.log(Boolean("1")); //true
+            console.log(Boolean("0")); //true
+            console.log(Boolean({})); //true
+            console.log(Boolean(18 === 18)); // Strict quality operator//true
+            console.log(Boolean(18 == 18)); //true
+            console.log(Boolean(18 == "18")); //weakly quality operator//true
+            
+      Falsy ex:
+            console.log(Boolean(0)); //false
+            console.log(Boolean(18 === "18")); //false
+            console.log(Boolean(undefined)); //false
+
+            console.log("----------------------------------------");
