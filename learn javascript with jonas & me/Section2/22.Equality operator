@@ -1,0 +1,22 @@
+Equality operator 
+
+what ?
+  Equaity operator is to do conditional operation
+  It is diffrentiated in two types
+    1.Strict quality operator
+    2.week quality operator
+    
+    
+    Strict quality operators check the condition strictly like the following
+   
+        console.log(Boolean(18 === 18)); // Strict quality operator//true
+        
+        console.log(Boolean(18 === "18")); //false
+        
+     Loosely quality operator : 
+
+         console.log(Boolean(18 == 18)); //true
+         
+         console.log(Boolean(18 == "18")); //weakly quality operator//true
+
+console.log("----------------------------------------");
