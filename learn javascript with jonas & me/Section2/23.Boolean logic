@@ -1,0 +1,35 @@
+
+Boolean has values only happens(true) or not happens(false);
+
+    Boolean table
+    
+    AND table :
+    
+     AND | True | False
+    -------------------
+    True | true | false
+    -------------------
+    False| false| false 
+    
+    OR table :
+    
+    OR | True | False
+    -------------------
+    True | true | true
+    -------------------
+    False| true| false 
+    
+    
+    NOT table :
+    
+    
+    NOT | 
+    -------------
+    True | false
+    -------------
+    False | true
+    
+    
+    
+    
+    
