@@ -1,4 +1,21 @@
 LECTURE: The switch Statement
+
+    What ? how it is work ?
+    
+        It is compare values in the given multiple option ,and move to that option, else print default values.
+        
+        switch(opt){
+            case opt:
+                break;
+            default:       
+        }
+        
+        
+        
+        
+        
+        
+
 1. Use a switch statement to log the following string for the given 'language':
 chinese or mandarin: 'MOST number of native speakers!'
 spanish: '2nd place in number of native speakers'
