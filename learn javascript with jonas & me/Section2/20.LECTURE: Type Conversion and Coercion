@@ -1,0 +1,33 @@
+
+LECTURE: Type Conversion and Coercion
+  Type convertion : 
+      To converting one type into another type of variable 
+        ex : 
+                   
+          const getAge = prompt(Enter your age); // prompt value is always a string  , so convert into a number
+          const Age = Number(getAge); // converts string   into a number
+          
+          const strAge = String(Age);
+      
+  Type coercion : 
+      To detect types and do operations automatically , To understand about the coercion is must.      
+
+
+
+        1. Predict the result of these 5 operations without executing them:
+        -------------------------------------------------------------------------
+        '9' - '5';
+        '19' - '13' + '17';
+        '19' - '13' + 17;
+        '123' < 57;
+        5 + 6 + '4' + 9 - 4 - 2;
+
+
+        2. Execute the operations to check if you were right
+        -----------------------------------------------------
+
+        4
+        617
+        23
+        false
+        1143
