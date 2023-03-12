@@ -1,0 +1,9 @@
+String is a collection of charactors
+    const str = 'It is a string'; // sequence of charactors
+    
+template literals is more multiple variable in one string
+    const str1 = `It is String of(${str})`; // with backquotes  ``
+     \n -  is a new line    
+     \' - mention single quote
+     \" - mention double quote
+     
