@@ -26,3 +26,61 @@ console.log(newStr);
 newStr = newStr.join(" ");
 
 console.log(newStr);
+//repeat
+
+const warn = "Be careful ";
+console.log(warn.repeat(5));
+
+//padding a string
+
+//padstart & padEnd
+
+//adding lenth fill ups
+
+const message = "siva";
+console.log(message.padStart(20, "*"));
+console.log(message.padEnd(20, "*"));
+console.log(message.padStart(10, "*").padEnd(20, "*"));
+
+function padNumber(num) {
+  const str = num + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+}
+
+console.log(padNumber(8994556565656565));
+//if one of the oprend string that converts remaining also a string
+
+const arr = [];
+
+//one method
+function capitalizeName(str) {
+  const newStr = str.split(" ");
+
+  for (let n of newStr) {
+    arr.push(n[0].toUpperCase() + n.slice(1));
+  }
+
+  console.log(arr.join(" "));
+}
+
+//2nd method using replace
+const arr2 = [];
+function capitalizeNames(str) {
+  const newStr = str.split(" ");
+  console.log(newStr);
+  for (const n of newStr) {
+    console.log(n);
+    arr2.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+
+  console.log(arr2.join(" "));
+}
+
+capitalizeNames("Siva sdd d aa  ad dds");
+
+capitalizeName("siva");
+capitalizeName("siva suriya");
+capitalizeName("avb siva");
+capitalizeName("siva Adf");
+capitalizeName("siva asc dcdc");
