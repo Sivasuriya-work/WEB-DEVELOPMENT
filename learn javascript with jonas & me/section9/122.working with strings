@@ -1,0 +1,56 @@
+// convert string case
+
+const str = " What IS YoUr Name?";
+console.log(str.toLowerCase());
+
+//convert into UPPERCASE
+
+console.log(str.toUpperCase());
+
+//Uniform string to  lowercase with first letter capital;
+
+function uniformStr(str) {
+  const strUniform = str[0].toUpperCase() + str.slice(1).toLowerCase();
+  return strUniform;
+}
+console.log(uniformStr("the AniMaL is AN ELePHANt"));
+
+//normalized email -
+const email = "xyz@example.com";
+const givEmail = " XyZ@ExAmple.com ";
+
+console.log(uniformEmail(givEmail) === email); //true
+function uniformEmail() {
+  const convertEmail = givEmail.toLowerCase().trim();
+  return convertEmail;
+}
+
+//replace // convert first occurence
+const rupee = "1,24R";
+console.log(uniformRupee(rupee));
+
+function uniformRupee(givRupee) {
+  const convertRupee = givRupee.replace(",", ".").replace("R", "$");
+  return convertRupee;
+}
+
+// replace All
+
+const car = "car price is 1,24R . The car price may vary at any time";
+
+console.log(uniformCar(uniformRupee(car)));
+function uniformCar(givCar) {
+  const convertCar = givCar.replaceAll("car", "Bus");
+  return convertCar;
+}
+
+const convertCar = car.replace(/car/g, "Bus");
+console.log(convertCar);
+
+//Booleans
+
+console.log(car.includes("car")); //true
+console.log(car.startsWith("car")); //true
+console.log(car.startsWith("price")); // false
+console.log(car.endsWith("time")); // true
+console.log(car.endsWith("tim")); // false
