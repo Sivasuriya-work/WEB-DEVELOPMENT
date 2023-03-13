@@ -1,0 +1,28 @@
+
+
+//split ()
+
+//split // It is a divident method
+
+let str = "The use of split and join";
+
+console.log(str);
+
+let newStr = str.split(" ");
+
+console.log(newStr);
+
+
+//join // It is joining the array
+
+str = newStr.join("+");
+
+console.log(str);
+
+newStr = str.split("+");
+
+console.log(newStr);
+
+newStr = newStr.join(" ");
+
+console.log(newStr);
