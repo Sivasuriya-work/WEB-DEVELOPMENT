@@ -38,3 +38,14 @@ String is a collection charactors,
  // //.slice() , //slice down the value upto the limit
  
     console.log(plane.slice(2,4)); // start value , end value//In between printed
+console.log(airline.slice(-5));
+console.log(airline.slice(-5));
+
+
+
+function cms(seat) {
+  const s = seat.slice(-1);
+  console.log(s === ("B" || "E") ? "You got middle seat" : "blnt");
+}
+cms("22B");
+cms("12");
