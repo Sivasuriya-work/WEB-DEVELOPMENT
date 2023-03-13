@@ -1,0 +1,40 @@
+
+
+String is a collection charactors,
+
+  // here some following methods work with a string
+  
+  //calculate length
+  
+  const name ='siba';  
+  console.log(name.length); // 4
+  
+  //declare strings
+  
+  const airline ='Tap air portugal';
+  const plane = 'A320';
+  
+  //display position value
+  
+  console.log(plane[0]);//A
+  console.log(plane[1]);//3
+  
+  //declare and get position
+  
+   console.log('plane'[0]);//p
+   
+  //Find the indexOf()
+  
+    console.log(plane.indexof(p));//1 //
+    
+ //Find the index last occur ()   
+ 
+    console.log(plane.indexlof(p));//
+    
+ //.slice() , //slice down the value upto the limit
+ 
+     console.log(plane.slice(1));
+     
+ // //.slice() , //slice down the value upto the limit
+ 
+    console.log(plane.slice(2,4)); // start value , end value//In between printed
