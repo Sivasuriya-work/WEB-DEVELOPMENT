@@ -1,0 +1,31 @@
+'use strict';
+
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+flightsText(flights);
+//Departure from FAD to LIS (12h30)
+
+function flightsText(flights) {
+  const flightLines = flights.split('+');
+  // console.log(flightLines);
+  for (const flightLine of flightLines) {
+    const flightWords = flightLine.split(';');
+
+    let [first, second, third, fourth] = flightWords;
+
+    first = first.replace(/_/g, ' ');
+
+    second = second.substring(0, 3).toUpperCase(); // new method
+    third = third.substring(0, 3).toUpperCase(); // new method
+
+    fourth = `(${fourth.replace(':', 'h')})`;
+
+    const flightsFinalText = `${first} ${second} ${third} ${fourth}`.padStart(
+      40,
+      ' '
+    );
+    console.log(flightsFinalText);
+  }
+}
