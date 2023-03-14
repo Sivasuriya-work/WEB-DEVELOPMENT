@@ -1,0 +1,26 @@
+
+
+'use strict';
+const bookings = [];
+
+function createBooking(
+  flightNum = 1,
+  numpassangers = 1,
+  price = 199 * numpassangers //es6 updates
+) {
+  //ES5
+  //numPassangers = numPassangers || 1;
+  //price = price || 199;
+  const booking = {
+    flightNum,
+    numpassangers,
+    price,
+  };
+
+  console.log(booking);
+  bookings.push(booking);
+}
+
+createBooking('LH123');
+createBooking('LH123', 2, 800);
+createBooking('LH123', undefined, 800);
