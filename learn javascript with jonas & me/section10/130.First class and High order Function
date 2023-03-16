@@ -1,0 +1,14 @@
+First class Functions
+
+  In JavaScipt functions are first class citizens
+  It is a simple value
+  Just another type of object
+        store the values add(){ sum = a+b }
+        passing th values add(a,b) // passing a , b parameter
+        call the values add(a,b) //
+        
+        
+ High order function:
+    It is passing/return a function as a value
+    Receiving function as a value
+    It is possible bcoz of first class function
