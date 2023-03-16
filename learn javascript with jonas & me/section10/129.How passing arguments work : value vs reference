@@ -1,0 +1,35 @@
+const fName = 'AIR123';
+const passport = {
+  firstName: 'siva',
+  passportNum: 245624562456,
+};
+
+console.log(fName, passport);
+
+function check(fname, passport) {
+  const flightName = ' Flight  : ' + fname;
+  passport.firstName = 'Mr' + passport.firstName;
+  if (passport.passportNum === 245624562456) {
+    console.log(`welcome to ${flightName}`);
+  } else {
+    console.log(`Entry Invalid , check the details`);
+  }
+}
+
+check(fName, passport);
+
+function newPassport(passport) {
+  const pass = passport;
+  pass.passportNum = Math.trunc(Math.random() * 10000000);
+}
+
+// fname passing a value
+//passport passing a reference of a object .
+
+newPassport(passport);
+check(fName, passport);
+//These two are same , but some
+
+console.log(fName, passport);
+
+console.log();
