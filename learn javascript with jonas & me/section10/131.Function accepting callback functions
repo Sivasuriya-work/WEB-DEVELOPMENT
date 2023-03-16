@@ -1,0 +1,29 @@
+
+
+
+function oneWord(str) {
+  return str.replace(/ /g, '');
+}
+
+function toUpperCase(str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+}
+function transformer(str, fn) {
+  console.log(`The given string  : ${str}`);
+  console.log(`Transformed string : ${fn(str)}`);
+  console.log(`Transformer fn : ${fn.name}`);
+}
+
+transformer('hi !, this is siva', toUpperCase);
+transformer('hi !, this is siva', oneWord);
+
+function high5() {
+  console.log('hi');
+}
+
+document.body.addEventListener('click', high5);
+
+[a,b,v] array.forEach(element => {
+  console.log('hi'); 
+});
