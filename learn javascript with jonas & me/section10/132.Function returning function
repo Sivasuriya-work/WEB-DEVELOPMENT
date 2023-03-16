@@ -1,0 +1,27 @@
+
+
+//Using arrow function as a rreturning functions
+const greetArr = greet => name => console.log(`${greet}${name}`);
+
+greetArr('hello')('siva');
+
+// const greetArr = greet =>
+//   function (name) {
+//     console.log(`${greet}${name}`);
+//   };
+
+const greetArrHello = greetArr('hello');
+greetArrHello('ARROW siva');
+
+//A traditional method ,  little bit complex
+
+function greet(greet) {
+  return function (name) {
+    console.log(`${greet}${name}`);
+  };
+}
+
+const greetHello = greet('Hello');
+greetHello('siva');
+
+greet('hello')('suriya'); //It is used to functional programming
