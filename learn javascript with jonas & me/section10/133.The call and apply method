@@ -1,0 +1,48 @@
+'use strict';
+const air = {
+  airline: 'AIRIND',
+  iatacode: 'AI',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `Hi ${name} ,  your flight booking details : Flight - ${this.airline} , number - ${this.iatacode}${flightNum}`
+    );
+    console.log(flightNum);
+    this.bookings.push({
+      name,
+      airline: this.airline,
+      iatacode: this.iatacode,
+      flightNum,
+    });
+  },
+};
+console.log(air);
+
+air.book(1, 'siva');
+
+const jet = {
+  airline: 'jet',
+  iatacode: 'je',
+  // flightNum: '321',
+  bookings: [],
+};
+
+jet.book = air.book;
+
+jet.book(43, 'surya');
+
+const deccan = {
+  airline: 'deccan',
+  iatacode: 'de',
+  // flightNum: '320',
+  bookings: [],
+};
+
+const book = air.book; // to define a method copy to book
+
+book.call(deccan, 34, 'sivasuriya'); // in call method current object mentioned
+book.call(deccan, 34, 'sivasuriya');
+
+console.log(deccan.bookings);
+console.log(jet.bookings);
+console.log(air.bookings);
