@@ -1,0 +1,14 @@
+
+//IIFE - Immediatetly invoked function expression
+
+//It is run  automattically when program is executed
+//It is use a scope of the program we learned already
+//
+
+(function () {
+  //require function name
+  const isPrivate = 'siva';
+  console.log('This is IIFE');
+})();
+// runs
+// console.log(isPrivate);//I  isPrivate not defined
