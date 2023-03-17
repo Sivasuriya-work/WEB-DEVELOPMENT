@@ -1,0 +1,39 @@
+
+//what is closure?
+//It was created wwhen the executionn context is gone
+//It is access that variable in the parent funtion when the parent funtion also closed.
+//variable that exist functions birth place.
+//closure is a connection , when execution context work finished , and then the connection is also present in loosely connecction
+//It is a internal property of a function
+
+//we do not create a closure
+
+function parent() {
+  let child = 0;
+  return function () {
+    child++;
+    console.log(`${child} child`);
+  };
+}
+
+const family = parent(); // here return function is stored here
+//but the child value assigned in parent function
+//the parent execution context is closed
+//Then also the function family function was  access a child value
+//This is called a Closure
+//When the parent function is execution context is closed , the child function loosely connection between parent function variables . It is called  closure
+console.log(family);
+
+family(); //
+family();
+family();
+family();
+family();
+family();
+// 1 child
+// script.js:16
+//  2 child
+// script.js:16 3 child
+// script.js:16 4 child
+// script.js:16 5 child
+// script.js:16 6 child
