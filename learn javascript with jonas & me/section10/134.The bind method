@@ -1,0 +1,104 @@
+'use strict';
+///////////////////////////////////////////////
+//apply method
+
+/////////////////////////////////////////////////////////////
+//#1///AIR
+const air = {
+  airline: 'AIRIND',
+  iatacode: 'AI',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `Hi ${name} ,  your flight booking details : Flight - ${this.airline} , number - ${this.iatacode}${flightNum}`
+    );
+    this.bookings.push({
+      name,
+      airline: this.airline,
+      iatacode: this.iatacode,
+      flightNum,
+    });
+  },
+};
+//direct call from air object
+air.book(1, 'siva');
+
+//#2//JET
+const jet = {
+  airline: 'jet',
+  iatacode: 'je',
+  bookings: [],
+};
+//copy object fro one to other
+jet.book = air.book;
+jet.book(43, 'surya');
+
+//#3//DECCAN
+const deccan = {
+  airline: 'deccan',
+  iatacode: 'de',
+  bookings: [],
+};
+
+///create  a global access object
+//1.call
+//2.apply
+//3.bind
+const book = air.book;
+//using a call function to speccify a particular object value
+book.call(deccan, 34, 'sivasuriya');
+book.call(deccan, 34, 'sivasuriya');
+//console output
+console.log(deccan.bookings);
+console.log(jet.bookings);
+console.log(air.bookings);
+
+//apply
+const flightNum = [20, 'Siva']; //passing array of arguments as apply
+book.apply(jet, flightNum);
+
+//bind - here binding values based on the attribute
+
+
+const bookAir = book.bind(air);
+bookAir(50, 'Arya');
+const bookJet = book.bind(jet);
+bookJet(55, 'Arya');
+const bookDeccan = book.bind(deccan);
+bookDeccan(56, 'Arya');
+
+console.log(air.bookings);
+console.log(jet.bookings);
+console.log(deccan.bookings);
+
+//ex2 binding more elements,
+
+const bookAir50 = book.bind(air, 50);
+bookAir50('Arya');
+const bookJet55 = book.bind(jet, 55);
+bookJet55('Arya');
+const bookDeccan56 = book.bind(deccan, 56);
+bookDeccan56('Arya');
+console.log(air.bookings);
+console.log(jet.bookings);
+console.log(deccan.bookings);
+
+//binding percentage of vat addVat
+
+function valVat(vat, val) {
+  console.log(val, vat);
+  return val + (val * vat) / 100;
+}
+
+const valVat5p = valVat.bind(null, 5);
+console.log(valVat5p(10000));
+
+//addEventListener accessing functions
+let plane = 0;
+function buyPlane() {
+  return function () {
+    console.log(++plane);
+  };
+}
+document.querySelector('.buy').addEventListener('click', buyPlane());
+//////////////////////////////////////////////////////////
