@@ -1,0 +1,15 @@
+//Maps using forEach method
+
+const newCurrencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+//In forEach method function the first one is value is passing current element of the map.
+//second one index of an map element
+//third one is current map
+
+newCurrencies.forEach(function (value, key, map) {
+  console.log(` ${key}  : ${value}`);
+});
