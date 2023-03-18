@@ -1,0 +1,43 @@
+
+//for each - method
+//vs
+//traditional method
+
+const passBookEntries = [
+  1000, 50000, 10000, 12222, 3333, -1111, -2324, -323223, 33333, -50000,
+];
+console.log('---------------For of-------------------------');
+for (const pBEntry of passBookEntries)
+  console.log(
+    `${pBEntry > 0 ? 'Deposit' : 'Withdraw'} Rs : `.padStart(20) +
+      `${pBEntry}`.padStart(10)
+  );
+console.log('---------------For of with entries-------------------------');
+
+for (const [i, pBEntry] of passBookEntries.entries())
+  console.log(
+    ` ${`${i + 1}`.padStart(5)} : ${
+      pBEntry > 0 ? 'Deposit' : 'Withdraw'
+    } Rs : `.padStart(20) + `${pBEntry}`.padStart(10)
+  );
+  
+console.log('---------------forEach entries-------------------------');
+
+passBookEntries.forEach((pBEntry, i, arr) => {
+  //here forEach method
+  //first one each element of an array
+  //second is index
+  //third is array value
+
+  console.log(
+    `${i + 1} ${pBEntry > 0 ? 'Deposit' : 'Withdraw'}  Rs : `.padStart(20) +
+      `${pBEntry} entries ${arr.slice(0, i + 1)}`.padStart(10)
+  );
+});
+
+// if(pBEntry > 0){
+//   console.log(`Deposit Rs: ${pBEntry}`);
+// }
+// else{
+//   console.log(`Withdraw Rs : ${pBEntry}`);
+// }
