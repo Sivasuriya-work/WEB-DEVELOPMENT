@@ -41,3 +41,38 @@ passBookEntries.forEach((pBEntry, i, arr) => {
 // else{
 //   console.log(`Withdraw Rs : ${pBEntry}`);
 // }
+
+
+---------------For of-------------------------
+script.js:86        Deposit Rs :       1000
+script.js:86        Deposit Rs :      50000
+script.js:86        Deposit Rs :      10000
+script.js:86        Deposit Rs :      12222
+script.js:86        Deposit Rs :       3333
+script.js:86       Withdraw Rs :      -1111
+script.js:86       Withdraw Rs :      -2324
+script.js:86       Withdraw Rs :    -323223
+script.js:86        Deposit Rs :      33333
+script.js:86       Withdraw Rs :     -50000
+script.js:90 ---------------For of with entries-------------------------
+script.js:93      1 : Deposit Rs :       1000
+script.js:93      2 : Deposit Rs :      50000
+script.js:93      3 : Deposit Rs :      10000
+script.js:93      4 : Deposit Rs :      12222
+script.js:93      5 : Deposit Rs :       3333
+script.js:93      6 : Withdraw Rs :      -1111
+script.js:93      7 : Withdraw Rs :      -2324
+script.js:93      8 : Withdraw Rs :    -323223
+script.js:93      9 : Deposit Rs :      33333
+script.js:93     10 : Withdraw Rs :     -50000
+---------------forEach entries-------------------------
+script.js:104     1 Deposit  Rs : 1000 entries 1000
+script.js:104     2 Deposit  Rs : 50000 entries 1000,50000
+script.js:104     3 Deposit  Rs : 10000 entries 1000,50000,10000
+script.js:104     4 Deposit  Rs : 12222 entries 1000,50000,10000,12222
+script.js:104     5 Deposit  Rs : 3333 entries 1000,50000,10000,12222,3333
+script.js:104    6 Withdraw  Rs : -1111 entries 1000,50000,10000,12222,3333,-1111
+script.js:104    7 Withdraw  Rs : -2324 entries 1000,50000,10000,12222,3333,-1111,-2324
+script.js:104    8 Withdraw  Rs : -323223 entries 1000,50000,10000,12222,3333,-1111,-2324,-323223
+script.js:104     9 Deposit  Rs : 33333 entries 1000,50000,10000,12222,3333,-1111,-2324,-323223,33333
+script.js:104   10 Withdraw  Rs : -50000 entries 1000,50000,10000,12222,3333,-1111,-2324,-323223,33333,-50000
