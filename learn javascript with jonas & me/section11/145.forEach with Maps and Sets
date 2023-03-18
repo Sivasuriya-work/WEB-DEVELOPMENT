@@ -42,3 +42,8 @@ const newCurrencies = new Map([
 newCurrencies.forEach(function (value, key, map) {
   console.log(` ${key}  : ${value}`);
 });
+
+ USD , USD
+script.js:105  usd , usd
+script.js:105  sds , sds
+script.js:105  spd , spd
