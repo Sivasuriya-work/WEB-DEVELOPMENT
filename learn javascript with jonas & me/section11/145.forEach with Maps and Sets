@@ -1,3 +1,32 @@
+
+//forEach method for maps and sets
+
+//Sets using forEach method
+
+const newCurrencies = new Set([
+  'USD',
+  'usd',
+  'sds',
+  'spd',
+  'USD',
+  'usd',
+  'sds',
+  'spd',
+  'USD',
+  'usd',
+  'sds',
+  'spd',
+]);
+
+//In forEach method function the first one is value is passing current element of the map.
+//second one index of an map element
+//third one is current map
+// It does not hass a key value
+//so the forEach developer does not create indeex for Sets
+
+newCurrencies.forEach(function (value,  map) {
+  console.log(` ${key}  : ${value} , ${map}`);
+});
 //Maps using forEach method
 
 const newCurrencies = new Map([
