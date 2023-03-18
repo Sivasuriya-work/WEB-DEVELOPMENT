@@ -1,0 +1,45 @@
+let g;
+function f() {
+  console.log('I am function f()');
+  const a = 1;
+  g = function () {
+    console.log('I am function g() inside f() ');
+    console.log(`${a * 2}`);
+  };
+}
+function h() {
+  const b = 2;
+  console.log('I am function h()');
+  g = function () {
+    console.log('I am function g() inside h()');
+    console.log(`${b * 2}`);
+  };
+}
+
+f();
+g(); //The example of closure
+console.dir(g);
+h();
+g(); //the example of closure
+console.dir(g);
+
+//code challenge #2
+function designer() {
+  const header = document.querySelector('h1');
+  setTimeout(function () {
+    console.log('2 second achu');
+  }, 2000);
+  //   header.style.color = 'red';
+
+  return function () {
+    console.log('work');
+    header.style.color = 'red';
+  };
+}
+console.log(document.querySelector('body').addEventListener('click', designer));
+
+document.querySelector('body').addEventListener('click', designer);
+console.log(document.querySelector('body').addEventListener('click', designer));
+
+//More closure examples
+//
