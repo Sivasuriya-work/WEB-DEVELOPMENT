@@ -1,0 +1,29 @@
+//To work with bankist application
+//The process of making DOM at the class movements
+//Using array fields into the Html field contents
+
+
+
+//to add something using a function is a better way access the elements
+//In here displaying the values of the function
+
+function displayMovements(movements) {
+  movements.forEach(function (mov, i) {     //using forEach method to display all elements in a array
+    const type = mov > 0 ? 'deposit' : 'withdrawal'; //Ternary oprator
+    const html = `                        //To create a html adding elements // using terminal
+    <div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+    <div class="movements__value">${mov}€</div>
+  </div>`;
+  
+  ///////////////////adding the content to html by the following format ///////////////////////////
+  
+    containerMovements.insertAdjacentHTML('afterbegin', html);// to add the value of an HTML contents // define location
+    
+    
+    //afterbegin // beforebegin
+    //afterend // beforeend
+  });
+}
+
+displayMovements(account1.movements); // call the function
