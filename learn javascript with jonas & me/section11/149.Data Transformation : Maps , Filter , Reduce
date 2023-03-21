@@ -1,0 +1,20 @@
+
+In Data tranformation in modern javascript used following methods
+  //  Maps
+  //  Filter
+  //  Reduce
+  
+  Maps , which can create new array to do manipulation and assigned to original value
+  
+  1 2 3 4 5  - >  current * 2 -> 2 4 6 8 10 12 
+  
+  Filter , It check the condition to filter the elements into new array and assign
+  
+  1 2 3 4 5 -> current > 2 -> 2 3 4 5 
+  
+  Reduce -> It reduces all array elements into single elements into new array and assign
+  
+  1 2 3 4 5 -> acc+current -> 15
+  
+  
+     
