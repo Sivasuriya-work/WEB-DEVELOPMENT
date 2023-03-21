@@ -1,0 +1,31 @@
+//The method it is similar to forEach method
+// create new array to store result of manipulation
+//
+
+
+/To convert the amount from one country value into another one
+const movements = account1.movements;//list of array values from acccount 1 object
+
+// console.log(movements);
+const euroToUsd = 1.1;
+
+//Traditional method
+// const euroToUsdMov = movements.map(function (mov) {
+// return mov * euroToUsd;
+// });
+
+//modern java : use array function
+const euroToUsdMov = movements.map(mov => mov * euroToUsd); //pass single value no need of paranthesis
+
+console.log(movements);
+console.log(euroToUsdMov);
+
+
+//movements of an map using arrow functions
+
+const description = movements.map(
+  (val, indx) => // passing multiple argugumnts using paranthesis
+    `${indx + 1} . Money ${val} : ${val > 0 ? 'Depsosit' : 'withdrawal'} `
+);
+
+console.log(description);
