@@ -1,0 +1,20 @@
+// to filter the only meeded value from an arrays
+//filter method is used
+
+
+
+//needed only positive numbers
+const deposits = account1.movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+
+
+//needed only negative number
+
+const withdrawal = account1.movements.filter(mov => mov < 0);
+console.log(withdrawal);
+
+
+(5) [200, 450, 3000, 70, 1300]
+script.js:89 (3) [-400, -650, -130]
