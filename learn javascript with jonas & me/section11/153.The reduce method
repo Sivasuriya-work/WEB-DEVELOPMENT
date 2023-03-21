@@ -1,1 +1,19 @@
+//reduce method
+//boiled down multiple arrays into one single array
+//It diffrent from the other method
+//reduce(accumulator , currentvalue , index , arr)
+const movements = account1.movements;
 
+//the reduce method have accumulator value
+
+function depositVal(movements) {
+  return movements.reduce((acc, cur) => (cur > 0 ? acc + cur : acc + 0), 0);
+}
+
+console.log(depositVal(account1.movements));
+function withdrawalVal(movements) {
+  return movements.reduce((acc, cur) => (cur < 0 ? acc + cur : acc + 0), 0);
+}
+const balance = movements => movements.reduce((acc, cur) => acc + cur, 0);
+
+console.log(balance(movements));
