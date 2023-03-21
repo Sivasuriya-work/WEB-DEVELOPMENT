@@ -1,0 +1,19 @@
+
+// creating username from str of ownerr name and asssign neeww username to that object
+// Siva Surya // ss // each words first lowercase letter
+
+
+//computing username
+
+// first convert string
+function createUserName(accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .split(' ')
+      .map(mov => mov[0])
+      .join('')
+      .toLowerCase();
+  });
+}
+createUserName(accounts);
+console.log(accounts);
