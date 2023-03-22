@@ -1,0 +1,32 @@
+// The chaining method is reducing program complexity
+//If we not chaining the methods , it will take more programs to get the data.
+//Instead of chaining method the method is used to get easiest way to get an output
+
+
+//In this method calculating the euro value from chaining the methods
+
+const euroToUsd = 1.2;
+
+function displaySummary(movements) {
+
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0); // initial accumulator value is zero
+    
+  labelSumIn.textContent = ` ${incomes}€`;
+  
+  const outcomes = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+    
+  labelSumOut.textContent = ` ${Math.abs(outcomes)}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)                         //filter method to filtering only deposited values
+    .map((val, int) => (val * euroToUsd) / 100)     //in map storing the new array values of  interest value of each deposits
+    .reduce((acc, mov) => acc + mov, 0);            //reduce boiled down the multiple array element into single value.
+    
+  labelSumInterest.textContent = ` ${interest}€`; //manipulate the HTML textContent
+
+}
+console.log(displaySummary(account1.movements));
