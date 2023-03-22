@@ -1,0 +1,15 @@
+
+//The find methoo return current array element value is true
+//It returns first occurence of true value
+//
+
+const findEle = account1.movements.find(mov => mov < 0);
+console.log(account1.movements);
+console.log(findEle);
+
+//It is powerful method//in complex data structure
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+//It will return object details
+// {owner: 'Jessica Davis', movements: Array(8), interestRate: 1.5, pin: 2222}
