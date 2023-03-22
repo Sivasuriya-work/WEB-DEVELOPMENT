@@ -1,0 +1,27 @@
+//Html attribute is details about the element , additional information
+
+<a href="https://www.w3schools.com">Visit W3Schools</a>
+
+//href is a anchor tag attribute
+
+<img src="img_girl.jpg">
+
+/src is an attribute
+
+//absolute URL : is with particular domain name // www.examaple.com/img
+
+//relative URL : included with the page // filename.jpg
+
+lang is a page language     <html lang="en-US">
+
+We Suggest: Always Use Lowercase Attributes
+
+<h1>to</h6>
+
+<p></p>
+
+<br>
+
+<hr>
+
+<pre> preservative
