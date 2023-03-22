@@ -1,0 +1,28 @@
+//HTML documents //HTML must start with doctype declaration 
+
+
+<!DOCTYPE html>
+// it is not a case sensitive
+
+<html></html>
+
+<body></body>
+
+
+//HTML declaration 
+//helps to display web pages correctly 
+//once appear at the
+top of the page 
+
+//<!DOCTYPE >It declaraes HTML5 
+
+//HTML heading1 -
+<h1></h1>
+
+//paragrapghs-
+<p></p>
+
+//links<a href="">link</a>
+
+//images<img src="" alt="" width="" height="" /> 
+// img not contains end tag
