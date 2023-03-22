@@ -1,0 +1,19 @@
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentUser = accounts.find(acc => acc.username === inputLoginUsername.value);
+  // always define value from get data from input field
+  console.log(currentUser);
+  //check the username and the pin
+
+  if (currentUser && currentUser?.pin === Number(inputLoginPin.value)) {
+    //using optional chaining
+    containerApp.style.opacity = 100;
+    labelWelcome.textContent = `Hi ${currentUser.owner.split(' ')[0]} `;
+    inputLoginUsername.value = '';
+    inputLoginPin.value = '';
+  }
+
+  displayMovements(currentUser.movements);
+  displaySummary(currentUser);
+});
