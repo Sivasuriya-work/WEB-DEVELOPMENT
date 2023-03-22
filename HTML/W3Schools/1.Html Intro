@@ -1,1 +1,68 @@
 
+
+//HTML - It is markup language for creating web pages //
+
+//Markup language - is a text-encoding system consisting of a set of symbols inserted in a text document
+to control its structure, formatting, or the relationship between its parts.
+Markup is often used to control the display of the document or to enrich its
+content to facilitating automated processing. 
+//It is creating web pages
+//Structure of web pages 
+//series of elements contains 
+//label pieces contains
+
+<!DOCTYPE html> - declare document is an HTML5 Document
+<html>
+  - root of html element
+</html>
+
+
+<head>
+  Meta information about the html page
+</head>
+
+
+<body>
+  contains all visible elements
+</body>
+
+
+<h1>heading</h1>
+<p>paragraph</p>
+
+// Html element contais start with start tag and ends with end tag , 
+// some elements not contains end tag
+
+<h1></h1>//contain
+<p></p> //contain
+<br /> //not contain 
+
+//Structure of HTML
+
+<html>
+  <head>
+    <title>page title</title>
+  </head>
+  <body>
+    <h1>THis is heading</h1>
+    <p>This is paragraph</p>
+  </body>
+</html>
+
+HTML History
+Since the early days of the World Wide Web, there have been many
+versions of HTML: 
+Year                                       Version 
+1989 Tim Berners-Lee invented www 
+1991 TimBerners-Lee invented HTML
+1993 Dave Raggett drafted HTML+ 
+1995 HTML WorkingGroup defined HTML 2.0 
+1997 W3C Recommendation: HTML 3.2 
+1999 W3C Recommendation: HTML 4.01 
+2000 W3C Recommendation: XHTML 1.0 
+2008 WHATWG HTML5 First Public Draft 
+2012 WHATWG HTML5 Living Standard 
+2014 W3C Recommendation:HTML5 
+2016 W3C Candidate Recommendation: HTML 5.1 
+2017 W3C Recommendation:HTML5.1 2nd Edition 
+2017 W3C Recommendation: HTML5.2
