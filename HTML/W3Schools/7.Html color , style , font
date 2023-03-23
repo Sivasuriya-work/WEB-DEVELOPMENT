@@ -1,0 +1,17 @@
+Html color , style , font
+
+<tagname style='property : value'>
+
+<color:value> - is a text color>
+<background-color :value> - is a background color value
+<font-family>
+<font-size> // 100% , 1rem , 1em = 16px;,
+<text-align>
+
+Chapter Summary
+Use the style attribute for styling HTML elements
+Use background-color for background color
+Use color for text colors
+Use font-family for text fonts
+Use font-size for text sizes
+Use text-align for text alignmen
