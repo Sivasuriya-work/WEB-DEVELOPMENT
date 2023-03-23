@@ -1,0 +1,9 @@
+Predifined values
+  <h1 style="color:Tomato;">
+RGB,  - rgb(255, 99, 71)
+HEX,  - #ff6347
+HSL,  - hsl(9, 100%, 64%)
+RGBA, - rgba(255, 99, 71, 0.5) // here last one is alpha value // transparanacy or opacity of background-color is 50%
+HSLA  - hsla(9, 100%, 64%, 0.5)
+
+values.
