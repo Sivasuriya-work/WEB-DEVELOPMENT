@@ -1,0 +1,41 @@
+
+///////////////////////////////////////
+
+//some method
+
+// if we want search in array it is present or not using
+// array.includes(100) // here we use direct values
+
+// byt using check condition  like amount > 0 ||| ly other thing
+
+// we use .some() method , if any one of condtion true return true
+
+// .some() opposite if an array all elements passes the condition returns true
+
+const arr = [2, 4, 6, 8, 10];
+console.log(arr.some(a => a > 6)); // It is true //any one elements pass the condition the result is true.
+
+// using .every() is return a true when all array elements passes that condition
+
+console.log(arr.every(a => a > 4)); //it is false // not all elements satisfy this condition , thats the every method is work
+
+console.log(arr.every(a => a > 0)); //it true
+//////////////////////////////////////////////////
+
+//using some method
+//implement request loan
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const loanAmount = Number(inputLoanAmount.value);
+  console.log(currentAcc.movements);
+  if (
+    loanAmount > 0 &&
+    currentAcc.movements.some(mov => mov >= loanAmount * 0.1)
+  ) {
+    currentAcc.movements.push(loanAmount);
+    updateUI(currentAcc);
+  }
+  inputLoanAmount.value = '';
+});
