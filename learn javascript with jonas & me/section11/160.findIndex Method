@@ -1,0 +1,16 @@
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault(e);
+  if (
+    currentAcc.username === inputCloseUsername.value &&
+    currentAcc.pin === Number(inputClosePin.value)
+  ) {
+    const closeIndex = accounts.findIndex(
+      acc => acc.username === currentAcc.username
+    );
+    accounts.splice(closeIndex, 1); // start index and delete count
+    containerApp.style.opacity = 0;
+    labelWelcome.textContent = "Let's log in in to Start";
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
