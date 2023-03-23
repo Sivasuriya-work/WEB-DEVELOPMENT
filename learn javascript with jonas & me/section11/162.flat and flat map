@@ -1,0 +1,37 @@
+//It is lanched in es2019
+
+// flat arr // remove nested arrays
+
+arr = [[1,2,3],[4,5,6],7,8,9]
+
+//flat and flatmap
+//for ex calc overall amount  from bank
+// traditional
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8, 9];
+console.log(arr.flat()); //(9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+const arr1 = [[1, [2, 3]], [4, [5, 6]], 7, 8, 9];
+console.log(arr1.flat()); //(7)//[1, Array(2), 4, Array(2), 7, 8, 9]//deep level is 1
+
+const arr2 = [[1, [2, 3]], [4, [5, 6]], 7, 8, 9];
+console.log(arr2.flat(2)); //(9) [1, 2, 3, 4, 5, 6, 7, 8, 9]//
+//deep level 2 flat(2) // nested arrays become single array elements
+
+//
+const arrMovements = accounts.map(acc => acc.movements);
+const arrMovFlat = arrMovements.flat();
+const allMovementsSum = arrMovFlat.reduce((acc, mov) => acc + mov, 0);
+console.log(allMovementsSum);
+
+//chain method
+//flat
+
+const allMovementsSum2 = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(allMovementsSum2);
+
+//flatMap
+//flat and map using at the same time
+//deep level 1
