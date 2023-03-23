@@ -1,0 +1,150 @@
+<img src="url" alt="alternatetext">
+
+<img> is a tagname to link image to webpage
+
+src = is a path of the image URL
+
+alt = It displays the alternative content.If image does not shownthe alt content display in webpage.
+
+width , height
+
+float  : right or left
+
+Use the HTML <img> element to define an image
+Use the HTML src attribute to define the URL of the image
+Use the HTML alt attribute to define an alternate text for an image, if it cannot be displayed
+Use the HTML width and height attributes or the CSS width and height properties to define the size of the image
+Use the CSS float property to let the image float to the left or to the right
+
+
+HTML Image Tags
+Tag	Description
+<img>	Defines an image
+<map>	Defines an image map
+<area>	Defines a clickable area inside an image map
+<picture>	Defines a container for multiple image resources
+
+map 
+
+in map need img
+  map - must add usemap in image
+  //add map link to img
+  <img src="workplace.jpg" alt="Workplace" usemap="#workmap">
+  //create map details with name shape coords href alt
+  <map name="workmap">
+  
+  The name attribute must have the same value as the <img>'s usemap attribute
+  
+  Shape
+  
+You must define the shape of the clickable area, and you can choose one of these values:
+
+rect
+circle
+poly
+default
+
+
+rect :
+
+shape="rect" come in pairs, one for the x-axis and one for the y-axis.
+
+coords = 34,44 is located 34 pixels from the left margin and 44 pixels from the top
+    270,350 is located 270 pixels from the left margin and 350 pixels from the top:
+    
+circle
+coords(337,300,44)(left from x axis , top from y axis , radius of circle
+
+To add a circle area, first locate the coordinates of the center of the circle:
+
+337,300
+
+44 is a radius
+
+<area shape="poly" coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147" href="croissant.htm">
+-------------------------------------------------
+Image Map and JavaScript
+
+--------------------------------------
+A clickable area can also trigger a JavaScript function.
+
+
+<map name="workmap">
+  <area shape="circle" coords="337,300,44" href="coffee.htm" onclick="myFunction()">
+</map>
+
+<script>
+function myFunction() {
+  alert("You clicked the coffee cup!");
+}
+</script>
+
+Use the HTML <map> element to define an image map
+Use the HTML <area> element to define the clickable areas in the image map
+Use the HTML usemap attribute of the <img> element to point to an image map
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+background mages:
+
+----------------
+
+
+background image set in elements , body
+
+<p style="background-image: url('img_girl.jpg');">
+
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+
+
+--------------------------------------
+<picture>
+////////////////////////////
+
+picture elements displays diffrent images for diffrent  devices devices
+
+<picture>
+  <source media="(min-width: 650px)" srcset="img_food.jpg">
+  <source media="(min-width: 465px)" srcset="img_car.jpg">
+  <img src="img_girl.jpg">
+</picture>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
