@@ -1,0 +1,64 @@
+//Summary
+
+/*
+
+  To mutate original array 
+
+      Add to original :
+
+          1.push()- end
+          2.unshift() - start
+      Remove from original
+          3.pop - end
+          4.shift- start
+          5.splice - any
+      others ;
+          6.reverse
+          7.sort
+          8.fill
+  
+  A new array
+
+      computed from original
+          9.map - loop
+      filter using condition
+          10.filter
+      portion of original
+          11.slice
+      Adding original to other
+          12.concat
+      flattering the original
+          13.flat
+          14.flatM<ap
+  An array index
+      based on value
+          15.indexOf
+      based on test condition
+          16.findIndex()
+  An array element
+      based on test condition
+          17.find
+  Know if array includes
+      based on value
+          18.includes
+      based on test condition
+          19.some
+          20.every
+  A new string
+      based on the seperate string
+          21.join
+  To transform value
+      Based on accumulator
+          22.reduce - boiled down multiple array val into single value of any type
+  To just loop array
+      Based on callback
+          23.forEach - does not create new one , just loop over it.
+
+
+  
+
+
+      
+  
+  
+  
