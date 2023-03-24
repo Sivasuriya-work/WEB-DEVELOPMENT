@@ -1,0 +1,44 @@
+//create filling arrays
+//fill() . method
+//Arrays.from() method programatically filling arrays
+const arr = new Array(); // []
+console.log(arr);
+const arr1 = new Array(7);
+console.log(arr1); //7) [empty × 7]
+arr1.fill(1);
+console.log(arr1); //(7) [1, 1, 1, 1, 1, 1, 1]
+//arr.fill( value , start ,end)
+console.log(arr1.fill(2, 5)); //2 is val , 5 start postion//(7) [1, 1, 1, 1, 1, 2, 2]
+
+console.log(arr1.fill(3, 1, 4)); //3 is val , 1 start postion  , 5 is end position //((7) [1, 3, 3, 3, 1, 2, 2] // update from last arr
+
+//Array.from()
+//is a constructor
+//function method
+
+const arrFrom = Array.from({ length: 5 }, () => 1); //It is like a map method call back function
+console.log(arrFrom); //(5) [1, 1, 1, 1, 1]
+
+const arrFrom1 = Array.from({ length: 10 }, (_, i) => i + 1);
+
+console.log(arrFrom1); //(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+//100 random dice rolls
+
+const rdmDiceRoll = Array.from({ length: 100 }, () =>
+  Math.trunc(Math.random() * 6)
+); //(100) [2, 3, 1, 4, 2, 1, 5, 3, 2, 4, 0, 3, 3, 2, 5, 0, 0, 0, 3, 4, 1, 3, 0, 0, 4, 3, 5, 2, 1, 2, 1, 4, 5, 3, 3, 1, 4, 5, 1, 2, 1, 1, 3, 1, 2, 4, 4, 4, 0, 5, 0, 5, 0, 4, 2, 5, 1, 3, 4, 2, 4, 4, 4, 4, 4, 2, 0, 5, 2, 0, 5, 2, 5, 5, 1, 1, 0, 1, 5, 0, 2, 0, 1, 4, 1, 4, 1, 5, 4, 4, 3, 4, 2, 3, 3, 0, 2, 3, 1, 3]
+
+console.log(rdmDiceRoll);
+
+//querySelectorAll returns nodelist
+
+labelBalance.addEventListener('click', function () {
+  console.log(document.querySelectorAll('.movements__value')); // nodelist like an array list
+
+  const movUi = Array.from(document.querySelectorAll('.movements__value'), el =>
+    Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movUi); //
+});
