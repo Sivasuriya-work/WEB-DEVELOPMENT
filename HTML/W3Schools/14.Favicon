@@ -1,0 +1,3 @@
+link the favicon element after the title element
+
+<link rel='icon' type ='x/icon' href ='img.ico'>
