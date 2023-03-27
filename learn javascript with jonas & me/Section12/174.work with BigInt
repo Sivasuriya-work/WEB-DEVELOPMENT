@@ -1,0 +1,32 @@
+//BigInt
+//Int base upto 64
+// but 53 usable from 0 to 52
+//other bit storing value , address
+
+console.log(2840000000000000000000); //2.84e+21
+console.log(2 ** 53 - 1); // accurate number int value
+const BI = 840000000000000000000n;
+console.log(2840000000000000000000n);
+// console.log(2840000000000000000000n * 10); // not work mixed with BigInt other type not worked.
+console.log(2840000000000000000000n * 10n); // work
+console.log(2840000000000000000000n / 10n); //  work
+// console.log(2840000000000000000000n / 10); //  not work // can not mix Big Int with others
+const amount = 245_000;
+//console.log(amount * BI);
+console.log(BigInt(amount) * BI);
+
+//Don't use Math method
+// console.log(Math.sqrt(BI));
+
+//Exceptions
+
+console.log(BI + 'is big int'); // convert to string
+
+console.log(typeof Number(BI)); // convert to BI to Number
+
+console.log(BI > amount); // true // BI vs Number
+
+console.log(BI === Number(BI)); // false // does not type coercion work ===
+console.log(BI == String(BI)); // true // does type coercion works in  ==
+
+/////////////////////////////////////////////////
