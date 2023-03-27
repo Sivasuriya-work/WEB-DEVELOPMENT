@@ -1,1 +1,367 @@
 
+////////////////////////////////////////////
+
+//Summary
+
+/*
+
+  To mutate original array 
+
+      Add to original :
+
+          1.push()- end
+          2.unshift() - start
+      Remove from original
+          3.pop - end
+          4.shift- start
+          5.splice - any
+      others ;
+          6.reverse
+          7.sort
+          8.fill
+  
+  A new array
+
+      computed from original
+          9.map - loop
+      filter using condition
+          10.filter
+      portion of original
+          11.slice
+      Adding original to other
+          12.concat
+      flattering the original
+          13.flat
+          14.flatMap
+  An array index
+      based on value
+          15.indexOf
+      based on test condition
+          16.findIndex()
+  An array element
+      based on test condition
+          17.find
+  Know if array includes
+      based on value
+          18.includes
+      based on test condition
+          19.some
+          20.every
+  A new string
+      based on the seperate string
+          21.join
+  To transform value
+      Based on accumulator
+          22.reduce - boiled down multiple array val into single value of any type
+  To just loop array
+      Based on callback
+          23.forEach - does not create new one , just loop over it.
+
+
+  *////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+//////////////////////////////////////
+
+//Array methods
+//
+const arrDay = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const arrYear = [
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+];
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+//mon,tue,wed,thu,fri,sat,sun
+
+// 2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//push-Appends new elements to the **end** of an array, and returns the new length of the array.
+
+arrYear.push(2011);
+
+arrDay.push('mon');
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+//
+arrYear.push(2012, 2013); //
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+// mon,tue,wed,thu,fri,sat,sun,mon
+
+// 2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011
+
+////////////////////////////////////////////////
+
+//unshift-Inserts new elements at the **start** of an array, and returns the new length of the array.
+
+arrDay.unshift(true ? 'tue' : false);
+arrYear.unshift(arrYear[0] === 1999 ? 1998 : 1998, 1999);
+console.log(arrDay.length); //9
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+arrDay.unshift(); //if empty not added anything.
+
+console.log(arrDay.length); //9
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+// tue,mon,tue,wed,thu,fri,sat,sun,mon
+
+// 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011
+
+/////////////////////////////////////////////
+//pop -Removes the **Last** element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+//FIXED
+
+arrDay.pop();
+arrYear.pop();
+console.log(arrDay.pop()); // return pop element
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+///////////////////////////////////////////
+
+//shift-Removes the **First** element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+
+arrDay.shift();
+arrYear.shift();
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.splice - Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+
+arrDay.splice();
+arrYear.splice();
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+console.log(arrYear.splice(0, 2));
+
+// (12) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]
+
+console.log(arrYear);
+console.log(arrYear.splice(-5, 2));
+
+// (2) [2008, 2009]
+////////////////////////////////////////////
+
+//-reverse-Reverses the elements in an array in place. This method mutates the array and returns a reference to the same array
+
+console.log(arrYear.reverse());
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+// sort-Sorts an array in place. This method mutates the array and returns a reference to the same array.
+
+arrYear.unshift(20000001);
+
+console.log(arrYear.sort()); // work based on string
+//(11) [20000001, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012]
+
+console.log(arrYear.sort((a, b) => a - b)); //for number to sort
+//(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+// (10) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012]
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//////////////////////////////////////////
+
+const arrEmpty = [];
+console.log(arrEmpty); //[]
+const arrNew = new Array(10);
+console.log(arrNew); //(10) [empty × 10]
+arrNew.fill(1);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+arrNew.fill(2, 5);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+
+arrNew.fill(3, 7, 10); /// (val , start , end);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 2, 2, 3, 3, 3]
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.map - Calls a defined callback function on each element of an array, and returns an array that contains the results.
+
+console.log(arrDay.map(day => day));
+
+console.log(
+  arrDay
+    .slice() // after slice - copy
+    .map(day => day) //days = [day , day , day ,day];//loop over the array // after map - copy // same as slice
+    .reverse() // it does not mutate original array
+    .sort() // it does not mutate original array
+);
+console.log(arrDay);
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//////////////////////////////////////////////
+
+//.filter - Returns the elements of an array that meet the condition specified in a callback function.
+
+//predicate : => value is ===
+
+console.log(arrDay.filter(day => day === 'mon')); // ['mon']
+
+console.log(arrDay.filter(day => typeof day === 'string')); //(6) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+
+console.log(arrYear.filter(year => year > 2000 && year < 2011)); //(8) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010]
+
+console.log(
+  arrYear
+    .filter(year => year > 2000 && year < 2011)
+    .map(year => `Year : ${year}`)
+); //(8) ['Year : 2001', 'Year : 2002', 'Year : 2003', 'Year : 2004', 'Year : 2005', 'Year : 2006', 'Year : 2007', 'Year : 2010']
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+// .slice-Returns a copy of a section of an array. For both start and end, a negative index can be used to indicate an offset from the end of the array. For example, -2 refers to the second to last element of the array.
+
+// arrDay.slice() start , end
+
+console.log(arrYear.slice()); //same arrYear//(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(0)); //(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(1)); //(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(5)); //(6) [2006, 2007, 2010, 2011, 2012, 20000001] // slice(start)
+
+console.log(arrYear.slice(4, 10)); // slice(start , end);
+
+console.log(arrYear); // does not mutate original array
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.concat - Combines two or more arrays. This method returns a new array without modifying any existing arrays.
+
+console.log(arrDay.concat(arrYear)); // store to any identifier to keep the value
+
+console.log();
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.flat - Returns a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+const newArray1 = [];
+const newArray2 = [];
+
+console.log(newArray1);
+console.log(newArray2);
+
+newArray1.push(arrDay, arrYear);
+console.log(newArray1);
+
+console.log(newArray1.flat());
+
+newArray2.push(newArray1, arrDay, arrYear);
+
+console.log(newArray2); //(3) [Array(2), Array(6), Array(11)]
+
+console.log(newArray2.flat()); // default //depth 1//(19) [Array(6), Array(11), 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(newArray2.flat(2)); //depth 2 //(34) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001, 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+/////////////
+//.flatMap - Calls a defined callback function on each element of an array. Then, flattens the result into a new array. This is identical to a map followed by flat with depth 1.
+
+console.log(newArray1.flat().map(ele => ele)); //same as flatmap
+
+console.log(newArray1.flatMap(ele => ele)); //same as flat().map()
+
+console.log(
+  newArray2.flatMap(ele => ele) /// only works for depth 1
+);
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//indexOf-Returns the index of the first occurrence of a value in an array, or -1 if it is not present.
+
+console.log(arrDay.indexOf('sun')); // -1 //'sun' not present
+console.log(arrYear.indexOf(2005)); // 4
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//findIndex - Returns the index of the first element in the array where 'predicate' is true, and -1 otherwise.
+
+console.log(arrDay.findIndex(day => day === 'sun')); // -1 //'sun' not present
+console.log(arrYear.findIndex(year => year < 2005)); // 0 // first occurence of condition true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//
+//
+////////////////////////////////////////////
+//.includes - Determines whether an array includes a *certain* element, returning *true or false* as appropriate.
+
+console.log(arrDay.includes('sun')); // false
+
+console.log(arrDay.includes('mon')); // true
+
+console.log(arrYear.includes(2005)); // true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+//.some Determines whether the specified callback function returns true for *any* element of an array.return boolean
+
+console.log(arrDay.some(day => typeof day === 'string')); // true
+
+console.log(arrDay.some(day => typeof day === 'number')); //false
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+// .every -Determines whether *all* the members of an array satisfy the specified test.
+
+console.log(arrDay.every(day => typeof day === 'string')); //true
+console.log(arrDay.every(day => typeof day === 'number')); //true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+////////////////////////////////////////////
+//.join - Adds all the elements of *an array* into a *string* , separated by the specified separator string.
+
+console.log(arrDay.join()); // (,) default//mon,tue,wed,thu,fri,sat
+console.log(arrDay.map((day, i) => `${i + 1}.${day}`).join(' -> ')); //
+// script.js:574 1.mon -> 2.tue -> 3.wed -> 4.thu -> 5.fri -> 6.sat
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.reduce - Calls the specified callback function for all the elements in an array. The return value of the callback function is the *accumulated* result, and is provided as an argument in the next call to the callback function.
+
+const arrNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(arrNum.reduce((acc, curNum) => acc + curNum, 0)); //45 // here 0 is a initial value
+
+console.log(arrNum.reduce((acc, curNum) => acc + curNum, 1000)); // 1045 // here 0 is a initial value
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+////////////////////////////////////////////
+
+// .forEach-Performs the specified action for each element in an array
+
+newArray1.flat().forEach(ele => {
+  console.log(ele, typeof ele); // string || number
+  console.log(ele, typeof (ele + 's')); // string
+});
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+  
