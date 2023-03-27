@@ -1,0 +1,1088 @@
+'use strict';
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// BANKIST APP
+
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+};
+
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+};
+
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
+};
+
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4];
+
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+// computing username
+// first convert string
+function createUserName(accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .split(' ')
+      .map(mov => mov[0])
+      .join('')
+      .toLowerCase();
+  });
+}
+createUserName(accounts);
+
+//Displaying the movements for money processing
+
+function displayMovements(acc, sort = false) {
+  //
+  containerMovements.innerHTML = '';
+  //
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+  movs.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+      <div class="movements__value">${mov}€</div>
+    </div>`;
+    //
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+    //afterbegin // beforebegin
+    //afterend // beforeend
+  });
+}
+
+const euroToUsd = 1.2;
+
+//display the summary
+
+const displaySummary = account => {
+  const incomes = account.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumIn.textContent = ` ${incomes}€`;
+
+  const outcomes = account.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumOut.textContent = ` ${Math.abs(outcomes)}€`;
+
+  const interest = account.movements
+    .filter(mov => mov > 0)
+    .map(val => (val * account.interestRate) / 100)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumInterest.textContent = ` ${interest}€`;
+
+  const balance = account.movements.reduce((acc, cur) => acc + cur, 0);
+  account.balance = balance;
+
+  labelBalance.textContent = `${balance}€`;
+};
+
+const updateUI = acc => {
+  displayMovements(acc);
+  displaySummary(acc);
+};
+
+let currentAcc;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentAcc = accounts.find(acc => acc.username === inputLoginUsername.value);
+  // always define value from get data from input field
+  //check the username and the pin
+
+  if (currentAcc && currentAcc?.pin === Number(inputLoginPin.value)) {
+    //using optional chaining
+    containerApp.style.opacity = 100;
+    labelWelcome.textContent = `Hi ${currentAcc.owner.split(' ')[0]} `;
+    inputLoginUsername.value = '';
+    inputLoginPin.value = '';
+    updateUI(currentAcc);
+  } else {
+    labelWelcome.textContent = '\nUser not found , retry';
+  }
+});
+//////////////////////////////////
+
+//Implementing Transfer //////
+
+//////////////////////////
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const receiverAcc = accounts?.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  const amount = Number(inputTransferAmount.value);
+
+  if (
+    amount > 0 &&
+    amount < currentAcc.balance &&
+    receiverAcc &&
+    receiverAcc !== currentAcc
+  ) {
+    currentAcc.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    updateUI(currentAcc);
+  }
+  inputTransferAmount.value = inputTransferTo.value = '';
+});
+////////////////////////////////////////////////////////////////
+//
+//implementing close account
+//
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    currentAcc.username === inputCloseUsername.value &&
+    currentAcc.pin === Number(inputClosePin.value)
+  ) {
+    const closeIndex = accounts.findIndex(
+      acc => acc.username === currentAcc.username
+    );
+    accounts.splice(closeIndex, 1); // start index and delete count
+    containerApp.style.opacity = 0;
+    labelWelcome.textContent = "Let's log in in to Start";
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+////////////////////////////////////////////////////////////
+
+//implement request loan
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const loanAmount = Number(inputLoanAmount.value);
+  console.log(currentAcc.movements);
+  if (
+    loanAmount > 0 &&
+    currentAcc.movements.some(mov => mov >= loanAmount * 0.1)
+  ) {
+    currentAcc.movements.push(loanAmount);
+    updateUI(currentAcc);
+  }
+  inputLoanAmount.value = '';
+});
+///////////////////////////////////////
+//sorting movements
+/////////////////////////////////
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAcc, !sorted);
+  sorted = !sorted;
+});
+
+///////////////////////////////////////
+
+labelBalance.addEventListener('click', function () {
+  console.log(document.querySelectorAll('.movements__value'));
+
+  const movUi = Array.from(document.querySelectorAll('.movements__value'), el =>
+    Number(el.textContent.replace('€', ''))
+  );
+
+  console.log(movUi); //
+});
+/////////////////////////////////////////
+
+///////////////////////////////////////
+// //
+// // code challenge 4
+// const dogs = [
+//   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+//   { weight: 8, curFood: 200, owners: ['Matilda'] },
+//   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+//   { weight: 32, curFood: 340, owners: ['Micheal'] },
+// ];
+
+// //.1
+// //calc recFood
+// dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+// console.log(dogs);
+// //.2
+// const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+// console.log(
+//   `${dogSarah.curFood > dogSarah.recFood ? 'Too high' : 'Too little'}`
+// );
+// //.3
+// /////////
+
+// const ownerEatTooMuch = dogs
+//   .filter(dog => dog.curFood > dog.recFood)
+//   .flatMap(dog => dog.owners);
+// console.log(ownerEatTooMuch);
+
+// const ownerEatTooLittle = dogs
+//   .filter(dog => dog.curFood < dog.recFood)
+//   .flatMap(dog => dog.owners);
+// console.log(ownerEatTooLittle);
+
+// //.4
+// console.log(ownerEatTooMuch.join(' and ') + ' dogs eat too much!');
+// console.log(ownerEatTooLittle.join(' and ') + ' dogs eat too Little!');
+
+// //.5
+// console.log(dogs.some(dog => dog.curFood === dog.recFood));
+// //.6 .7
+// //
+// console.log(
+//   dogs.find(
+//     dog => dog.curFood < 1.1 * dog.recFood && dog.curFood > 0.9 * dog.recFood
+//   )
+// );
+
+// const check = dog =>
+//   dog.curFood < 1.1 * dog.recFood && dog.curFood > 0.9 * dog.recFood;
+// console.log(dogs.filter(check));
+
+// //.7
+// console.log(dogs.sort((a, b) => a.curFood - b.recFood));
+
+//////////////////////////////////////
+
+//Array methods
+//
+const arrDay = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const arrYear = [
+  2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+];
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+//mon,tue,wed,thu,fri,sat,sun
+
+// 2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+//push-Appends new elements to the **end** of an array, and returns the new length of the array.
+
+arrYear.push(2011);
+
+arrDay.push('mon');
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+//
+arrYear.push(2012, 2013); //
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+// mon,tue,wed,thu,fri,sat,sun,mon
+
+// 2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011
+
+////////////////////////////////////////////////
+
+//unshift-Inserts new elements at the **start** of an array, and returns the new length of the array.
+
+arrDay.unshift(true ? 'tue' : false);
+arrYear.unshift(arrYear[0] === 1999 ? 1998 : 1998, 1999);
+console.log(arrDay.length); //9
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+arrDay.unshift(); //if empty not added anything.
+
+console.log(arrDay.length); //9
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+// tue,mon,tue,wed,thu,fri,sat,sun,mon
+
+// 1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011
+
+/////////////////////////////////////////////
+//pop -Removes the **Last** element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+//FIXED
+
+arrDay.pop();
+arrYear.pop();
+console.log(arrDay.pop()); // return pop element
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+///////////////////////////////////////////
+
+//shift-Removes the **First** element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+
+arrDay.shift();
+arrYear.shift();
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.splice - Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+
+arrDay.splice();
+arrYear.splice();
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+console.log(arrYear.splice(0, 2));
+
+// (12) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]
+
+console.log(arrYear);
+console.log(arrYear.splice(-5, 2));
+
+// (2) [2008, 2009]
+////////////////////////////////////////////
+
+//-reverse-Reverses the elements in an array in place. This method mutates the array and returns a reference to the same array
+
+console.log(arrYear.reverse());
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+// sort-Sorts an array in place. This method mutates the array and returns a reference to the same array.
+
+arrYear.unshift(20000001);
+
+console.log(arrYear.sort()); // work based on string
+//(11) [20000001, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012]
+
+console.log(arrYear.sort((a, b) => a - b)); //for number to sort
+//(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+// (10) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012]
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//////////////////////////////////////////
+
+const arrEmpty = [];
+console.log(arrEmpty); //[]
+const arrNew = new Array(10);
+console.log(arrNew); //(10) [empty × 10]
+arrNew.fill(1);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+arrNew.fill(2, 5);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+
+arrNew.fill(3, 7, 10); /// (val , start , end);
+console.log(arrNew); //(10) [1, 1, 1, 1, 1, 2, 2, 3, 3, 3]
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.map - Calls a defined callback function on each element of an array, and returns an array that contains the results.
+
+console.log(arrDay.map(day => day));
+
+console.log(
+  arrDay
+    .slice() // after slice - copy
+    .map(day => day) //days = [day , day , day ,day];//loop over the array // after map - copy // same as slice
+    .reverse() // it does not mutate original array
+    .sort() // it does not mutate original array
+);
+console.log(arrDay);
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//////////////////////////////////////////////
+
+//.filter - Returns the elements of an array that meet the condition specified in a callback function.
+
+//predicate : => value is ===
+
+console.log(arrDay.filter(day => day === 'mon')); // ['mon']
+
+console.log(arrDay.filter(day => typeof day === 'string')); //(6) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+
+console.log(arrYear.filter(year => year > 2000 && year < 2011)); //(8) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010]
+
+console.log(
+  arrYear
+    .filter(year => year > 2000 && year < 2011)
+    .map(year => `Year : ${year}`)
+); //(8) ['Year : 2001', 'Year : 2002', 'Year : 2003', 'Year : 2004', 'Year : 2005', 'Year : 2006', 'Year : 2007', 'Year : 2010']
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+// .slice-Returns a copy of a section of an array. For both start and end, a negative index can be used to indicate an offset from the end of the array. For example, -2 refers to the second to last element of the array.
+
+// arrDay.slice() start , end
+
+console.log(arrYear.slice()); //same arrYear//(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(0)); //(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(1)); //(11) [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(arrYear.slice(5)); //(6) [2006, 2007, 2010, 2011, 2012, 20000001] // slice(start)
+
+console.log(arrYear.slice(4, 10)); // slice(start , end);
+
+console.log(arrYear); // does not mutate original array
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.concat - Combines two or more arrays. This method returns a new array without modifying any existing arrays.
+
+console.log(arrDay.concat(arrYear)); // store to any identifier to keep the value
+
+console.log();
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.flat - Returns a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+const newArray1 = [];
+const newArray2 = [];
+
+console.log(newArray1);
+console.log(newArray2);
+
+newArray1.push(arrDay, arrYear);
+console.log(newArray1);
+
+console.log(newArray1.flat());
+
+newArray2.push(newArray1, arrDay, arrYear);
+
+console.log(newArray2); //(3) [Array(2), Array(6), Array(11)]
+
+console.log(newArray2.flat()); // default //depth 1//(19) [Array(6), Array(11), 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+
+console.log(newArray2.flat(2)); //depth 2 //(34) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001, 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2010, 2011, 2012, 20000001]
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+/////////////
+//.flatMap - Calls a defined callback function on each element of an array. Then, flattens the result into a new array. This is identical to a map followed by flat with depth 1.
+
+console.log(newArray1.flat().map(ele => ele)); //same as flatmap
+
+console.log(newArray1.flatMap(ele => ele)); //same as flat().map()
+
+console.log(
+  newArray2.flatMap(ele => ele) /// only works for depth 1
+);
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//indexOf-Returns the index of the first occurrence of a value in an array, or -1 if it is not present.
+
+console.log(arrDay.indexOf('sun')); // -1 //'sun' not present
+console.log(arrYear.indexOf(2005)); // 4
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//findIndex - Returns the index of the first element in the array where 'predicate' is true, and -1 otherwise.
+
+console.log(arrDay.findIndex(day => day === 'sun')); // -1 //'sun' not present
+console.log(arrYear.findIndex(year => year < 2005)); // 0 // first occurence of condition true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+//
+//
+////////////////////////////////////////////
+//.includes - Determines whether an array includes a *certain* element, returning *true or false* as appropriate.
+
+console.log(arrDay.includes('sun')); // false
+
+console.log(arrDay.includes('mon')); // true
+
+console.log(arrYear.includes(2005)); // true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+//.some Determines whether the specified callback function returns true for *any* element of an array.return boolean
+
+console.log(arrDay.some(day => typeof day === 'string')); // true
+
+console.log(arrDay.some(day => typeof day === 'number')); //false
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+// .every -Determines whether *all* the members of an array satisfy the specified test.
+
+console.log(arrDay.every(day => typeof day === 'string')); //true
+console.log(arrDay.every(day => typeof day === 'number')); //true
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+////////////////////////////////////////////
+//.join - Adds all the elements of *an array* into a *string* , separated by the specified separator string.
+
+console.log(arrDay.join()); // (,) default//mon,tue,wed,thu,fri,sat
+console.log(arrDay.map((day, i) => `${i + 1}.${day}`).join(' -> ')); //
+// script.js:574 1.mon -> 2.tue -> 3.wed -> 4.thu -> 5.fri -> 6.sat
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//.reduce - Calls the specified callback function for all the elements in an array. The return value of the callback function is the *accumulated* result, and is provided as an argument in the next call to the callback function.
+
+const arrNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(arrNum.reduce((acc, curNum) => acc + curNum, 0)); //45 // here 0 is a initial value
+
+console.log(arrNum.reduce((acc, curNum) => acc + curNum, 1000)); // 1045 // here 0 is a initial value
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+////////////////////////////////////////////
+
+// .forEach-Performs the specified action for each element in an array
+
+newArray1.flat().forEach(ele => {
+  console.log(ele, typeof ele); // string || number
+  console.log(ele, typeof (ele + 's')); // string
+});
+
+console.log(`\n\n${arrDay}\n\n${arrYear}`);
+
+////////////////////////////////////////////
+
+//Summary
+
+/*
+
+  To mutate original array 
+
+      Add to original :
+
+          1.push()- end
+          2.unshift() - start
+      Remove from original
+          3.pop - end
+          4.shift- start
+          5.splice - any
+      others ;
+          6.reverse
+          7.sort
+          8.fill
+  
+  A new array
+
+      computed from original
+          9.map - loop
+      filter using condition
+          10.filter
+      portion of original
+          11.slice
+      Adding original to other
+          12.concat
+      flattering the original
+          13.flat
+          14.flatMap
+  An array index
+      based on value
+          15.indexOf
+      based on test condition
+          16.findIndex()
+  An array element
+      based on test condition
+          17.find
+  Know if array includes
+      based on value
+          18.includes
+      based on test condition
+          19.some
+          20.every
+  A new string
+      based on the seperate string
+          21.join
+  To transform value
+      Based on accumulator
+          22.reduce - boiled down multiple array val into single value of any type
+  To just loop array
+      Based on callback
+          23.forEach - does not create new one , just loop over it.
+
+
+  */
+
+/////////////////////////////////
+
+// //create filling arrays
+// //fill() . method
+// //Arrays.from() method programatically filling arrays
+// const arr = new Array(); // []
+// console.log(arr);
+// const arr1 = new Array(7);
+// console.log(arr1); //7) [empty × 7]
+// arr1.fill(1);
+// console.log(arr1); //(7) [1, 1, 1, 1, 1, 1, 1]
+// //arr.fill( value , start ,end)
+// console.log(arr1.fill(2, 5)); //2 is val , 5 start postion//(7) [1, 1, 1, 1, 1, 2, 2]
+
+// console.log(arr1.fill(3, 1, 4)); //3 is val , 1 start postion  , 5 is end position //((7) [1, 3, 3, 3, 1, 2, 2] // update from last arr
+
+// //Array.from()
+// //is a constructor
+// //function method
+
+// const arrFrom = Array.from({ length: 5 }, () => 1); //It is like a map method call back function
+// console.log(arrFrom); //(5) [1, 1, 1, 1, 1]
+
+// const arrFrom1 = Array.from({ length: 10 }, (_, i) => i + 1);
+
+// console.log(arrFrom1); //(10) [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// //100 random dice rolls
+
+// const rdmDiceRoll = Array.from({ length: 100 }, () =>
+//   Math.trunc(Math.random() * 6)
+// ); //(100) [2, 3, 1, 4, 2, 1, 5, 3, 2, 4, 0, 3, 3, 2, 5, 0, 0, 0, 3, 4, 1, 3, 0, 0, 4, 3, 5, 2, 1, 2, 1, 4, 5, 3, 3, 1, 4, 5, 1, 2, 1, 1, 3, 1, 2, 4, 4, 4, 0, 5, 0, 5, 0, 4, 2, 5, 1, 3, 4, 2, 4, 4, 4, 4, 4, 2, 0, 5, 2, 0, 5, 2, 5, 5, 1, 1, 0, 1, 5, 0, 2, 0, 1, 4, 1, 4, 1, 5, 4, 4, 3, 4, 2, 3, 3, 0, 2, 3, 1, 3]
+
+// console.log(rdmDiceRoll);
+
+// //querySelectorAll returns nodelist
+
+// labelBalance.addEventListener('click', function () {
+//   console.log(document.querySelectorAll('.movements__value'));
+
+//   const movUi = Array.from(document.querySelectorAll('.movements__value'), el =>
+//     Number(el.textContent.replace('€', ''))
+//   );
+
+//   console.log(movUi); //
+// });
+///////////////////////////////////////
+
+// calculate total transanction of bank using flat / flatmap
+
+// //flat and flatmap
+// //for ex calc overall amount  from bank
+// // traditional
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8, 9];
+// console.log(arr.flat()); //(9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// const arr1 = [[1, [2, 3]], [4, [5, 6]], 7, 8, 9];
+// console.log(arr1.flat()); //(7)//[1, Array(2), 4, Array(2), 7, 8, 9]//deep level is 1
+
+// const arr2 = [[1, [2, 3]], [4, [5, 6]], 7, 8, 9];
+// console.log(arr2.flat(2)); //(9) [1, 2, 3, 4, 5, 6, 7, 8, 9]//
+// //deep level 2 flat(2) // nested arrays become single array elements
+
+// //
+// const arrMovements = accounts.map(acc => acc.movements);
+// const arrMovFlat = arrMovements.flat();
+// const allMovementsSum = arrMovFlat.reduce((acc, mov) => acc + mov, 0);
+// console.log(allMovementsSum);
+
+// //chain method
+// //flat
+
+// const allMovementsSum2 = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+// console.log(allMovementsSum2);
+
+// //flatMap
+// //flat and map using at the same time
+// //deep level 1
+
+///////////////////////////////////////
+
+//some method
+
+// if we want search in array it is present or not using
+// array.includes(100) // here we use direct values
+
+// byt using check condition  like amount > 0 ||| ly other thing
+
+// we use .some() method , if any one of condtion true return true
+
+// .some() opposite if an array all elements passes the condition returns true
+
+// const arr = [2, 4, 6, 8, 10];
+// console.log(arr.some(a => a > 6)); // It is true //any one elements pass the condition the result is true.
+
+// // using .every() is return a true when all array elements passes that condition
+
+// console.log(arr.every(a => a > 4)); //it is false // not all elements satisfy this condition , thats the every method is work
+
+// console.log(arr.every(a => a > 0)); //it true
+////////////////////////////////////////////////////////////
+
+// //The find methoo return current array element value is true
+// //It returns first occurence of true value
+// //
+
+// const findEle = account1.movements.find(mov => mov < 0);
+// console.log(account1.movements);
+// console.log(findEle);
+
+// //It is powerful method//in complex data structure
+
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
+// //It will return object details
+// // {owner: 'Jessica Davis', movements: Array(8), interestRate: 1.5, pin: 2222}
+
+// function accountFor(accounts) {
+//   for (const acc of accounts) {
+//     if (acc.owner === 'Jessica Davis') {
+//       return acc;
+//     }
+//   }
+// }
+// console.log(accountFor(accounts));
+////////////////////////////////////////////////////////////
+
+// // code challenge #3
+// const calcAverageHumanAge = ages =>
+//   ages
+//     .map(age => (age <= 2 ? age * 2 : age * 4 + 16))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+////////////////////////////////////////////////////////////
+// function displaySummary(movements) {
+//   const incomes = movements
+//     .filter(mov => mov > 0)
+//     .reduce((acc, mov) => acc + mov, 0);
+//   labelSumIn.textContent = ` ${incomes}€`;
+//   const outcomes = movements
+//     .filter(mov => mov < 0)
+//     .reduce((acc, mov) => acc + mov, 0);
+//   labelSumOut.textContent = ` ${Math.abs(outcomes)}€`;
+
+//   const interest = movements
+//     .filter(mov => mov > 0)
+//     .map((val, int) => (val * euroToUsd) / 100)
+//     .reduce((acc, mov) => acc + mov, 0);
+//   labelSumInterest.textContent = ` ${interest}€`;
+// }
+// console.log(displaySummary(account1.movements));
+///////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////
+//code challenge #2
+
+// function calcAverageHumanAge(dogAges) {
+//   const humanAges = dogAges.map((dogAge, i) =>
+//     dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+//   );
+//   console.log(humanAges);
+//   const adult = humanAges.filter((dogAge, i) => dogAge >= 18);
+//   console.log(adult);
+
+//   const average =
+//     humanAges.reduce((acc, cur) => acc + cur, 0) / humanAges.length;
+//   console.log(average);
+//   console.log('=======================================================');
+// }
+// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+///////////////////////////////////////////////////////////////////////
+// //reduce method
+// //boiled down multiple arrays into one single array
+// //It diffrent from the other method
+// //reduce(accumulator , currentvalue , index , arr)
+// const movements = account1.movements;
+
+// //the reduce method have accumulator value
+
+// function depositVal(movements) {
+//   return movements.reduce((acc, cur) => (cur > 0 ? acc + cur : acc + 0), 0);
+// }
+
+// console.log(depositVal(account1.movements));
+// function withdrawalVal(movements) {
+//   return movements.reduce((acc, cur) => (cur < 0 ? acc + cur : acc + 0), 0);
+// }
+// const balance = movements => movements.reduce((acc, cur) => acc + cur, 0);
+
+// console.log(balance(movements));
+
+///////////////////////////////////////////////////////////////////////
+
+// const deposits = account1.movements.filter(function (mov) {
+//   return mov > 0;
+// });
+// console.log(deposits);
+
+// const withdrawal = account1.movements.filter(mov => mov < 0);
+// console.log(withdrawal);
+
+/////////////////////////////////////////////////////////////////////////
+//computing username
+
+// // first convert string
+// function createUserName(accs) {
+//   accs.forEach(function (acc) {
+//     acc.username = acc.owner
+//       .split(' ')
+//       .map(mov => mov[0])
+//       .join('')
+//       .toLowerCase();
+//   });
+// }
+// createUserName(accounts);
+// console.log(accounts);
+
+///////////////////////////////////////////////////////////////////////
+
+// //To convert the amount from one country value into another one
+// const movements = account1.movements;
+
+// // console.log(movements);
+// const euroToUsd = 1.1;
+
+// // const euroToUsdMov = movements.map(function (mov) {
+// // return mov * euroToUsd;
+// // });
+
+// //single args
+// const euroToUsdMov = movements.map(mov => mov * euroToUsd);
+// //multiple args
+// const description = movements.map(
+//   (val, indx) =>
+//     `${indx + 1} . Money ${val} : ${val > 0 ? 'Depsosit' : 'withdrawal'} `
+// );
+// console.log(description.join('\n'));
+/////////////////////////////////////////////////////////////////////////
+// function checkDogs(arr1, arr2) {
+//   const correctedArr1 = arr1.slice(1, -2);
+//   // const correctedArr2 = arr2.slice(1, -2);
+//   const arr = [...correctedArr1, ...arr2];
+
+//   arr.forEach(function (a, i) {
+//     console.log(
+//       `Dog number ${i + 1} ${
+//         a > 3 ? `is an adult, and is ${a} years old` : `is still a puppy`
+//       }`
+//     );
+//   });
+// }
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// ////////////////////////////////////////
+
+// //forEach method for maps and sets
+
+// //Sets using forEach method
+
+// const newCurrencies = new Set([
+//   'USD',
+//   'usd',
+//   'sds',
+//   'spd',
+//   'USD',
+//   'usd',
+//   'sds',
+//   'spd',
+//   'USD',
+//   'usd',
+//   'sds',
+//   'spd',
+// ]);
+
+// //In forEach method function the first one is value is passing current element of the map.
+// //second one index of an map element
+// //third one is current map
+// // It does not hass a key value
+// //key same as value
+// //so the forEach developer does not create
+
+// newCurrencies.forEach(function (value, map) {
+//   console.log(` ${value} , ${map}`);
+// });
+// // //Maps using forEach method
+
+// const newCurrencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// //In forEach method function the first one is value is passing current element of the map.
+// //second one index of an map element
+// //third one is current map
+
+// newCurrencies.forEach(function (value, key, map) {
+//   console.log(` ${key}  : ${value}`);
+// });
+
+// ////////////////////////////////////////////
+
+//for each - method
+//traditional method
+
+// const passBookEntries = [
+//   1000, 50000, 10000, 12222, 3333, -1111, -2324, -323223, 33333, -50000,
+// ];
+// console.log('---------------For of-------------------------');
+// for (const pBEntry of passBookEntries)
+//   console.log(
+//     `${pBEntry > 0 ? 'Deposit' : 'Withdraw'} Rs : `.padStart(20) +
+//       `${pBEntry}`.padStart(10)
+//   );
+// console.log('---------------For of with entries-------------------------');
+
+// for (const [i, pBEntry] of passBookEntries.entries())
+//   console.log(
+//     ` ${`${i + 1}`.padStart(5)} : ${
+//       pBEntry > 0 ? 'Deposit' : 'Withdraw'
+//     } Rs : `.padStart(20) + `${pBEntry}`.padStart(10)
+//   );
+// passBookEntries.forEach((pBEntry, i, arr) => {
+//   //here forEach method
+//   //first one each element of an array
+//   //second is index
+//   //third is array value
+
+//   console.log(
+//     `${i + 1} ${pBEntry > 0 ? 'Deposit' : 'Withdraw'}  Rs : `.padStart(20) +
+//       `${pBEntry} entries ${arr.slice(0, i + 1)}`.padStart(10)
+//   );
+// });
+
+// if(pBEntry > 0){
+//   console.log(`Deposit Rs: ${pBEntry}`);
+// }
+// else{
+//   console.log(`Withdraw Rs : ${pBEntry}`);
+// }
+
+////////////////////////////////////////////////
+// //at method
+// // It defines charactor at position
+// //
+
+// const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+// console.log(arr[0]); // bracket notation
+// console.log(arr.at(0)); //charAt method
+// console.log(arr[1]); //
+// console.log(arr.at(1));
+// console.log(arr[arr.length - 1]); // last in arr
+// console.log(arr.slice(-1)[0]); //return o/p as array
+// console.log(arr.at(-1));
+
+// //also used in string
+
+// console.log('siva'.at(1)); // i
+
+// ///////////////////////
+// //Join
+// //convert arrays with string with seprator
+// const arr1 = [1, 2, 3, 4, 5];
+// const arr2 = [1, 2, 3, 4, 5];
+// const arr = arr1.concat(arr2);
+// console.log(arr.join('-')); //join converts string with seprator -//1-2-3-4-5-1-2-3-4-5
+
+//////////////////////////////
+// //reverse
+// const arr = [1, 2, 3, 4, 5];
+
+// //It is mutate original array
+
+// console.log(arr.reverse()); //(5) [5, 4, 3, 2, 1]
+// console.log(arr); //(5) [5, 4, 3, 2, 1]
+
+// /////////////////////////////////////////////////
+//splice () method
+//It is removed from original value
+//mutate the array values
+//Most of the time uses remove last or first element to remove
+//It look , work similar like a slice method
+
+// const arr = [1, 2, 3, 4, 5];
+//
+// console.log(...arr.splice(2)); // 3 4 5
+// console.log(...arr.splice(-1)); //5
+// console.log(...arr.splice(-2)); // 4 5
+// console.log(...arr.splice(1, 2)); //2 , 3
+// console.log(...arr.splice(1, -2)); //no
+// console.log(...arr.splice(-2, -1)); //no
+// console.log(...arr.splice(0, 1)); //1
+
+/////////
+// //slice() method
+
+// const arr = [1, 2, 3, 4, 5];
+
+// console.log(...arr.slice(1)); // 2 3 4 5
+// console.log(...arr.slice(2)); // 3 4 5
+// console.log(...arr.slice(-1)); //5
+// console.log(...arr.slice(-2)); // 4 5
+// console.log(...arr.slice(1, 2)); //2
+// console.log(...arr.slice(1, -2)); //2 3
+// console.log(...arr.slice(-2, -1)); //4
+// console.log(...arr.slice(0, 1)); //1//
