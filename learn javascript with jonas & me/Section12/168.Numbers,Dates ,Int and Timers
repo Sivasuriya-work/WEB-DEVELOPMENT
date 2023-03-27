@@ -1,0 +1,48 @@
+
+//.coverting and checking numbers
+
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 === 0.3);
+console.log(23);
+console.log('23');
+console.log(+'23'); // same as number ()
+console.log(Number(23));
+
+//isNaN-Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter to a number. Only values of the type number, that are also NaN, result in true.
+
+console.log(isNaN('2f3'));
+console.log(isNaN('23'));
+console.log(isNaN(+'23'));
+console.log(isNaN('sf'));
+console.log(isNaN(1 / 0));
+console.log(isNaN('s'));
+
+//parseInt -Converts A string to an integer.
+
+console.log(Number.parseInt('2f3')); // start with number
+console.log(Number.parseInt('23'));
+console.log(Number.parseInt(+'23'));
+console.log(Number.parseInt('sf'));
+console.log(Number.parseInt(1 / 0));
+console.log(Number.parseInt('s'));
+
+// parseFloat -Converts a string to a floating-point number.
+
+console.log(Number.parseFloat('2f3')); // start with number
+console.log(Number.parseFloat('23.0200'));
+
+console.log(Number.parseFloat('23'));
+console.log(Number.parseFloat(+'23'));
+console.log(Number.parseFloat('sf'));
+console.log(Number.parseFloat(1 / 0));
+console.log(Number.parseFloat('s'));
+
+//isInfinite -
+
+console.log(isFinite('23'));
+console.log(isFinite('2f3')); // start with number
+console.log(isFinite('23'));
+console.log(isFinite(+'23'));
+console.log(isFinite('sf'));
+console.log(isFinite(1 / 0));
+console.log(isFinite('s'));
