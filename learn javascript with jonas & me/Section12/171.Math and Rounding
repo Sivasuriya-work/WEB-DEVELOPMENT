@@ -1,0 +1,67 @@
+// Math.sqrt
+
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(8 ** (1 / 3));
+
+// Math max , min
+
+console.log(Math.max(10, 20, 30, 40));
+console.log(Math.max(10, 20, 30, '40')); // coercion works
+console.log(Math.max(10, 20, 30, '40px')); // parsing not work //NaN
+console.log(Math.min(10, 20, 30, 40));
+
+//Math trunc
+
+console.log(1.1 * 1.2);
+console.log(Math.trunc(0.1 + 0.2));
+console.log(98.69 / 78.58);
+console.log(Math.trunc(98.69 / 78.58));
+
+//Math random
+
+console.log(Math.random()); // b/w 0 to 1 floating number
+console.log(Math.random() * 10);
+
+// create a random range function
+
+const randomNum = (min = 1, max = 1) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+
+console.log(randomNum(10, 20));
+
+const randomNum2 = (min = 1, max = 2) => (Math.random() * (min + max)) / 2; //0.1  - 0.9 ;
+
+console.log(randomNum2(10, 20));
+
+//circle Math PI
+
+const cicleArea = r => 2 * Math.PI * r;
+console.log(cicleArea(5));
+
+//Math.round
+
+console.log(Math.round(1.2345));
+console.log(Math.round(1000 / 8.25));
+console.log(Math.round(1000 / -8.25));
+
+console.log(Math.round(Math.random() * 10));
+
+//Math.ceil
+
+console.log(Math.ceil(1.2345));
+console.log(Math.ceil(1000 / 8.25));
+console.log(Math.ceil(1000 / -8.25));
+
+console.log(Math.ceil(Math.random() * 10));
+
+//Math.floor
+
+console.log(Math.floor(1.2345));
+console.log(Math.floor(1000 / 8.25));
+console.log(Math.floor(1000 / -8.25));
+
+//Math.toFixed
+
+console.log((1.2345).toFixed(2)); /// It is a string
+console.log((1.2345).toFixed(3)); /// It is a string
