@@ -1,0 +1,17 @@
+// Numeric separator
+
+//
+
+const bankBal = 234000000000;
+const bank_bal = 234_000_000_000; // numeric seperator to easy to understand//234000000000
+
+console.log(bankBal);
+console.log(bank_bal);
+console.log(234_000_000_000); //234000000000
+console.log(Number('234_000_000_000')); //NaN
+console.log(parseInt('234_000_000_000')); //234 // upto_
+
+// const PI = 3._1415; not work next to point
+// const PI = 3_.1415; not work before point
+// const PI = _3.1415; not work first
+// const PI = 3.1415_; not work last
