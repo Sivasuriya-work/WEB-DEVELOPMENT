@@ -1,0 +1,15 @@
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach((mov, i) =>
+    i % 2 === 0
+      ? (mov.style.backgroundColor = 'blue')
+      : (mov.style.backgroundColor = 'yellow')
+  );
+});
+
+console.log('----------------');
+console.log(10 % 2);
+console.log(9 % 2);
+console.log('----------------');
+console.log(10 % 3);
+console.log(9 % 3);
+console.log('----------------');
