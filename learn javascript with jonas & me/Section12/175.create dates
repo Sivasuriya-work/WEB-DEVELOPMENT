@@ -1,0 +1,16 @@
+const now = new Date();
+console.log(now);
+console.log(new Date(2015, 10, 30, 5, 3, 4));
+console.log(new Date(0));
+console.log(new Date(1000000000000)); //milliseconds
+console.log(new Date('jan 25 1989')); //
+const future = new Date('2037 02 3');
+console.log(future.getFullYear());
+console.log(future.getMonth()); // 0 to 11
+console.log(future.getDate());
+console.log(future.getDay()); // 2 //tue
+console.log(future.getTime());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(new Date(2117212200002));
