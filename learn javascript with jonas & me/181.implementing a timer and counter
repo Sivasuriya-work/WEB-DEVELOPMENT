@@ -1,0 +1,35 @@
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+
+  //Display timer
+  setLogOut();    //0
+};
+
+
+function logOut() {     //3
+  labelWelcome.textContent = `Welcome , Log in to get Start`;
+  containerApp.style.opacity = 0;
+}
+
+function setInter(time = 120) {     //2
+  timer = setInterval(function () {
+    const calcVal = val => String(Math.trunc(val)).padStart(2, 0);
+    time--; // bcoz - a min delayed interval
+    const min = calcVal(time / 60);
+    const sec = calcVal(time % 60);
+    labelTimer.textContent = `${min}:${sec}`;
+    if (time === 0) logOut();
+  }, 1000);
+}
+function setLogOut() {      //1
+  const time = 300;
+  clearInterval(timer);
+  setInter(time);
+}
