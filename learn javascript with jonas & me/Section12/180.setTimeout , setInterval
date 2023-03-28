@@ -1,0 +1,27 @@
+  setTimeout(function () {
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date());
+
+      // Update UI
+      updateUI(currentAccount);
+    }, 3000);
+  }
+  
+  
+//Set timer
+const loan = [10000, 20000];
+const setTime = setTimeout(
+  (loan1, loan2) => console.log(`${loan1} ${loan2}`),
+  5000,
+  ...loan
+);
+
+setTimeout(function () {
+  console.log('hello');
+}, 3000);
+//seInterval
+const time = setInterval(function () {
+  const arr = console.log(Math.random());
+}, 1000);
+
+clearTimeout(setTime(), 10000);
