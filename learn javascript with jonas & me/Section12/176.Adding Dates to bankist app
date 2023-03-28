@@ -1,0 +1,24 @@
+function displayDate(movDate) {
+  const curYear = `${movDate.getFullYear()}`.padStart(2, 0);
+  const curMonth = `${movDate.getMonth() + 1}`.padStart(2, 0);
+  const curDate = `${movDate.getDate()}`.padStart(2, 0);
+  return `${curDate}/${curMonth}/${curYear}`;
+}
+function displayTime(movTime) {
+  const curHour = `${movTime.getHours()}`.padStart(2, 0);
+  const curMin = `${movTime.getMinutes()}`.padStart(2, 0);
+  return `${curHour}:${curMin}`;
+}
+
+
+
+  document.querySelector('.date').textContent = `${displayDate(
+    new Date()
+  )} , ${displayTime(new Date())}
+  `;
+  
+    <div class='movements__date'>${date}</div>
+        
+   currentAccount.movementsDates.push(new Date());
+
+   receiverAcc.movementsDates.push(new Date());
