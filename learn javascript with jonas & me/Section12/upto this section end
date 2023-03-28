@@ -1,0 +1,577 @@
+'use strict';
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// BANKIST APP
+/////////////////////////////////////////////////
+// Data
+//DIFFERENT DATA! Contains movement dates currency and locale
+
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
+
+  movementsDates: [
+    '2019-11-18T21:31:17.178Z',
+    '2019-12-23T07:42:02.383Z',
+    '2021-01-28T09:15:04.904Z',
+    '2022-04-01T10:17:24.185Z',
+    '2022-05-08T14:11:59.604Z',
+    '2022-05-27T17:01:17.194Z',
+    '2023-03-22T23:36:17.929Z',
+    '2023-03-27T10:51:36.790Z',
+  ],
+  currency: 'EUR',
+  locale: 'pt-PT', // de-DE
+};
+
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
+
+  movementsDates: [
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2019-12-25T06:04:23.907Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-04-10T14:43:26.374Z',
+    '2020-06-25T18:49:59.371Z',
+    '2020-07-26T12:01:20.894Z',
+  ],
+  currency: 'USD',
+  locale: 'en-US',
+};
+
+const accounts = [account1, account2];
+
+/////////////////////////////////////////////////
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
+
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
+
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
+
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
+
+/////////////////////////////////////////////////
+let timer;
+
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  weekday: 'long',
+};
+const locale = navigator.language;
+const now = new Date();
+
+labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now);
+
+function formatCur(value, locale = navigator.language, option) {
+  return new Intl.NumberFormat(locale, option).format(value);
+}
+function logOut() {
+  labelWelcome.textContent = `Welcome , Log in to get Start`;
+  containerApp.style.opacity = 0;
+}
+
+function setInter(time = 120) {
+  timer = setInterval(function () {
+    const calcVal = val => String(Math.trunc(val)).padStart(2, 0);
+    time--;
+    const min = calcVal(time / 60);
+    const sec = calcVal(time % 60);
+    labelTimer.textContent = `${min}:${sec}`;
+    if (time === 0) logOut();
+  }, 1000);
+}
+function setLogOut() {
+  const time = 300;
+  clearInterval(timer);
+  setInter(time);
+}
+
+//////////////////////////
+// Functions
+
+function displayDate(movDate, locale = navigator.language) {
+  const passDate = Math.round(
+    Math.abs(new Date() - new Date(movDate)) / (24 * 60 * 60 * 1000)
+  );
+  if (passDate === 0) return 'Today';
+  if (passDate === 1) return 'YesterDay';
+  if (passDate <= 7) return `${passDate} day ago `;
+
+  return new Intl.DateTimeFormat(locale).format(movDate);
+}
+
+//   const curYear = `${movDate.getFullYear()}`.padStart(2, 0);
+//   const curMonth = `${movDate.getMonth() + 1}`.padStart(2, 0);
+//   const curDate = `${movDate.getDate()}`.padStart(2, 0);
+//   return `${curDate}/${curMonth}/${curYear}`;
+//
+// function displayTime(movTime) {
+//   const curHour = `${movTime.getHours()}`.padStart(2, 0);
+//   const curMin = `${movTime.getMinutes()}`.padStart(2, 0);
+//   return `${curHour}:${curMin}`;}
+
+const displayMovements = function (acc, sort = false) {
+  containerMovements.innerHTML = '';
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+
+  movs.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const movDate = new Date(acc.movementsDates[i]);
+
+    const date = displayDate(movDate);
+
+    const formatedMov = formatCur(Math.abs(mov), acc.locale, {
+      style: 'currency',
+      currency: acc.currency,
+    });
+
+    const html = `
+        <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div>
+        <div class='movements__date'>${date}</div>
+        <div class="movements__value">${formatedMov}</div>
+        </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+// document.querySelector('.date').textContent = `${displayDate(
+//   new Date()
+// )} , ${displayTime(new Date())}
+// `;
+
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, {
+    style: 'currency',
+    currency: acc.currency,
+  });
+};
+
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = formatCur(incomes, acc.locale, {
+    style: 'currency',
+    currency: acc.currency,
+  });
+  const out = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = formatCur(out, acc.locale, {
+    style: 'currency',
+    currency: acc.currency,
+  });
+  const interest = acc.movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = formatCur(interest, acc.locale, {
+    style: 'currency',
+    currency: acc.currency,
+  });
+};
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts);
+
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+
+  //Display timer
+  setLogOut();
+};
+
+///////////////////////////////////////
+// Event handlers
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // Prevent form from submitting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = +inputTransferAmount.value;
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    // Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+
+    currentAccount.movementsDates.push(new Date());
+
+    receiverAcc.movementsDates.push(new Date());
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = +inputLoanAmount.value;
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    setTimeout(function () {
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date());
+
+      // Update UI
+      updateUI(currentAccount);
+    }, 3000);
+  }
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+    // .indexOf(23)
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
+/////////////////////////////////////////////////
+console.log('Section 12');
+/////////////////////////////////////////////////
+
+// displayMovements(account1);
+// updateUI(account1);
+// containerApp.style.opacity = 100;
+
+/////////////////////////////////////////////////
+
+// //Set timer
+// const loan = [10000, 20000];
+// const setTime = setTimeout(
+//   (loan1, loan2) => console.log(`${loan1} ${loan2}`),
+//   5000,
+//   ...loan
+// );
+
+// setTimeout(function () {
+//   console.log('hello');
+// }, 3000);
+// //seInterval
+// const time = setInterval(function () {
+//   const arr = console.log(Math.random());
+// }, 1000);
+
+// clearTimeout(setTime(), 10000);
+
+//////////////////////////////////////////////////
+// const now = new Date();
+// console.log(now);
+// console.log(new Date(2015, 10, 30, 5, 3, 4));
+// console.log(new Date(0));
+// console.log(new Date(1000000000000)); //milliseconds
+// console.log(new Date('jan 25 1989')); //
+// const future = new Date('2037 02 3');
+// console.log(future.getFullYear());
+// console.log(future.getMonth()); // 0 to 11
+// console.log(future.getDate());
+// console.log(future.getDay()); // 2 //tue
+// console.log(future.getTime());
+// console.log(future.getHours());
+// console.log(future.getMinutes());
+// console.log(future.getSeconds());
+// console.log(new Date(2117212200002));
+/////////////////////////////////////////////////
+// //BigInt
+// //Int base upto 64
+// // but 53 usable from 0 to 52
+// //other bit storing value , address
+
+// console.log(2840000000000000000000); //2.84e+21
+// console.log(2 ** 53 - 1); // accurate number int value
+// const BI = 840000000000000000000n;
+// console.log(2840000000000000000000n);
+// // console.log(2840000000000000000000n * 10); // not work mixed with BigInt other type not worked.
+// console.log(2840000000000000000000n * 10n); // work
+// console.log(2840000000000000000000n / 10n); //  work
+// // console.log(2840000000000000000000n / 10); //  not work // can not mix Big Int with others
+// const amount = 245_000;
+// //console.log(amount * BI);
+// console.log(BigInt(amount) * BI);
+
+// //Don't use Math method
+// // console.log(Math.sqrt(BI));
+
+// //Exceptions
+
+// console.log(BI + 'is big int'); // convert to string
+
+// console.log(typeof Number(BI)); // convert to BI to Number
+
+// console.log(BI > amount); // true // BI vs Number
+
+// console.log(BI === Number(BI)); // false // does not type coercion work ===
+// console.log(BI == String(BI)); // true // does type coercion works in  ==
+
+/////////////////////////////////////////////////
+// // Numeric separator
+
+// //
+
+// const bankBal = 234000000000;
+// const bank_bal = 234_000_000_000; // numeric seperator to easy to understand//234000000000
+
+// console.log(bankBal);
+// console.log(bank_bal);
+// console.log(234_000_000_000); //234000000000
+// console.log(Number('234_000_000_000')); //NaN
+// console.log(parseInt('234_000_000_000')); //234 // upto_
+
+// // const PI = 3._1415; not work next to point
+// // const PI = 3_.1415; not work before point
+// // const PI = _3.1415; not work first
+// // const PI = 3.1415_; not work last
+
+/////////////////////////////////////////////////
+// labelBalance.addEventListener('click', function () {
+//   [...document.querySelectorAll('.movements__row')].forEach((mov, i) =>
+//     i % 2 === 0
+//       ? (mov.style.backgroundColor = 'blue')
+//       : (mov.style.backgroundColor = 'yellow')
+//   );
+// });
+
+// console.log('----------------');
+// console.log(10 % 2);
+// console.log(9 % 2);
+// console.log('----------------');
+// console.log(10 % 3);
+// console.log(9 % 3);
+// console.log('----------------');
+
+//////////////////////////////////////////////////////////
+// LECTURES
+// //.coverting and checking numbers
+
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3);
+// console.log(23);
+// console.log('23');
+// console.log(+'23'); // same as number ()
+// console.log(Number(23));
+
+// //isNaN-Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter to a number. Only values of the type number, that are also NaN, result in true.
+
+// console.log(isNaN('2f3'));
+// console.log(isNaN('23'));
+// console.log(isNaN(+'23'));
+// console.log(isNaN('sf'));
+// console.log(isNaN(1 / 0));
+// console.log(isNaN('s'));
+
+// //parseInt -Converts A string to an integer.
+
+// console.log(Number.parseInt('2f3')); // start with number
+// console.log(Number.parseInt('23'));
+// console.log(Number.parseInt(+'23'));
+// console.log(Number.parseInt('sf'));
+// console.log(Number.parseInt(1 / 0));
+// console.log(Number.parseInt('s'));
+
+// // parseFloat -Converts a string to a floating-point number.
+
+// console.log(Number.parseFloat('2f3')); // start with number
+// console.log(Number.parseFloat('23.0200'));
+
+// console.log(Number.parseFloat('23'));
+// console.log(Number.parseFloat(+'23'));
+// console.log(Number.parseFloat('sf'));
+// console.log(Number.parseFloat(1 / 0));
+// console.log(Number.parseFloat('s'));
+
+// //isInfinite -
+
+// console.log(isFinite('23'));
+// console.log(isFinite('2f3')); // start with number
+// console.log(isFinite('23'));
+// console.log(isFinite(+'23'));
+// console.log(isFinite('sf'));
+// console.log(isFinite(1 / 0));
+// console.log(isFinite('s'));
+/////////////////////////////////////////////
+
+// // Math.sqrt
+
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1 / 2));
+// console.log(8 ** (1 / 3));
+
+// // Math max , min
+
+// console.log(Math.max(10, 20, 30, 40));
+// console.log(Math.max(10, 20, 30, '40')); // coercion works
+// console.log(Math.max(10, 20, 30, '40px')); // parsing not work //NaN
+// console.log(Math.min(10, 20, 30, 40));
+
+// //Math trunc
+
+// console.log(1.1 * 1.2);
+// console.log(Math.trunc(0.1 + 0.2));
+// console.log(98.69 / 78.58);
+// console.log(Math.trunc(98.69 / 78.58));
+
+// //Math random
+
+// console.log(Math.random()); // b/w 0 to 1 floating number
+// console.log(Math.random() * 10);
+
+// // create a random range function
+
+// const randomNum = (min = 1, max = 1) =>
+//   Math.trunc(Math.random() * (max - min) + 1) + min;
+
+// console.log(randomNum(10, 20));
+
+// const randomNum2 = (min = 1, max = 2) => (Math.random() * (min + max)) / 2; //0.1  - 0.9 ;
+
+// console.log(randomNum2(10, 20));
+
+// //circle Math PI
+
+// const cicleArea = r => 2 * Math.PI * r;
+// console.log(cicleArea(5));
+
+// //Math.round
+
+// console.log(Math.round(1.2345));
+// console.log(Math.round(1000 / 8.25));
+// console.log(Math.round(1000 / -8.25));
+
+// console.log(Math.round(Math.random() * 10));
+
+// //Math.ceil
+
+// console.log(Math.ceil(1.2345));
+// console.log(Math.ceil(1000 / 8.25));
+// console.log(Math.ceil(1000 / -8.25));
+
+// console.log(Math.ceil(Math.random() * 10));
+
+// //Math.floor
+
+// console.log(Math.floor(1.2345));
+// console.log(Math.floor(1000 / 8.25));
+// console.log(Math.floor(1000 / -8.25));
+
+// //Math.toFixed
+
+// console.log((1.2345).toFixed(2)); /// It is a string
+// console.log((1.2345).toFixed(3)); /// It is a string
