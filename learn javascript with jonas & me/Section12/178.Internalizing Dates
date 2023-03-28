@@ -1,0 +1,12 @@
+
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  weekday: 'long',
+};
+const locale = navigator.language; // 'en-US' || other
+const now = new Date();
+labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(now);
