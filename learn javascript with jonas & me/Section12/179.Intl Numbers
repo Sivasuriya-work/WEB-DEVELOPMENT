@@ -1,0 +1,8 @@
+function formatCur(value, locale = navigator.language, option) {
+  return new Intl.NumberFormat(locale, option).format(value);
+}
+
+ const formatedMov = formatCur(Math.abs(mov), acc.locale, {
+      style: 'currency',
+      currency: acc.currency,
+    });
