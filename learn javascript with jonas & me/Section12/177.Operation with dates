@@ -1,0 +1,8 @@
+const passDate = Math.round(
+    Math.abs(new Date() - new Date(movDate)) / (24 * 60 * 60 * 1000)
+  );
+  console.log(passDate);
+
+  if (passDate === 0) return 'Today';
+  if (passDate === 1) return 'YesterDay';
+  if (passDate <= 7) return `${passDate} day ago `;
