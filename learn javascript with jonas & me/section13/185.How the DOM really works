@@ -1,0 +1,23 @@
+
+
+what is DOM - ?
+
+  DOM is a Interface between the javascript and Browser
+  
+  
+  
+  DOM API organised behind the scene
+  
+   EventTarget
+     |   \
+     |    \
+  node   Window
+    \...........................
+     |         |      |        |
+  elements   Text Comment  Document
+     |
+     |
+  HTML element
+     |  \.....................
+     |                        \
+  HTMLbuttonElement   HTMLdivElement
