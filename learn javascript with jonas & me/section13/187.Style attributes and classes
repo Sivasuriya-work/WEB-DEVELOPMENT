@@ -1,0 +1,46 @@
+
+// Style attributed and classes
+message.style.backgroundColor = '#111111';
+message.style.width = '80%';
+
+console.log(message.style.color);
+console.log(message.style.backgroundColor); //calculate manually created
+
+console.log(getComputedStyle(message));
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseInt(getComputedStyle(message).height, 10) + 10 + 'px';
+
+console.log(getComputedStyle(message).height);
+console.log(message.style.height);
+
+//setting attribute value
+document.documentElement.style.setProperty('--color-primary', 'orange');
+
+//attribute
+//standard attribute
+
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt); //work for standard attributes
+console.log(logo.src); //work for standard attributes
+console.log(logo.getAttribute('src'));
+console.log(logo.designer); //Not work for standard attributes
+console.log(logo.getAttribute('designer')); //work for standard method attributes
+logo.setAttribute('designer', 'sivasuriya'); //work for standard method attributes
+console.log(logo.getAttribute('designer'));
+
+console.log(logo.dataset.versionNumber);
+
+//add
+logo.classList.add('a');
+logo.classList.remove('a');
+
+logo.classList.toggle('a');
+
+logo.classList.contains('a');
+
+//not work like this
+
+// logo.classname = '';
+//
